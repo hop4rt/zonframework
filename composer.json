@@ -1,12 +1,12 @@
 {
-    "name": "hop4rt/ZOframework",
+    "name": "hop4rt/zonframework",
     "description": "Zend Framework 1",
     "type": "library",
     "keywords": [
         "framework",
         "zf1"
     ],
-    "homepage": "https://github.com/hop4rt/ZOframework",
+    "homepage": "https://github.com/hop4rt/zonframework",
     "license": "BSD-3-Clause",
     "require": {
         "php": ">=5.3.29 <7.1.0"
