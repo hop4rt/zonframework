@@ -36,7 +36,7 @@ require_once 'Zend/Db/Adapter/Abstract.php';
  * @see PHPUnit_Framework_TestCase
  */
 
-require_once dirname(__FILE__) . '/../_files/TestTable.php';
+require_once __DIR__ . '/../_files/TestTable.php';
 
 /**
  * @category   Zend
@@ -80,7 +80,7 @@ class Zend_Paginator_Adapter_DbSelectTest extends PHPUnit_Framework_TestCase
         parent::setUp();
 
         $this->_db = new Zend_Db_Adapter_Pdo_Sqlite(array(
-            'dbname' => dirname(__FILE__) . '/../_files/test.sqlite'
+            'dbname' => __DIR__ . '/../_files/test.sqlite'
         ));
 
         $this->_table = new TestTable($this->_db);
@@ -227,7 +227,7 @@ class Zend_Paginator_Adapter_DbSelectTest extends PHPUnit_Framework_TestCase
     public function testGroupByQueryOnEmptyTableReturnsRowCountZero()
     {
         $db = new Zend_Db_Adapter_Pdo_Sqlite(array(
-            'dbname' => dirname(__FILE__) . '/../_files/testempty.sqlite'
+            'dbname' => __DIR__ . '/../_files/testempty.sqlite'
         ));
 
         $query = $db->select()->from('test')

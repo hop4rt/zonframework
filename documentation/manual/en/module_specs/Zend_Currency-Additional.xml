@@ -128,7 +128,7 @@ $cache = Zend_Cache::factory('Core',
                              array('lifetime' => 120,
                                    'automatic_serialization' => true),
                              array('cache_dir'
-                                       => dirname(__FILE__) . '/_files/'));
+                                       => __DIR__ . '/_files/'));
 Zend_Currency::setCache($cache);
 ]]></programlisting>
         </example>

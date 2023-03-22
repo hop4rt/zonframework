@@ -40,7 +40,7 @@ class Zend_CodeGenerator_Php_PropertyTest extends PHPUnit_Framework_TestCase
     public function setup()
     {
         if (!class_exists('Zend_CodeGenerator_Php_TestClassWithManyProperties')) {
-            require_once dirname(__FILE__) . '/_files/TestClassWithManyProperties.php';
+            require_once __DIR__ . '/_files/TestClassWithManyProperties.php';
         }
     }
 

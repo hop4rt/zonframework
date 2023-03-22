@@ -135,7 +135,7 @@ phpSettings.display_errors = 1
 // Указание пути к директории приложения
 defined('APPLICATION_PATH')
     || define('APPLICATION_PATH',
-              realpath(dirname(__FILE__) . '/../application'));
+              realpath(__DIR__ . '/../application'));
 
 // Определение текущего режима работы приложения
 defined('APPLICATION_ENV')
@@ -244,7 +244,7 @@ phpSettings.display_errors = 1
 // Указание пути к директории приложения
 defined('APPLICATION_PATH')
     || define('APPLICATION_PATH',
-              realpath(dirname(__FILE__) . '/../application'));
+              realpath(__DIR__ . '/../application'));
 
 // Определение текущего режима работы приложения
 defined('APPLICATION_ENV')
@@ -255,7 +255,7 @@ defined('APPLICATION_ENV')
 // Обычно требуется также добавить директорию library/
 // в include_path, особенно если она содержит инсталляцию ZF
 set_include_path(implode(PATH_SEPARATOR, array(
-    dirname(dirname(__FILE__)) . '/library',
+    dirname(__DIR__) . '/library',
     get_include_path(),
 )));
 

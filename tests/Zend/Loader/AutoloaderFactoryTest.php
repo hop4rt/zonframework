@@ -89,7 +89,7 @@ class Zend_Loader_AutoloaderFactoryTest extends PHPUnit_Framework_TestCase
     {
         Zend_Loader_AutoloaderFactory::factory(array(
             'Zend_Loader_ClassMapAutoloader' => array(
-                dirname(__FILE__) . '/_files/goodmap.php',
+                __DIR__ . '/_files/goodmap.php',
             ),
         ));
         $loader = Zend_Loader_AutoloaderFactory::getRegisteredAutoloader('Zend_Loader_ClassMapAutoloader');
@@ -108,7 +108,7 @@ class Zend_Loader_AutoloaderFactoryTest extends PHPUnit_Framework_TestCase
         if (!version_compare(PHP_VERSION, '5.3.7', '>=')) {
             $this->markTestSkipped('Cannot test invalid interface loader with versions less than 5.3.7');
         }
-        include dirname(__FILE__) . '/_files/InvalidInterfaceAutoloader.php';
+        include __DIR__ . '/_files/InvalidInterfaceAutoloader.php';
         Zend_Loader_AutoloaderFactory::factory(array(
             'InvalidInterfaceAutoloader' => array()
         ));
@@ -119,7 +119,7 @@ class Zend_Loader_AutoloaderFactoryTest extends PHPUnit_Framework_TestCase
         Zend_Loader_AutoloaderFactory::factory(array(
             'Zend_Loader_StandardAutoloader' => array(
                 'prefixes' => array(
-                    'TestPrefix' => dirname(__FILE__) . '/TestAsset/TestPrefix',
+                    'TestPrefix' => __DIR__ . '/TestAsset/TestPrefix',
                 ),
             ),
         ));
@@ -127,7 +127,7 @@ class Zend_Loader_AutoloaderFactoryTest extends PHPUnit_Framework_TestCase
         Zend_Loader_AutoloaderFactory::factory(array(
             'Zend_Loader_StandardAutoloader' => array(
                 'prefixes' => array(
-                    'ZendTest_Loader_TestAsset_TestPlugins' => dirname(__FILE__) . '/TestAsset/TestPlugins',
+                    'ZendTest_Loader_TestAsset_TestPlugins' => __DIR__ . '/TestAsset/TestPlugins',
                 ),
             ),
         ));
@@ -141,7 +141,7 @@ class Zend_Loader_AutoloaderFactoryTest extends PHPUnit_Framework_TestCase
         Zend_Loader_AutoloaderFactory::factory(array(
             'Zend_Loader_StandardAutoloader' => array(
                 'prefixes' => array(
-                    'TestPrefix' => dirname(__FILE__) . '/TestAsset/TestPrefix',
+                    'TestPrefix' => __DIR__ . '/TestAsset/TestPrefix',
                 ),
             ),
         ));
@@ -154,7 +154,7 @@ class Zend_Loader_AutoloaderFactoryTest extends PHPUnit_Framework_TestCase
         Zend_Loader_AutoloaderFactory::factory(array(
             'Zend_Loader_StandardAutoloader' => array(
                 'namespaces' => array(
-                    'TestPrefix' => dirname(__FILE__) . '/TestAsset/TestPrefix',
+                    'TestPrefix' => __DIR__ . '/TestAsset/TestPrefix',
                 ),
             ),
         ));
@@ -167,7 +167,7 @@ class Zend_Loader_AutoloaderFactoryTest extends PHPUnit_Framework_TestCase
         Zend_Loader_AutoloaderFactory::factory(array(
             'Zend_Loader_StandardAutoloader' => array(
                 'namespaces' => array(
-                    'TestPrefix' => dirname(__FILE__) . '/TestAsset/TestPrefix',
+                    'TestPrefix' => __DIR__ . '/TestAsset/TestPrefix',
                 ),
             ),
         ));

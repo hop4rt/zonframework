@@ -249,7 +249,7 @@ INSERT INTO guestbook (email, comment, created) VALUES
 
 // Inicjalizacja ścieżek oraz autoloadera
 defined('APPLICATION_PATH')
-    || define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../application'));
+    || define('APPLICATION_PATH', realpath(__DIR__ . '/../application'));
 set_include_path(implode(PATH_SEPARATOR, array(
     APPLICATION_PATH . '/../library',
     get_include_path(),
@@ -311,7 +311,7 @@ if (file_exists($dbFile)) {
 
 // Wywołanie poleceń zawartych w pliku tworzącym schemat
 try {
-    $schemaSql = file_get_contents(dirname(__FILE__) . '/schema.sqlite.sql');
+    $schemaSql = file_get_contents(__DIR__ . '/schema.sqlite.sql');
     // bezpośrednie użycie obiektu połączenia w celu wywołania poleceń SQL
     $dbAdapter->getConnection()->exec($schemaSql);
     chmod($dbFile, 0666);
@@ -323,7 +323,7 @@ try {
     }
 
     if ($withData) {
-        $dataSql = file_get_contents(dirname(__FILE__) . '/data.sqlite.sql');
+        $dataSql = file_get_contents(__DIR__ . '/data.sqlite.sql');
         // bezpośrednie użycie obiektu połączenia w celu wywołania poleceń SQL
         $dbAdapter->getConnection()->exec($dataSql);
         if ('testing' != APPLICATION_ENV) {

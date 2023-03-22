@@ -65,8 +65,8 @@ echo $response;
         </para>
 
         <programlisting language="php"><![CDATA[
-$server->addDirectory(dirname(__FILE__) .'/../services/');
-$server->addDirectory(dirname(__FILE__) .'/../package/');
+$server->addDirectory(__DIR__ .'/../services/');
+$server->addDirectory(__DIR__ .'/../package/');
 ]]></programlisting>
 
         <para>

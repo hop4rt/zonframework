@@ -20,7 +20,7 @@
  * @version    $Id$
  */
 
-require_once dirname(__FILE__) . '/SocketTest.php';
+require_once __DIR__ . '/SocketTest.php';
 
 require_once 'Zend/Http/Client/Adapter/Proxy.php';
 

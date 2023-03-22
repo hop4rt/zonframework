@@ -2,7 +2,7 @@
 
 set_time_limit(0);
 
-require_once dirname(__FILE__) . '/../../common.php';
+require_once __DIR__ . '/../../common.php';
 
 /**
  * Concatenating PDF files locally - advanced

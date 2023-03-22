@@ -74,7 +74,7 @@ class Zend_Service_LiveDocx_MailMergeTest extends PHPUnit_Framework_TestCase
             $this->phpLiveDocx->deleteTemplate($template['filename']);
         }
 
-        $this->path = realpath(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'MailMerge');
+        $this->path = realpath(__DIR__ . DIRECTORY_SEPARATOR . 'MailMerge');
     }
 
     public function tearDown()

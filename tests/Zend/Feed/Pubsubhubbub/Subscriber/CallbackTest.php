@@ -348,7 +348,7 @@ class Zend_Feed_Pubsubhubbub_Subscriber_CallbackTest extends PHPUnit_Framework_T
         $_SERVER['REQUEST_METHOD'] = 'POST';
         $_SERVER['REQUEST_URI'] = '/some/path/callback/verifytokenkey';
         $_SERVER['CONTENT_TYPE'] = 'application/atom+xml';
-        $feedXml = file_get_contents(dirname(__FILE__) . '/_files/atom10.xml');
+        $feedXml = file_get_contents(__DIR__ . '/_files/atom10.xml');
         $GLOBALS['HTTP_RAW_POST_DATA'] = $feedXml; // dirty  alternative to php://input
 
         $this->_tableGateway->expects($this->any())
@@ -382,7 +382,7 @@ class Zend_Feed_Pubsubhubbub_Subscriber_CallbackTest extends PHPUnit_Framework_T
         $_SERVER['REQUEST_METHOD'] = 'GET';
         $_SERVER['REQUEST_URI'] = '/some/path/callback/verifytokenkey';
         $_SERVER['CONTENT_TYPE'] = 'application/atom+xml';
-        $feedXml = file_get_contents(dirname(__FILE__) . '/_files/atom10.xml');
+        $feedXml = file_get_contents(__DIR__ . '/_files/atom10.xml');
         $GLOBALS['HTTP_RAW_POST_DATA'] = $feedXml;
 
         $this->_callback->handle(array());
@@ -394,7 +394,7 @@ class Zend_Feed_Pubsubhubbub_Subscriber_CallbackTest extends PHPUnit_Framework_T
         $_SERVER['REQUEST_METHOD'] = 'POST';
         $_SERVER['REQUEST_URI'] = '/some/path/callback/verifytokenkey';
         $_SERVER['CONTENT_TYPE'] = 'application/kml+xml';
-        $feedXml = file_get_contents(dirname(__FILE__) . '/_files/atom10.xml');
+        $feedXml = file_get_contents(__DIR__ . '/_files/atom10.xml');
         $GLOBALS['HTTP_RAW_POST_DATA'] = $feedXml;
         $this->_callback->handle(array());
         $this->assertTrue($this->_callback->getHttpResponse()->getHttpResponseCode() == 404);
@@ -411,7 +411,7 @@ class Zend_Feed_Pubsubhubbub_Subscriber_CallbackTest extends PHPUnit_Framework_T
         $_SERVER['REQUEST_METHOD'] = 'POST';
         $_SERVER['REQUEST_URI'] = '/some/path/callback/verifytokenkey';
         $_SERVER['CONTENT_TYPE'] = 'application/rss+xml';
-        $feedXml = file_get_contents(dirname(__FILE__) . '/_files/atom10.xml');
+        $feedXml = file_get_contents(__DIR__ . '/_files/atom10.xml');
         $GLOBALS['HTTP_RAW_POST_DATA'] = $feedXml;
 
         $this->_tableGateway->expects($this->any())
@@ -445,7 +445,7 @@ class Zend_Feed_Pubsubhubbub_Subscriber_CallbackTest extends PHPUnit_Framework_T
         $_SERVER['REQUEST_METHOD'] = 'POST';
         $_SERVER['REQUEST_URI'] = '/some/path/callback/verifytokenkey';
         $_SERVER['CONTENT_TYPE'] = 'application/atom+xml';
-        $feedXml = file_get_contents(dirname(__FILE__) . '/_files/atom10.xml');
+        $feedXml = file_get_contents(__DIR__ . '/_files/atom10.xml');
         $GLOBALS['HTTP_RAW_POST_DATA'] = $feedXml;
 
         $this->_tableGateway->expects($this->any())

@@ -32,8 +32,8 @@ require_once 'Zend/Controller/Response/Http.php';
 require_once 'Zend/Filter/Inflector.php';
 require_once 'Zend/View.php';
 
-require_once dirname(__FILE__) . '/../../_files/modules/foo/controllers/IndexController.php';
-require_once dirname(__FILE__) . '/../../_files/modules/bar/controllers/IndexController.php';
+require_once __DIR__ . '/../../_files/modules/foo/controllers/IndexController.php';
+require_once __DIR__ . '/../../_files/modules/bar/controllers/IndexController.php';
 
 /**
  * Test class for Zend_Controller_Action_Helper_ViewRenderer.
@@ -99,7 +99,7 @@ class Zend_Controller_Action_Helper_ViewRendererTest extends PHPUnit_Framework_T
      */
     protected function setUp()
     {
-        $this->basePath = realpath(dirname(__FILE__) . str_repeat(DIRECTORY_SEPARATOR . '..', 2));
+        $this->basePath = realpath(__DIR__ . str_repeat(DIRECTORY_SEPARATOR . '..', 2));
         $this->request  = new Zend_Controller_Request_Http();
         $this->response = new Zend_Controller_Response_Http();
         $this->front    = Zend_Controller_Front::getInstance();
@@ -257,7 +257,7 @@ class Zend_Controller_Action_Helper_ViewRendererTest extends PHPUnit_Framework_T
         $controller = new Foo_IndexController($this->request, $this->response, array());
         $this->helper->setActionController($controller);
 
-        $viewDir = dirname(__FILE__) . str_repeat(DIRECTORY_SEPARATOR . '..', 2) . DIRECTORY_SEPARATOR . 'views';
+        $viewDir = __DIR__ . str_repeat(DIRECTORY_SEPARATOR . '..', 2) . DIRECTORY_SEPARATOR . 'views';
         $this->helper->initView($viewDir, 'Baz_Bat', array(
             'neverRender'     => true,
             'noRender'        => true,
@@ -981,4 +981,3 @@ class Zend_Controller_Action_Helper_ViewRendererTest extends PHPUnit_Framework_T
 if (PHPUnit_MAIN_METHOD == "Zend_Controller_Action_Helper_ViewRendererTest::main") {
     Zend_Controller_Action_Helper_ViewRendererTest::main();
 }
-

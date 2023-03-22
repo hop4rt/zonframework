@@ -59,7 +59,7 @@ class Demos_Zend_Service_LiveDocx_Helper
     {
         $ret = false;
         
-        $filename = dirname(__FILE__) . DIRECTORY_SEPARATOR . self::CONFIGURATION_FILE;
+        $filename = __DIR__ . DIRECTORY_SEPARATOR . self::CONFIGURATION_FILE;
         if (is_file($filename) && is_readable($filename)) {
             include_once $filename;
             if (defined('DEMOS_ZEND_SERVICE_LIVEDOCX_USERNAME') &&
@@ -89,7 +89,7 @@ class Demos_Zend_Service_LiveDocx_Helper
         $ret .= sprintf('   (takes less than 1 minute).%s', PHP_EOL);
         $ret .= PHP_EOL;
         $ret .= sprintf('2. Change directory into:%s', PHP_EOL);
-        $ret .= sprintf('   %s%s', dirname(__FILE__), PHP_EOL);
+        $ret .= sprintf('   %s%s', __DIR__, PHP_EOL);
         $ret .= PHP_EOL;
         $ret .= sprintf('3. Copy %s.dist to %s.%s', self::CONFIGURATION_FILE, self::CONFIGURATION_FILE, PHP_EOL);
         $ret .= PHP_EOL;

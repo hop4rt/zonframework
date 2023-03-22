@@ -1734,7 +1734,7 @@ abstract class Zend_Db_Table_TestCommon extends Zend_Db_Table_TestSetup
          */
         require_once 'Zend/Cache.php';
 
-        $folder = dirname(__FILE__) . DIRECTORY_SEPARATOR . '_files' . DIRECTORY_SEPARATOR . 'cachefiles';
+        $folder = __DIR__ . DIRECTORY_SEPARATOR . '_files' . DIRECTORY_SEPARATOR . 'cachefiles';
 
         $frontendOptions = array(
             'automatic_serialization' => true
@@ -1764,7 +1764,7 @@ abstract class Zend_Db_Table_TestCommon extends Zend_Db_Table_TestSetup
          */
         require_once 'Zend/Cache.php';
 
-        $folder = dirname(__FILE__) . DIRECTORY_SEPARATOR . '_files' . DIRECTORY_SEPARATOR . 'nofiles';
+        $folder = __DIR__ . DIRECTORY_SEPARATOR . '_files' . DIRECTORY_SEPARATOR . 'nofiles';
         if (!file_exists($folder)) {
             mkdir($folder, 0777);
         }
@@ -1860,4 +1860,3 @@ abstract class Zend_Db_Table_TestCommon extends Zend_Db_Table_TestSetup
         Zend_Db_Table_Abstract::setDefaultMetadataCache(null);
     }
 }
-

@@ -38,7 +38,7 @@ require_once 'Zend/Queue/Message.php';
 require_once 'MessageTestClass.php';
 
 /** Base Adapter test class */
-require_once dirname(__FILE__) . '/AdapterTest.php';
+require_once __DIR__ . '/AdapterTest.php';
 
 /**
  * @see Zend_Db_Select
@@ -161,4 +161,3 @@ class Zend_Queue_Adapter_DbTest extends Zend_Queue_Adapter_AdapterTest
         $this->assertEquals(0, count($messages));
     }
 }
-

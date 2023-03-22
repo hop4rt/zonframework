@@ -155,7 +155,7 @@ class Zend_Form_Element_FileTest extends PHPUnit_Framework_TestCase
 
     public function testElementShouldAllowSpecifyingAdapterUsingPluginLoader()
     {
-        $this->element->addPrefixPath('Zend_Form_Element_FileTest_Adapter', dirname(__FILE__) . '/_files/TransferAdapter', 'transfer_adapter');
+        $this->element->addPrefixPath('Zend_Form_Element_FileTest_Adapter', __DIR__ . '/_files/TransferAdapter', 'transfer_adapter');
         $this->element->setTransferAdapter('Foo');
         $test = $this->element->getTransferAdapter();
         $this->assertTrue($test instanceof Zend_Form_Element_FileTest_Adapter_Foo);
@@ -216,9 +216,9 @@ class Zend_Form_Element_FileTest extends PHPUnit_Framework_TestCase
         $adapter = new Zend_Form_Element_FileTest_MockAdapter();
         $this->element->setTransferAdapter($adapter);
 
-        $this->element->setDestination(dirname(__FILE__));
-        $this->assertEquals(dirname(__FILE__), $this->element->getDestination());
-        $this->assertEquals(dirname(__FILE__), $this->element->getTransferAdapter()->getDestination('foo'));
+        $this->element->setDestination(__DIR__);
+        $this->assertEquals(__DIR__, $this->element->getDestination());
+        $this->assertEquals(__DIR__, $this->element->getTransferAdapter()->getDestination('foo'));
     }
 
     public function testSettingMultipleFiles()
@@ -337,16 +337,16 @@ class Zend_Form_Element_FileTest extends PHPUnit_Framework_TestCase
     public function testFileNameWithoutPath()
     {
         $this->element->setTransferAdapter(new Zend_Form_Element_FileTest_MockAdapter());
-        $this->element->setDestination(dirname(__FILE__));
-        $this->assertEquals(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'foo.jpg', $this->element->getFileName('foo', true));
+        $this->element->setDestination(__DIR__);
+        $this->assertEquals(__DIR__ . DIRECTORY_SEPARATOR . 'foo.jpg', $this->element->getFileName('foo', true));
         $this->assertEquals('foo.jpg', $this->element->getFileName('foo', false));
     }
 
     public function testEmptyFileName()
     {
         $this->element->setTransferAdapter(new Zend_Form_Element_FileTest_MockAdapter());
-        $this->element->setDestination(dirname(__FILE__));
-        $this->assertEquals(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'foo.jpg', $this->element->getFileName());
+        $this->element->setDestination(__DIR__);
+        $this->assertEquals(__DIR__ . DIRECTORY_SEPARATOR . 'foo.jpg', $this->element->getFileName());
     }
 
     public function testIsReceived()
@@ -513,7 +513,7 @@ class Zend_Form_Element_FileTest extends PHPUnit_Framework_TestCase
         }
         $this->element->addPrefixPath(
             'Zend\Form\Element\FileTest\Adapter',
-            dirname(__FILE__) . '/_files/TransferAdapter',
+            __DIR__ . '/_files/TransferAdapter',
             'transfer_adapter'
         );
         $this->element->setTransferAdapter('Bar');
@@ -586,7 +586,7 @@ class Zend_Form_Element_FileTest_MockAdapter extends Zend_File_Transfer_Adapter_
 
     public function __construct()
     {
-        $testfile = dirname(__FILE__) . '/../../File/Transfer/Adapter/_files/test.txt';
+        $testfile = __DIR__ . '/../../File/Transfer/Adapter/_files/test.txt';
         $this->_files = array(
             'foo' => array(
                 'name'       => 'foo.jpg',

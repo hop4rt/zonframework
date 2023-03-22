@@ -32,7 +32,7 @@ require_once 'Zend/Controller/Action/HelperBroker.php';
 require_once 'Zend/Controller/Action/Helper/FlashMessenger.php';
 require_once 'Zend/Controller/Exception.php';
 require_once 'Zend/Session.php';
-require_once dirname(dirname(dirname(__FILE__))) . '/_files/HelperFlashMessengerController.php';
+require_once dirname(dirname(__DIR__)) . '/_files/HelperFlashMessengerController.php';
 
 /**
  * @category   Zend
@@ -101,7 +101,7 @@ class Zend_Controller_Action_Helper_FlashMessengerTest extends PHPUnit_Framework
 
         $this->front      = Zend_Controller_Front::getInstance();
         $this->front->resetInstance();
-        $this->front->setControllerDirectory(dirname(dirname(dirname(__FILE__))) . DIRECTORY_SEPARATOR . '_files');
+        $this->front->setControllerDirectory(dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . '_files');
         $this->front->returnResponse(true);
         $this->request    = new Zend_Controller_Request_Http();
         $this->request->setControllerName('helper-flash-messenger');

@@ -41,7 +41,7 @@ class Zend_Rest_ClientTest extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        $this->path = dirname(__FILE__) . '/responses/';
+        $this->path = __DIR__ . '/responses/';
 
         $this->adapter = new Zend_Http_Client_Adapter_Test();
         $client        = new Zend_Http_Client(null, array(

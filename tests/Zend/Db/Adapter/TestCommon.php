@@ -1835,7 +1835,7 @@ abstract class Zend_Db_Adapter_TestCommon extends Zend_Db_TestSetup
     protected function _testAdapterAlternateStatement($stmtClass)
     {
         $ip = get_include_path();
-        $dir = dirname(__FILE__) . DIRECTORY_SEPARATOR . '_files';
+        $dir = __DIR__ . DIRECTORY_SEPARATOR . '_files';
         $newIp = $dir . PATH_SEPARATOR . $ip;
         set_include_path($newIp);
 

@@ -534,7 +534,7 @@ class Zend_Http_Client_StaticTest extends PHPUnit_Framework_TestCase
 
         $this->_client->request('POST');
 
-        $expectedLines = file(dirname(__FILE__) . '/_files/ZF7038-multipartarrayrequest.txt');
+        $expectedLines = file(__DIR__ . '/_files/ZF7038-multipartarrayrequest.txt');
         $gotLines = explode("\n", $this->_client->getLastRequest());
 
         $this->assertEquals(count($expectedLines), count($gotLines));
@@ -558,7 +558,7 @@ class Zend_Http_Client_StaticTest extends PHPUnit_Framework_TestCase
         $this->_client->setFileUpload('testFile.name', 'testFile', 'TESTDATA12345', 'text/plain');
         $this->_client->request('POST');
 
-        $expectedLines = file(dirname(__FILE__) . '/_files/ZF4236-fileuploadrequest.txt');
+        $expectedLines = file(__DIR__ . '/_files/ZF4236-fileuploadrequest.txt');
         $gotLines = explode("\n", trim($this->_client->getLastRequest()));
 
         $this->assertEquals(count($expectedLines), count($gotLines));
@@ -583,7 +583,7 @@ class Zend_Http_Client_StaticTest extends PHPUnit_Framework_TestCase
         $this->_client->setParameterPost('testLast', 'bar');
         $this->_client->request('POST');
 
-        $expectedLines = file(dirname(__FILE__) . '/_files/ZF4236-clientbodyretainsfieldordering.txt');
+        $expectedLines = file(__DIR__ . '/_files/ZF4236-clientbodyretainsfieldordering.txt');
         $gotLines = explode("\n", trim($this->_client->getLastRequest()));
 
         $this->assertEquals(count($expectedLines), count($gotLines));
@@ -610,7 +610,7 @@ class Zend_Http_Client_StaticTest extends PHPUnit_Framework_TestCase
         $this->_client->setAdapter('Zend_Http_Client_Adapter_Test');
         $this->_client->setUri('http://example.com');
 
-        $bodyFile = dirname(__FILE__) . '/_files/ZF2098-multibytepostdata.txt';
+        $bodyFile = __DIR__ . '/_files/ZF2098-multibytepostdata.txt';
 
         $this->_client->setRawData(file_get_contents($bodyFile), 'text/plain');
         $this->_client->request('POST');
@@ -642,7 +642,7 @@ class Zend_Http_Client_StaticTest extends PHPUnit_Framework_TestCase
     {
     	$url = 'http://www.example.com';
     	$config = array (
-			'output_stream' => realpath(dirname(__FILE__) . '/_files/zend_http_client_stream.file'),
+			'output_stream' => realpath(__DIR__ . '/_files/zend_http_client_stream.file'),
 		);
 		$client = new Zend_Http_Client($url, $config);
 		try {

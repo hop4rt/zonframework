@@ -62,7 +62,7 @@ class Zend_Service_WindowsAzure_CommandLine_Package
 	{
 		// Default parameter value
 		if ($scaffolder == '') {
-			$scaffolder = dirname(__FILE__) . '/Scaffolders/DefaultScaffolder.phar';
+			$scaffolder = __DIR__ . '/Scaffolders/DefaultScaffolder.phar';
 		}
 		$scaffolder = realpath($scaffolder);
 

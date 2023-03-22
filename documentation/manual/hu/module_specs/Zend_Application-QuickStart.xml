@@ -132,7 +132,7 @@ phpSettings.display_errors = 1
 // Define path to application directory
 defined('APPLICATION_PATH')
     || define('APPLICATION_PATH',
-              realpath(dirname(__FILE__) . '/../application'));
+              realpath(__DIR__ . '/../application'));
 
 // Define application environment
 defined('APPLICATION_ENV')
@@ -233,7 +233,7 @@ phpSettings.display_errors = 1
 // Elérési út az alkalmazás könyvtárhoz
 defined('APPLICATION_PATH')
     || define('APPLICATION_PATH',
-              realpath(dirname(__FILE__) . '/../application'));
+              realpath(__DIR__ . '/../application'));
 
 // Alkalmazáskörnyezet
 defined('APPLICATION_ENV')
@@ -244,7 +244,7 @@ defined('APPLICATION_ENV')
 // Jellemzően az include_path-hoz hozzáadásra kerül a library/ könyvtár is,
 // főleg ha az tartalmazza a telepített ZF-t
 set_include_path(implode(PATH_SEPARATOR, array(
-    dirname(dirname(__FILE__)) . '/library',
+    dirname(__DIR__) . '/library',
     get_include_path(),
 )));
 

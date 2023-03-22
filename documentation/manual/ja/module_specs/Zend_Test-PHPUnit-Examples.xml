@@ -109,7 +109,7 @@ class Bugapp_Plugin_Initialize extends Zend_Controller_Plugin_Abstract
     {
         $this->_setEnv($env);
         if (null === $root) {
-            $root = realpath(dirname(__FILE__) . '/../../../');
+            $root = realpath(__DIR__ . '/../../../');
         }
         $this->_root = $root;
 

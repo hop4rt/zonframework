@@ -57,7 +57,7 @@ class Zend_File_ClassFileLocatorTest extends PHPUnit_Framework_TestCase
             $this->markTestSkipped('Test can only be run under 5.3 or later');
         }
 
-        $locator = new Zend_File_ClassFileLocator(dirname(__FILE__));
+        $locator = new Zend_File_ClassFileLocator(__DIR__);
         foreach ($locator as $file) {
             $this->assertRegexp('/\.php$/', $file->getFilename());
         }
@@ -69,7 +69,7 @@ class Zend_File_ClassFileLocatorTest extends PHPUnit_Framework_TestCase
             $this->markTestSkipped('Test can only be run under 5.3 or later');
         }
 
-        $locator = new Zend_File_ClassFileLocator(dirname(__FILE__));
+        $locator = new Zend_File_ClassFileLocator(__DIR__);
         $found = false;
         foreach ($locator as $file) {
             if (preg_match('/locator-should-skip-this\.php$/', $file->getFilename())) {
@@ -85,7 +85,7 @@ class Zend_File_ClassFileLocatorTest extends PHPUnit_Framework_TestCase
             $this->markTestSkipped('Test can only be run under 5.3 or later');
         }
 
-        $locator = new Zend_File_ClassFileLocator(dirname(__FILE__));
+        $locator = new Zend_File_ClassFileLocator(__DIR__);
         $found = false;
         foreach ($locator as $file) {
             if (preg_match('/LocatorShouldFindThis\.php$/', $file->getFilename())) {
@@ -101,7 +101,7 @@ class Zend_File_ClassFileLocatorTest extends PHPUnit_Framework_TestCase
             $this->markTestSkipped('Test can only be run under 5.3 or later');
         }
 
-        $locator = new Zend_File_ClassFileLocator(dirname(__FILE__));
+        $locator = new Zend_File_ClassFileLocator(__DIR__);
         $found = false;
         foreach ($locator as $file) {
             $classes = $file->getClasses();
@@ -120,7 +120,7 @@ class Zend_File_ClassFileLocatorTest extends PHPUnit_Framework_TestCase
             $this->markTestSkipped('Test can only be run under 5.3 or later');
         }
 
-        $locator = new Zend_File_ClassFileLocator(dirname(__FILE__));
+        $locator = new Zend_File_ClassFileLocator(__DIR__);
         $found = false;
         foreach ($locator as $file) {
             $classes = $file->getClasses();
@@ -138,7 +138,7 @@ class Zend_File_ClassFileLocatorTest extends PHPUnit_Framework_TestCase
             $this->markTestSkipped('Test can only be run under 5.3 or later');
         }
 
-        $locator = new Zend_File_ClassFileLocator(dirname(__FILE__));
+        $locator = new Zend_File_ClassFileLocator(__DIR__);
         $foundFirst = false;
         $foundSecond = false;
         $foundThird = false;

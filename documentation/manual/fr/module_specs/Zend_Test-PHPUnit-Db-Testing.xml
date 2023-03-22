@@ -224,7 +224,7 @@ class UserControllerTest extends Zend_Test_PHPUnit_ControllerTestCase
 
         $databaseFixture =
                     new PHPUnit_Extensions_Database_DataSet_FlatXmlDataSet(
-                        dirname(__FILE__) . '/_files/initialUserFixture.xml'
+                        __DIR__ . '/_files/initialUserFixture.xml'
                     );
 
         $databaseTester->setupDatabase($databaseFixture);

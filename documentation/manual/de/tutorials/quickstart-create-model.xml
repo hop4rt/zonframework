@@ -255,7 +255,7 @@ INSERT INTO guestbook (email, comment, created) VALUES
 
 // Initialisiert den Pfad und das Autoloading der Anwendung
 defined('APPLICATION_PATH')
-    || define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../application'));
+    || define('APPLICATION_PATH', realpath(__DIR__ . '/../application'));
 set_include_path(implode(PATH_SEPARATOR, array(
     APPLICATION_PATH . '/../library',
     get_include_path(),
@@ -320,7 +320,7 @@ if (file_exists($dbFile)) {
 // Dieser Block führt die aktuellen Statements aus welche von der Schemadatei
 // geladen werden.
 try {
-    $schemaSql = file_get_contents(dirname(__FILE__) . '/schema.sqlite.sql');
+    $schemaSql = file_get_contents(__DIR__ . '/schema.sqlite.sql');
     // Die Verbindung direkt verwenden um SQL im Block zu laden
     $dbAdapter->getConnection()->exec($schemaSql);
     chmod($dbFile, 0666);
@@ -332,7 +332,7 @@ try {
     }
 
     if ($withData) {
-        $dataSql = file_get_contents(dirname(__FILE__) . '/data.sqlite.sql');
+        $dataSql = file_get_contents(__DIR__ . '/data.sqlite.sql');
         // Die Verbindung direkt verwenden um SQL in Blöcken zu laden
         $dbAdapter->getConnection()->exec($dataSql);
         if ('testing' != APPLICATION_ENV) {

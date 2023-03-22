@@ -68,7 +68,7 @@ $style->setLineDashingPattern(array(3, 2, 3, 4), 1.6);
 $style->setFont(new Zend_Pdf_Font_Standard(Zend_Pdf_Const::FONT_HELVETICA_BOLD), 32);
 
 // Создание нового объекта изображения
-$stampImage = Zend_Pdf_ImageFactory::factory(dirname(__FILE__) . '/stamp.jpg');
+$stampImage = Zend_Pdf_ImageFactory::factory(__DIR__ . '/stamp.jpg');
 
 // Обозначение страницы как измененной
 foreach ($pdf->pages as $page){

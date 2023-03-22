@@ -86,7 +86,7 @@ class Zend_View_Helper_HeadMetaTest extends PHPUnit_Framework_TestCase
                 unset($registry[$key]);
             }
         }
-        $this->basePath = dirname(__FILE__) . '/_files/modules';
+        $this->basePath = __DIR__ . '/_files/modules';
         $this->view     = new Zend_View();
         $this->view->doctype('XHTML1_STRICT');
         $this->helper   = new Zend_View_Helper_HeadMeta();

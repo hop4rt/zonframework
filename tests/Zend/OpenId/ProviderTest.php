@@ -64,7 +64,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit_Framework_TestCase
      */
     public function testRegister()
     {
-        $storage = new Zend_OpenId_Provider_Storage_File(dirname(__FILE__)."/_files/provider");
+        $storage = new Zend_OpenId_Provider_Storage_File(__DIR__."/_files/provider");
         $storage->delUser(self::USER);
         $provider = new Zend_OpenId_Provider(null, null, $this->_user, $storage);
         $this->assertFalse( $storage->checkUser(self::USER, self::PASSWORD) );
@@ -86,7 +86,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit_Framework_TestCase
      */
     public function testHasUser()
     {
-        $storage = new Zend_OpenId_Provider_Storage_File(dirname(__FILE__)."/_files/provider");
+        $storage = new Zend_OpenId_Provider_Storage_File(__DIR__."/_files/provider");
         $storage->delUser(self::USER);
         $provider = new Zend_OpenId_Provider(null, null, $this->_user, $storage);
 
@@ -110,7 +110,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit_Framework_TestCase
      */
     public function testLogin()
     {
-        $storage = new Zend_OpenId_Provider_Storage_File(dirname(__FILE__)."/_files/provider");
+        $storage = new Zend_OpenId_Provider_Storage_File(__DIR__."/_files/provider");
         $storage->delUser(self::USER);
         $this->_user->delLoggedInUser();
         $provider = new Zend_OpenId_Provider(null, null, $this->_user, $storage);
@@ -142,7 +142,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit_Framework_TestCase
      */
     public function testLogout()
     {
-        $storage = new Zend_OpenId_Provider_Storage_File(dirname(__FILE__)."/_files/provider");
+        $storage = new Zend_OpenId_Provider_Storage_File(__DIR__."/_files/provider");
         $storage->delUser(self::USER);
         $this->_user->delLoggedInUser();
         $provider = new Zend_OpenId_Provider(null, null, $this->_user, $storage);
@@ -165,7 +165,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit_Framework_TestCase
      */
     public function testLoggedInUser()
     {
-        $storage = new Zend_OpenId_Provider_Storage_File(dirname(__FILE__)."/_files/provider");
+        $storage = new Zend_OpenId_Provider_Storage_File(__DIR__."/_files/provider");
         $storage->delUser(self::USER);
         $this->_user->delLoggedInUser();
         $provider = new Zend_OpenId_Provider(null, null, $this->_user, $storage);
@@ -188,7 +188,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit_Framework_TestCase
      */
     public function testGetSiteRoot()
     {
-        $storage = new Zend_OpenId_Provider_Storage_File(dirname(__FILE__)."/_files/provider");
+        $storage = new Zend_OpenId_Provider_Storage_File(__DIR__."/_files/provider");
         $provider = new Zend_OpenId_Provider(null, null, $this->_user, $storage);
 
         $params = array(
@@ -247,7 +247,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit_Framework_TestCase
      */
     public function testAllowSite()
     {
-        $storage = new Zend_OpenId_Provider_Storage_File(dirname(__FILE__)."/_files/provider");
+        $storage = new Zend_OpenId_Provider_Storage_File(__DIR__."/_files/provider");
         $storage->delUser(self::USER);
         $this->_user->delLoggedInUser();
         $provider = new Zend_OpenId_Provider(null, null, $this->_user, $storage);
@@ -297,7 +297,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit_Framework_TestCase
      */
     public function testDenySite()
     {
-        $storage = new Zend_OpenId_Provider_Storage_File(dirname(__FILE__)."/_files/provider");
+        $storage = new Zend_OpenId_Provider_Storage_File(__DIR__."/_files/provider");
         $storage->delUser(self::USER);
         $this->_user->delLoggedInUser();
         $provider = new Zend_OpenId_Provider(null, null, $this->_user, $storage);
@@ -362,7 +362,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit_Framework_TestCase
      */
     public function testDelSite()
     {
-        $storage = new Zend_OpenId_Provider_Storage_File(dirname(__FILE__)."/_files/provider");
+        $storage = new Zend_OpenId_Provider_Storage_File(__DIR__."/_files/provider");
         $storage->delUser(self::USER);
         $this->_user->delLoggedInUser();
         $provider = new Zend_OpenId_Provider(null, null, $this->_user, $storage);
@@ -421,7 +421,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit_Framework_TestCase
      */
     public function testGetTrustedSites()
     {
-        $storage = new Zend_OpenId_Provider_Storage_File(dirname(__FILE__)."/_files/provider");
+        $storage = new Zend_OpenId_Provider_Storage_File(__DIR__."/_files/provider");
         $storage->delUser(self::USER);
         $this->_user->delLoggedInUser();
         $provider = new Zend_OpenId_Provider(null, null, $this->_user, $storage);
@@ -453,7 +453,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit_Framework_TestCase
      */
     public function testGenSecret()
     {
-        $provider = new Zend_OpenId_ProviderHelper(null, null, $this->_user, new Zend_OpenId_Provider_Storage_File(dirname(__FILE__)."/_files/provider"));
+        $provider = new Zend_OpenId_ProviderHelper(null, null, $this->_user, new Zend_OpenId_Provider_Storage_File(__DIR__."/_files/provider"));
 
         // SHA1
         $x = $provider->genSecret("sha1");
@@ -476,7 +476,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit_Framework_TestCase
     public function testAssociate()
     {
         try {
-            $storage = new Zend_OpenId_Provider_Storage_File(dirname(__FILE__)."/_files/provider");
+            $storage = new Zend_OpenId_Provider_Storage_File(__DIR__."/_files/provider");
             $provider = new Zend_OpenId_ProviderHelper(null, null, $this->_user, $storage);
 
             // Wrong assoc_type
@@ -642,7 +642,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit_Framework_TestCase
      */
     public function testCheckAuthentication()
     {
-        $storage = new Zend_OpenId_Provider_Storage_File(dirname(__FILE__)."/_files/provider");
+        $storage = new Zend_OpenId_Provider_Storage_File(__DIR__."/_files/provider");
         $provider = new Zend_OpenId_ProviderHelper(null, null, $this->_user, $storage);
 
         // Wrong arguments
@@ -745,7 +745,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit_Framework_TestCase
      */
     public function testRespondToConsumer()
     {
-        $storage = new Zend_OpenId_Provider_Storage_File(dirname(__FILE__)."/_files/provider");
+        $storage = new Zend_OpenId_Provider_Storage_File(__DIR__."/_files/provider");
         $provider = new Zend_OpenId_ProviderHelper(null, null, $this->_user, $storage);
 
         // dumb mode
@@ -866,7 +866,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit_Framework_TestCase
     public function testCheckIdImmediate()
     {
         $_SERVER['SCRIPT_URI'] = "http://www.test.com/server.php";
-        $storage = new Zend_OpenId_Provider_Storage_File(dirname(__FILE__)."/_files/provider");
+        $storage = new Zend_OpenId_Provider_Storage_File(__DIR__."/_files/provider");
         $provider = new Zend_OpenId_ProviderHelper(null, null, $this->_user, $storage);
         $provider->logout();
 
@@ -1303,7 +1303,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit_Framework_TestCase
     public function testCheckIdSetup()
     {
         $_SERVER['SCRIPT_URI'] = "http://www.test.com/server.php";
-        $storage = new Zend_OpenId_Provider_Storage_File(dirname(__FILE__)."/_files/provider");
+        $storage = new Zend_OpenId_Provider_Storage_File(__DIR__."/_files/provider");
         $provider = new Zend_OpenId_ProviderHelper(null, null, $this->_user, $storage);
         $provider->logout();
 
@@ -1584,7 +1584,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit_Framework_TestCase
      */
     public function testHandle()
     {
-        $provider = new Zend_OpenId_ProviderHelper(null, null, $this->_user, new Zend_OpenId_Provider_Storage_File(dirname(__FILE__)."/_files/provider"));
+        $provider = new Zend_OpenId_ProviderHelper(null, null, $this->_user, new Zend_OpenId_Provider_Storage_File(__DIR__."/_files/provider"));
 
         // no openid_mode
         $this->assertFalse( $provider->handle(array()) );
@@ -1599,7 +1599,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit_Framework_TestCase
      */
     public function testSetOpEndpoint()
     {
-        $storage = new Zend_OpenId_Provider_Storage_File(dirname(__FILE__)."/_files/provider");
+        $storage = new Zend_OpenId_Provider_Storage_File(__DIR__."/_files/provider");
         $provider = new Zend_OpenId_ProviderHelper(null, null, $this->_user, $storage);
         $provider->setOpEndpoint("http://www.test.com/real_endpoint.php");
 

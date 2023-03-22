@@ -1011,19 +1011,19 @@ class Zend_Amf_ServerTest extends PHPUnit_Framework_TestCase
 
     public function testAddDirectory()
     {
-        $this->_server->addDirectory(dirname(__FILE__)."/_files/services");
-        $this->_server->addDirectory(dirname(__FILE__)."/_files/");
+        $this->_server->addDirectory(__DIR__."/_files/services");
+        $this->_server->addDirectory(__DIR__."/_files/");
         $dirs = $this->_server->getDirectory();
-        $this->assertContains(dirname(__FILE__)."/_files/services/", $dirs);
-        $this->assertContains(dirname(__FILE__)."/_files/", $dirs);
+        $this->assertContains(__DIR__."/_files/services/", $dirs);
+        $this->assertContains(__DIR__."/_files/", $dirs);
     }
 
     public function testAddDirectoryService()
     {
-        $this->_server->addDirectory(dirname(__FILE__)."/_files/services");
+        $this->_server->addDirectory(__DIR__."/_files/services");
         // should take it from the path above, not include path
         $origPath = get_include_path();
-        set_include_path($origPath.PATH_SEPARATOR.dirname(__FILE__));
+        set_include_path($origPath.PATH_SEPARATOR.__DIR__);
         // create a mock remoting message
         $message = new Zend_Amf_Value_Messaging_RemotingMessage();
         $message->operation = 'getMenu';
@@ -1045,7 +1045,7 @@ class Zend_Amf_ServerTest extends PHPUnit_Framework_TestCase
 
     public function testAddDirectoryService2()
     {
-        $this->_server->addDirectory(dirname(__FILE__)."/_files/services");
+        $this->_server->addDirectory(__DIR__."/_files/services");
         // create a mock remoting message
         $message = new Zend_Amf_Value_Messaging_RemotingMessage();
         $message->operation = 'getMenu';
@@ -1069,7 +1069,7 @@ class Zend_Amf_ServerTest extends PHPUnit_Framework_TestCase
      */
     public function testAddDirectoryServiceNotFound()
     {
-        $this->_server->addDirectory(dirname(__FILE__)."/_files/services");
+        $this->_server->addDirectory(__DIR__."/_files/services");
         // create a mock remoting message
         $message = new Zend_Amf_Value_Messaging_RemotingMessage();
         $message->operation = 'encode';
@@ -1118,7 +1118,7 @@ class Zend_Amf_ServerTest extends PHPUnit_Framework_TestCase
     /** @group ZF-11529 */
     public function testSettingAuthAdapterWithAclSetsServerAcl()
     {
-        $aclFile     = dirname(__FILE__) . '/_files/acl.xml';
+        $aclFile     = __DIR__ . '/_files/acl.xml';
         $authAdapter = new Zend_Amf_Adobe_Auth($aclFile);
         $this->_server->setAuth($authAdapter);
         $this->assertSame($authAdapter->getAcl(), $this->_server->getAcl());
@@ -1130,7 +1130,7 @@ class Zend_Amf_ServerTest extends PHPUnit_Framework_TestCase
         $acl = new Zend_Acl();
         $this->_server->setAcl($acl);
 
-        $aclFile     = dirname(__FILE__) . '/_files/acl.xml';
+        $aclFile     = __DIR__ . '/_files/acl.xml';
         $authAdapter = new Zend_Amf_Adobe_Auth($aclFile);
         $this->_server->setAuth($authAdapter);
 
@@ -1144,7 +1144,7 @@ class Zend_Amf_ServerTest extends PHPUnit_Framework_TestCase
     public function testServerShouldCastObjectArgumentsToAppropriateType()
     {
         $server = new Zend_Amf_Server();
-        $server->addDirectory(dirname(__FILE__) . '/_files/zf-6130/services');
+        $server->addDirectory(__DIR__ . '/_files/zf-6130/services');
 
         // Create a mock message
         $message = new Zend_Amf_Value_Messaging_RemotingMessage();
@@ -1377,4 +1377,3 @@ class Zend_Amf_testSession
         return $_SESSION['count'];
     }
 }
-

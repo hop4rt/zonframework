@@ -114,7 +114,7 @@ EOS;
 
     public function testFromReflectionFile()
     {
-        $file = dirname(__FILE__) . '/_files/TestSampleSingleClass.php';
+        $file = __DIR__ . '/_files/TestSampleSingleClass.php';
 
         require_once $file;
         $codeGenFileFromDisk = Zend_CodeGenerator_Php_File::fromReflection(new Zend_Reflection_File($file));
@@ -171,7 +171,7 @@ EOS;
      */
     public function testFromReflectionFileKeepsIndents()
     {
-        $file = dirname(__FILE__) . '/_files/TestClassWithCodeInMethod.php';
+        $file = __DIR__ . '/_files/TestClassWithCodeInMethod.php';
 
         require_once $file;
         $codeGenFileFromDisk = Zend_CodeGenerator_Php_File::fromReflection(new Zend_Reflection_File($file));
@@ -219,7 +219,7 @@ EOS;
      */
     public function testFromReflectionFilePreservesIndentsWhenAdditionalMethodAdded()
     {
-        $file = dirname(__FILE__) . '/_files/TestClassWithCodeInMethod.php';
+        $file = __DIR__ . '/_files/TestClassWithCodeInMethod.php';
 
         require_once $file;
         $codeGenFileFromDisk = Zend_CodeGenerator_Php_File::fromReflection(new Zend_Reflection_File($file));
@@ -294,7 +294,7 @@ EOS;
     * @group ZF-11703
     */
     public function testNewMethodKeepDocBlock(){
-        $codeGenFile = Zend_CodeGenerator_Php_File::fromReflectedFileName(dirname(__FILE__).'/_files/zf-11703.php', true, true);
+        $codeGenFile = Zend_CodeGenerator_Php_File::fromReflectedFileName(__DIR__.'/_files/zf-11703.php', true, true);
         $target = <<<EOS
 <?php
 /**
@@ -332,7 +332,7 @@ EOS;
     * @group ZF-11703
     */
     public function testNewMethodKeepTwoDocBlock(){
-        $codeGenFile = Zend_CodeGenerator_Php_File::fromReflectedFileName(dirname(__FILE__).'/_files/zf-11703_1.php', true, true);
+        $codeGenFile = Zend_CodeGenerator_Php_File::fromReflectedFileName(__DIR__.'/_files/zf-11703_1.php', true, true);
         $target = <<<EOS
 <?php
 /**

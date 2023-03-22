@@ -531,7 +531,7 @@ class Zend_Log_LogTest extends PHPUnit_Framework_TestCase
         }
 
         // preload namespaced class from custom path
-        Zend_Loader::loadClass('\Zfns\Writer', array(dirname(__FILE__) . '/_files'));
+        Zend_Loader::loadClass('\Zfns\Writer', array(__DIR__ . '/_files'));
 
         try {
             $config = array(

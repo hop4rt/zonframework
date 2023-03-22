@@ -126,7 +126,7 @@ phpSettings.display_errors = 1
 // アプリケーション・ディレクトリへのパスを定義します
 defined('APPLICATION_PATH')
     || define('APPLICATION_PATH',
-              realpath(dirname(__FILE__) . '/../application'));
+              realpath(__DIR__ . '/../application'));
 
 // アプリケーション環境を定義します
 defined('APPLICATION_ENV')
@@ -233,7 +233,7 @@ phpSettings.display_errors = 1
 // アプリケーション・ディレクトリへのパスを定義します
 defined('APPLICATION_PATH')
     || define('APPLICATION_PATH',
-              realpath(dirname(__FILE__) . '/../application'));
+              realpath(__DIR__ . '/../application'));
 
 // アプリケーション環境を定義します
 defined('APPLICATION_ENV')
@@ -244,7 +244,7 @@ defined('APPLICATION_ENV')
 // 一般的に、library/ ディレクトリーをinclude_pathに追加したいでしょう
 // 特にそれがインストールしたZFを含むならば
 set_include_path(implode(PATH_SEPARATOR, array(
-    dirname(dirname(__FILE__)) . '/library',
+    dirname(__DIR__) . '/library',
     get_include_path(),
 )));
 

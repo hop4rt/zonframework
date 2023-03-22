@@ -251,7 +251,7 @@ class Zend_Service_Amazon_S3_OnlineTest extends PHPUnit_Framework_TestCase
 
     public function testPutFile()
     {
-        $filedir = dirname(__FILE__)."/_files/";
+        $filedir = __DIR__."/_files/";
         $this->_amazon->createBucket($this->_bucket);
 
         $this->_fileTest($filedir."testdata", $this->_bucket."/zftestfile", null, 'binary/octet-stream');
@@ -262,7 +262,7 @@ class Zend_Service_Amazon_S3_OnlineTest extends PHPUnit_Framework_TestCase
 
     public function testPutFileStream()
     {
-        $filedir = dirname(__FILE__)."/_files/";
+        $filedir = __DIR__."/_files/";
         $this->_amazon->createBucket($this->_bucket);
 
         $this->_fileTest($filedir."testdata", $this->_bucket."/zftestfile", null, 'binary/octet-stream', true);
@@ -273,7 +273,7 @@ class Zend_Service_Amazon_S3_OnlineTest extends PHPUnit_Framework_TestCase
 
     public function testPutNoFile()
     {
-        $filedir = dirname(__FILE__)."/_files/";
+        $filedir = __DIR__."/_files/";
 
         try {
             $this->_amazon->putFile($filedir."nosuchfile", $this->_bucket."/zftestfile");
@@ -373,7 +373,7 @@ class Zend_Service_Amazon_S3_OnlineTest extends PHPUnit_Framework_TestCase
     public function testAcl()
     {
         $this->_amazon->createBucket($this->_bucket);
-        $filedir = dirname(__FILE__)."/_files/";
+        $filedir = __DIR__."/_files/";
 
         $this->_amazon->putFile($filedir."testdata.html", $this->_bucket."/zftestfile.html");
         $this->_amazon->putFile($filedir."testdata.html", $this->_bucket."/zftestfile2.html",
@@ -411,7 +411,7 @@ class Zend_Service_Amazon_S3_OnlineTest extends PHPUnit_Framework_TestCase
     public function testObjectPath()
     {
         $this->_amazon->createBucket($this->_bucket);
-        $filedir = dirname(__FILE__)."/_files/";
+        $filedir = __DIR__."/_files/";
         $this->_amazon->putFile($filedir."testdata.html", $this->_bucket."/subdir/dir with spaces/zftestfile.html",
             array(Zend_Service_Amazon_S3::S3_ACL_HEADER => Zend_Service_Amazon_S3::S3_ACL_PUBLIC_READ));
         $url = 'http://' . Zend_Service_Amazon_S3::S3_ENDPOINT."/".$this->_bucket."/subdir/dir%20with%20spaces/zftestfile.html";
@@ -430,7 +430,7 @@ class Zend_Service_Amazon_S3_OnlineTest extends PHPUnit_Framework_TestCase
     public function testIsObjectAvailableWithSpacesInKey()
     {
         $this->_amazon->createBucket($this->_bucket);
-        $filedir = dirname(__FILE__)."/_files/";
+        $filedir = __DIR__."/_files/";
         $key = $this->_bucket.'/subdir/another dir with spaces/zftestfile.html';
         $this->_amazon->putFile($filedir."testdata.html", $key);
         $this->assertTrue($this->_amazon->isObjectAvailable($key));

@@ -69,7 +69,7 @@ $style->setFont(Zend_Pdf_Font::fontWithName(
 
 try {
     // Crée un nouvel objet image
-    $stampImage = Zend_Pdf_Image::imageWithPath(dirname(__FILE__) .
+    $stampImage = Zend_Pdf_Image::imageWithPath(__DIR__ .
                                                 '/stamp.jpg');
 } catch (Zend_Pdf_Exception $e) {
     // Exemple de gestion des exceptions lors du chargement d'image

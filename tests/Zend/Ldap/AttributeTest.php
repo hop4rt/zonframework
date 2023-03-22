@@ -233,7 +233,7 @@ class Zend_Ldap_AttributeTest extends PHPUnit_Framework_TestCase
     public function testSetAttributeWithFilestream()
     {
         $data=array();
-        $stream=fopen(dirname(__FILE__) . '/_files/AttributeTest.input.txt', 'r');
+        $stream=fopen(__DIR__ . '/_files/AttributeTest.input.txt', 'r');
         Zend_Ldap_Attribute::setAttribute($data, 'file', $stream);
         fclose($stream);
         $this->assertEquals('String from file', $data['file'][0]);
@@ -540,4 +540,3 @@ class Zend_Ldap_AttributeTest extends PHPUnit_Framework_TestCase
         $this->assertEquals("\x22\x00\x6E\x00\x65\x00\x77\x00\x22\x00", $unicodePwd);
     }
 }
-

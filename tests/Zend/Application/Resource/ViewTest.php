@@ -62,7 +62,7 @@ class Zend_Application_Resource_ViewTest extends PHPUnit_Framework_TestCase
 
         $this->application = new Zend_Application('testing');
 
-        require_once dirname(__FILE__) . '/../_files/ZfAppBootstrap.php';
+        require_once __DIR__ . '/../_files/ZfAppBootstrap.php';
         $this->bootstrap = new ZfAppBootstrap($this->application);
 
         Zend_Controller_Action_HelperBroker::resetHelpers();
@@ -103,14 +103,14 @@ class Zend_Application_Resource_ViewTest extends PHPUnit_Framework_TestCase
     public function testOptionsPassedToResourceAreUsedToSetViewState()
     {
         $options = array(
-            'scriptPath' => dirname(__FILE__),
+            'scriptPath' => __DIR__,
         );
         require_once 'Zend/Application/Resource/View.php';
         $resource = new Zend_Application_Resource_View($options);
         $resource->init();
         $view  = $resource->getView();
         $paths = $view->getScriptPaths();
-        $this->assertContains(dirname(__FILE__) . '/', $paths, var_export($paths, 1));
+        $this->assertContains(__DIR__ . '/', $paths, var_export($paths, 1));
     }
 
     public function testDoctypeIsSet()
@@ -232,7 +232,7 @@ class Zend_Application_Resource_ViewTest extends PHPUnit_Framework_TestCase
      */
     public function testViewResourceDoesNotReinjectViewRenderer()
     {
-        require_once dirname(__FILE__) . '/TestAsset/ViewRenderer.php';
+        require_once __DIR__ . '/TestAsset/ViewRenderer.php';
         $viewRenderer = new Zend_Application_Resource_TestAsset_ViewRenderer();
         Zend_Controller_Action_HelperBroker::addHelper($viewRenderer);
 

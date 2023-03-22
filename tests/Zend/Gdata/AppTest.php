@@ -42,16 +42,16 @@ class Zend_Gdata_AppTest extends PHPUnit_Framework_TestCase
         $this->expectedMajorProtocolVersion = 1;
         $this->expectedMinorProtocolVersion = 2;
         $this->httpEntrySample = $this->loadResponse(
-            dirname(__FILE__) . '/_files/AppSample1.txt'
+            __DIR__ . '/_files/AppSample1.txt'
         );
         $this->httpEntrySampleWithoutVersion = $this->loadResponse(
-            dirname(__FILE__) . '/_files/AppSample2.txt'
+            __DIR__ . '/_files/AppSample2.txt'
         );
         $this->httpFeedSample = $this->loadResponse(
-            dirname(__FILE__) . '/_files/AppSample3.txt'
+            __DIR__ . '/_files/AppSample3.txt'
         );
         $this->httpFeedSampleWithoutVersion = $this->loadResponse(
-            dirname(__FILE__) . '/_files/AppSample4.txt'
+            __DIR__ . '/_files/AppSample4.txt'
         );
 
         $this->adapter = new Test_Zend_Gdata_MockHttpClient();

@@ -612,7 +612,7 @@ abstract class My_Base_Controller extends Zend_Controller_Action
                 $this->view = Zend_Registry::get('view');
             } else {
                 $this->view = new Zend_View();
-                $this->view->setBasePath(dirname(__FILE__) . '/../views');
+                $this->view->setBasePath(__DIR__ . '/../views');
             }
         }
 

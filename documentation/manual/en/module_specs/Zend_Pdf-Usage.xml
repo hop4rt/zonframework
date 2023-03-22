@@ -64,7 +64,7 @@ $style->setFont($fontH, 32);
 
 try {
     // Create new image object
-    $imageFile = dirname(__FILE__) . '/stamp.jpg';
+    $imageFile = __DIR__ . '/stamp.jpg';
     $stampImage = Zend_Pdf_Image::imageWithPath($imageFile);
 } catch (Zend_Pdf_Exception $e) {
     // Example of operating with image loading exceptions.

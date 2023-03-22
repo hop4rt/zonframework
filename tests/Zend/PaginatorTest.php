@@ -144,7 +144,7 @@ class Zend_PaginatorTest extends PHPUnit_Framework_TestCase
         }
 
         $this->_adapter = new Zend_Db_Adapter_Pdo_Sqlite(array(
-            'dbname' => dirname(__FILE__) . '/Paginator/_files/test.sqlite'
+            'dbname' => __DIR__ . '/Paginator/_files/test.sqlite'
         ));
 
         $this->_query = $this->_adapter->select()->from('test');
@@ -152,7 +152,7 @@ class Zend_PaginatorTest extends PHPUnit_Framework_TestCase
         $this->_testCollection = range(1, 101);
         $this->_paginator = Zend_Paginator::factory($this->_testCollection);
 
-        $this->_config = new Zend_Config_Xml(dirname(__FILE__) . '/Paginator/_files/config.xml');
+        $this->_config = new Zend_Config_Xml(__DIR__ . '/Paginator/_files/config.xml');
         // get a fresh new copy of ViewRenderer in each tests
         Zend_Controller_Action_HelperBroker::resetHelpers();
 
@@ -500,8 +500,8 @@ class Zend_PaginatorTest extends PHPUnit_Framework_TestCase
     public function testRendersWithPartial()
     {
         $view = new Zend_View();
-        $view->addBasePath(dirname(__FILE__) . '/Paginator/_files');
-        $view->addHelperPath(dirname(__FILE__) . '/../../../trunk/library/Zend/View/Helper', 'Zend_View_Helper');
+        $view->addBasePath(__DIR__ . '/Paginator/_files');
+        $view->addHelperPath(__DIR__ . '/../../../trunk/library/Zend/View/Helper', 'Zend_View_Helper');
 
         Zend_View_Helper_PaginationControl::setDefaultViewPartial('partial.phtml');
 

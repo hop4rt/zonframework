@@ -128,7 +128,7 @@ phpSettings.display_errors = 1
 // Define path to application directory
 defined('APPLICATION_PATH')
     || define('APPLICATION_PATH',
-              realpath(dirname(__FILE__) . '/../application'));
+              realpath(__DIR__ . '/../application'));
 
 // Define application environment
 defined('APPLICATION_ENV')
@@ -234,7 +234,7 @@ phpSettings.display_errors = 1
 // Define path to application directory
 defined('APPLICATION_PATH')
     || define('APPLICATION_PATH',
-              realpath(dirname(__FILE__) . '/../application'));
+              realpath(__DIR__ . '/../application'));
 
 // Define application environment
 defined('APPLICATION_ENV')
@@ -245,7 +245,7 @@ defined('APPLICATION_ENV')
 // Typischerweise wird man das eigene library/ Verzeichnis zum include_path
 // hinzufügen wollen, speziell wenn es die ZF Installation enthält
 set_include_path(implode(PATH_SEPARATOR, array(
-    dirname(dirname(__FILE__)) . '/library',
+    dirname(__DIR__) . '/library',
     get_include_path(),
 )));
 

@@ -62,8 +62,8 @@ echo $respuesta;
             añadir directorios. </para>
 
         <programlisting language="php"><![CDATA[
-$servidor->addDirectory(dirname(__FILE__) .'/../services/');
-$servidor->addDirectory(dirname(__FILE__) .'/../package/');
+$servidor->addDirectory(__DIR__ .'/../services/');
+$servidor->addDirectory(__DIR__ .'/../package/');
 ]]></programlisting>
 
         <para> Cuando se llama a servicios remotos, los nombres de los

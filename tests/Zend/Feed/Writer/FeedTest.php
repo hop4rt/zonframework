@@ -38,7 +38,7 @@ class Zend_Feed_Writer_FeedTest extends PHPUnit_Framework_TestCase
 
     public function setup()
     {
-        $this->_feedSamplePath = dirname(__FILE__) . '/Writer/_files';
+        $this->_feedSamplePath = __DIR__ . '/Writer/_files';
     }
 
     public function testAddsAuthorName()

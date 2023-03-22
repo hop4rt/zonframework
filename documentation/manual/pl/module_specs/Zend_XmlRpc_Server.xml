@@ -284,7 +284,7 @@ function __autoload($class)
     Zend_Loader::loadClass($class);
 }
 
-$cacheFile = dirname(__FILE__) . '/xmlrpc.cache';
+$cacheFile = __DIR__ . '/xmlrpc.cache';
 $server = new Zend_XmlRpc_Server();
 
 if (!Zend_XmlRpc_Server_Cache::get($cacheFile, $server)) {
@@ -464,7 +464,7 @@ echo $server->handle($request);
 
             <programlisting role="php"><![CDATA[
 // Określ plik cache
-$cacheFile = dirname(__FILE__) . '/xmlrpc.cache';
+$cacheFile = __DIR__ . '/xmlrpc.cache';
 
 // Pozwala na wyrzucanie wyjątku Services_Exceptions dla odpowiedzi błędu
 Zend_XmlRpc_Server_Fault::attachFaultException('Services_Exception');

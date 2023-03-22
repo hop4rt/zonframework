@@ -24,7 +24,7 @@
  * Zend_Form and Zend_File_Transfer.
  */
 
-set_include_path(realpath(dirname(__FILE__) . '/../../../library')
+set_include_path(realpath(__DIR__ . '/../../../library')
                  . PATH_SEPARATOR . get_include_path());
 
 if (isset($_GET['progress_key'])) {
@@ -222,4 +222,3 @@ if (isset($_GET['progress_key'])) {
     <div id="progressBar"><div id="progressDone"></div></div>
 </body>
 </html>
-

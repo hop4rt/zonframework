@@ -695,7 +695,7 @@ class Zend_Navigation_Page_MvcTest extends PHPUnit_Framework_TestCase
 
     public function testSpecifyingAnotherUrlHelperToGenerateHrefs()
     {
-        $path = dirname(dirname(__FILE__)) . '/_files/My/UrlHelper.php';
+        $path = dirname(__DIR__) . '/_files/My/UrlHelper.php';
         require_once $path;
 
         $newHelper = new My_UrlHelper();
@@ -717,7 +717,7 @@ class Zend_Navigation_Page_MvcTest extends PHPUnit_Framework_TestCase
      */
     public function testSpecifyingAnotherSchemeHelperToGenerateHrefs()
     {
-        $path = dirname(dirname(__FILE__)) . '/_files/My/SchemeHelper.php';
+        $path = dirname(__DIR__) . '/_files/My/SchemeHelper.php';
         require_once $path;
 
         $newHelper = new My_SchemeHelper();

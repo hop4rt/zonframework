@@ -74,7 +74,7 @@ class Zend_Validate_File_IsImageTest extends PHPUnit_Framework_TestCase
             'name'     => 'picture.jpg',
             'type'     => 'image/jpeg',
             'size'     => 200,
-            'tmp_name' => dirname(__FILE__) . '/_files/picture.jpg',
+            'tmp_name' => __DIR__ . '/_files/picture.jpg',
             'error'    => 0
         );
 
@@ -83,7 +83,7 @@ class Zend_Validate_File_IsImageTest extends PHPUnit_Framework_TestCase
             $validator->enableHeaderCheck();
             $this->assertEquals(
                 $element[1],
-                $validator->isValid(dirname(__FILE__) . '/_files/picture.jpg', $files),
+                $validator->isValid(__DIR__ . '/_files/picture.jpg', $files),
                 "Tested with " . var_export($element, 1)
             );
         }
@@ -161,13 +161,13 @@ class Zend_Validate_File_IsImageTest extends PHPUnit_Framework_TestCase
             'name'     => 'picture.jpg',
             'type'     => 'image/jpeg',
             'size'     => 200,
-            'tmp_name' => dirname(__FILE__) . '/_files/picture.jpg',
+            'tmp_name' => __DIR__ . '/_files/picture.jpg',
             'error'    => 0
         );
 
         $validator = new Zend_Validate_File_IsImage('test/notype');
         $validator->enableHeaderCheck();
-        $this->assertFalse($validator->isValid(dirname(__FILE__) . '/_files/picture.jpg', $files));
+        $this->assertFalse($validator->isValid(__DIR__ . '/_files/picture.jpg', $files));
         $error = $validator->getMessages();
         $this->assertTrue(array_key_exists('fileIsImageFalseType', $error));
     }
@@ -179,9 +179,9 @@ class Zend_Validate_File_IsImageTest extends PHPUnit_Framework_TestCase
         }
 
         if (version_compare(PHP_VERSION, '5.3', '>=')) {
-            $magicFile = dirname(__FILE__) . '/_files/magic-php53.mime';
+            $magicFile = __DIR__ . '/_files/magic-php53.mime';
         } else {
-            $magicFile = dirname(__FILE__) . '/_files/magic.mime';
+            $magicFile = __DIR__ . '/_files/magic.mime';
         }
 
         $validator = new Zend_Validate_File_IsImage(array(

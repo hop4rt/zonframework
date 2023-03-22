@@ -59,7 +59,7 @@ class Zend_Layout_FunctionalTest extends Zend_Test_PHPUnit_ControllerTestCase
 
     public function appBootstrap()
     {
-        $this->frontController->setControllerDirectory(dirname(__FILE__) . '/_files/functional-test-app/controllers/');
+        $this->frontController->setControllerDirectory(__DIR__ . '/_files/functional-test-app/controllers/');
 
         // create an instance of the ErrorHandler so we can make sure it will point to our specially named ErrorController
         $plugin = new Zend_Controller_Plugin_ErrorHandler();
@@ -67,7 +67,7 @@ class Zend_Layout_FunctionalTest extends Zend_Test_PHPUnit_ControllerTestCase
                ->setErrorHandlerAction('error');
         $this->frontController->registerPlugin($plugin, 100);
 
-        Zend_Layout::startMvc(dirname(__FILE__) . '/_files/functional-test-app/layouts/');
+        Zend_Layout::startMvc(__DIR__ . '/_files/functional-test-app/layouts/');
     }
 
     public function testMissingViewScriptDoesNotDoubleRender()

@@ -118,7 +118,7 @@ class Zend_LoaderTest extends PHPUnit_Framework_TestCase
      */
     public function testLoaderClassValid()
     {
-        $dir = implode(array(dirname(__FILE__), '_files', '_testDir1'), DIRECTORY_SEPARATOR);
+        $dir = implode(array(__DIR__, '_files', '_testDir1'), DIRECTORY_SEPARATOR);
 
         Zend_Loader::loadClass('Class1', $dir);
     }
@@ -148,7 +148,7 @@ class Zend_LoaderTest extends PHPUnit_Framework_TestCase
      */
     public function testLoaderClassNonexistent()
     {
-        $dir = implode(array(dirname(__FILE__), '_files', '_testDir1'), DIRECTORY_SEPARATOR);
+        $dir = implode(array(__DIR__, '_files', '_testDir1'), DIRECTORY_SEPARATOR);
 
         try {
             Zend_Loader::loadClass('ClassNonexistent', $dir);
@@ -179,7 +179,7 @@ class Zend_LoaderTest extends PHPUnit_Framework_TestCase
     {
         $dirs = array();
         foreach (array('_testDir1', '_testDir2') as $dir) {
-            $dirs[] = implode(array(dirname(__FILE__), '_files', $dir), DIRECTORY_SEPARATOR);
+            $dirs[] = implode(array(__DIR__, '_files', $dir), DIRECTORY_SEPARATOR);
         }
 
         // throws exception on failure
@@ -194,7 +194,7 @@ class Zend_LoaderTest extends PHPUnit_Framework_TestCase
     {
         $dirs = array();
         foreach (array('_testDir1', '_testDir2') as $dir) {
-            $dirs[] = implode(array(dirname(__FILE__), '_files', $dir), DIRECTORY_SEPARATOR);
+            $dirs[] = implode(array(__DIR__, '_files', $dir), DIRECTORY_SEPARATOR);
         }
 
         // throws exception on failure
@@ -220,7 +220,7 @@ class Zend_LoaderTest extends PHPUnit_Framework_TestCase
     public function testLoaderFileIncludePathEmptyDirs()
     {
         $saveIncludePath = get_include_path();
-        set_include_path(implode(array($saveIncludePath, implode(array(dirname(__FILE__), '_files', '_testDir1'), DIRECTORY_SEPARATOR)), PATH_SEPARATOR));
+        set_include_path(implode(array($saveIncludePath, implode(array(__DIR__, '_files', '_testDir1'), DIRECTORY_SEPARATOR)), PATH_SEPARATOR));
 
         $this->assertTrue(Zend_Loader::loadFile('Class3.php', null));
 
@@ -234,7 +234,7 @@ class Zend_LoaderTest extends PHPUnit_Framework_TestCase
     public function testLoaderFileIncludePathNonEmptyDirs()
     {
         $saveIncludePath = get_include_path();
-        set_include_path(implode(array($saveIncludePath, implode(array(dirname(__FILE__), '_files', '_testDir1'), DIRECTORY_SEPARATOR)), PATH_SEPARATOR));
+        set_include_path(implode(array($saveIncludePath, implode(array(__DIR__, '_files', '_testDir1'), DIRECTORY_SEPARATOR)), PATH_SEPARATOR));
 
         $this->assertTrue(Zend_Loader::loadFile('Class4.php', implode(PATH_SEPARATOR, array('foo', 'bar'))));
 
@@ -460,7 +460,7 @@ class Zend_LoaderTest extends PHPUnit_Framework_TestCase
         if (version_compare(PHP_VERSION, '5.3.0') < 0) {
             $this->markTestSkipped('PHP < 5.3.0 does not support namespaces');
         }
-        Zend_Loader::loadClass('\Zfns\Foo', array(dirname(__FILE__) . '/Loader/_files'));
+        Zend_Loader::loadClass('\Zfns\Foo', array(__DIR__ . '/Loader/_files'));
     }
 
     /**
@@ -473,7 +473,7 @@ class Zend_LoaderTest extends PHPUnit_Framework_TestCase
             $this->markTestSkipped();
         }
 
-        $pharFile = dirname(__FILE__) . '/Loader/_files/Zend_LoaderTest.phar';
+        $pharFile = __DIR__ . '/Loader/_files/Zend_LoaderTest.phar';
         $phar     = new Phar($pharFile, 0, 'zlt.phar');
         $incPath = 'phar://zlt.phar'
                  . PATH_SEPARATOR . $this->includePath;
@@ -491,7 +491,7 @@ class Zend_LoaderTest extends PHPUnit_Framework_TestCase
             $this->markTestSkipped();
         }
 
-        $pharFile = dirname(__FILE__) . '/Loader/_files/Zend_LoaderTest.phar';
+        $pharFile = __DIR__ . '/Loader/_files/Zend_LoaderTest.phar';
         $phar     = new Phar($pharFile, 0, 'zlt.phar');
         $incPath = 'phar://zlt.phar'
                  . PATH_SEPARATOR . $this->includePath;
@@ -524,8 +524,8 @@ class Zend_LoaderTest extends PHPUnit_Framework_TestCase
      */
     public function testIsReadableShouldReturnTrueForAbsolutePaths()
     {
-        set_include_path(dirname(__FILE__) . '../../');
-        $path = dirname(__FILE__);
+        set_include_path(__DIR__ . '../../');
+        $path = __DIR__;
         $this->assertTrue(Zend_Loader::isReadable($path));
     }
 

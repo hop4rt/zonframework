@@ -56,7 +56,7 @@ class BugsTest extends Zend_Test_PHPUnit_DatabaseTestCase
     protected function getDataSet()
     {
         return $this->createFlatXmlDataSet(
-            dirname(__FILE__) . '/_files/bugsSeed.xml'
+            __DIR__ . '/_files/bugsSeed.xml'
         );
     }
 }
@@ -188,7 +188,7 @@ class BugsTest extends Zend_Test_PHPUnit_DatabaseTestCase
         $ds->addTable('zfbugs', 'SELECT * FROM zfbugs');
 
         $this->assertDataSetsEqual(
-            $this->createFlatXmlDataSet(dirname(__FILE__)
+            $this->createFlatXmlDataSet(__DIR__
                                       . "/_files/bugsInsertIntoAssertion.xml"),
             $ds
         );
@@ -241,7 +241,7 @@ class BugsTest extends Zend_Test_PHPUnit_DatabaseTestCase
         $ds->addTable($bugsTable);
 
         $this->assertDataSetsEqual(
-            $this->createFlatXmlDataSet(dirname(__FILE__)
+            $this->createFlatXmlDataSet(__DIR__
                                       . "/_files/bugsDeleteAssertion.xml"),
             $ds
         );
@@ -289,7 +289,7 @@ class BugsTest extends Zend_Test_PHPUnit_DatabaseTestCase
 
         $ds        = new Zend_Test_PHPUnit_Db_DataSet_DbRowset($rowset);
         $assertion = $this->createFlatXmlDataSet(
-            dirname(__FILE__) . '/_files/bugsUpdateAssertion.xml'
+            __DIR__ . '/_files/bugsUpdateAssertion.xml'
         );
         $expectedRowsets = $assertion->getTable('zfbugs');
 

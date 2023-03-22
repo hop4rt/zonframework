@@ -20,7 +20,7 @@
  * @version    $Id$
  */
 
-require_once dirname(__FILE__) . '/AbstractFeedTest.php';
+require_once __DIR__ . '/AbstractFeedTest.php';
 
 /**
  * @see Zend_Feed_Atom
@@ -46,4 +46,3 @@ class Zend_Feed_AtomTest extends Zend_Feed_AbstractFeedTest
         $feed  = new Zend_Feed_Atom($uri);
     }
 }
-

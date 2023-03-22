@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__) . '/../../common.php';
+require_once __DIR__ . '/../../common.php';
 
 
 system('clear');
@@ -13,7 +13,7 @@ $cacheFrontendOptions = array(
 );
 
 $cacheBackendOptions = array(
-    'cache_dir' => dirname(__FILE__) . '/cache'
+    'cache_dir' => __DIR__ . '/cache'
 );
 
 $cache = Zend_Cache::factory('Core', 'File', $cacheFrontendOptions, $cacheBackendOptions);

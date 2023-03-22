@@ -235,7 +235,7 @@ EOS;
     public function testClassFromReflectionThatImplementsInterfaces()
     {
         if(!class_exists('Zend_CodeGenerator_Php_ClassWithInterface')) {
-            require_once dirname(__FILE__)."/_files/ClassAndInterfaces.php";
+            require_once __DIR__."/_files/ClassAndInterfaces.php";
         }
 
         require_once "Zend/Reflection/Class.php";
@@ -255,7 +255,7 @@ EOS;
     public function testClassFromReflectionDiscardParentImplementedInterfaces()
     {
         if(!class_exists('Zend_CodeGenerator_Php_ClassWithInterface')) {
-            require_once dirname(__FILE__)."/_files/ClassAndInterfaces.php";
+            require_once __DIR__."/_files/ClassAndInterfaces.php";
         }
 
         require_once "Zend/Reflection/Class.php";

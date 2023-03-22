@@ -47,7 +47,7 @@
 
             <programlisting language="php"><![CDATA[
 $paths = array(
-    realpath(dirname(__FILE__) . '/../library'),
+    realpath(__DIR__ . '/../library'),
     '.',
 );
 set_include_path(implode(PATH_SEPARATOR, $paths);
@@ -59,7 +59,7 @@ set_include_path(implode(PATH_SEPARATOR, $paths);
             </para>
 
             <programlisting language="php"><![CDATA[
-define('APPLICATION_PATH', realpath(dirname(__FILE__)));
+define('APPLICATION_PATH', realpath(__DIR__));
 $paths = array(
     APPLICATION_PATH . '/../library'),
     '.',
@@ -173,7 +173,7 @@ library
 
                 <programlisting language="php"><![CDATA[
 $paths = array(
-    realpath(dirname(__FILE__) . '/../library'),
+    realpath(__DIR__ . '/../library'),
     '.'
 );
 set_include_path(implode(PATH_SEPARATOR, $paths));

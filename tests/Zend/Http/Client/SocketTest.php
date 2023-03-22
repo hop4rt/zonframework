@@ -20,7 +20,7 @@
  * @version    $Id$
  */
 
-require_once dirname(__FILE__) . '/CommonHttpTests.php';
+require_once __DIR__ . '/CommonHttpTests.php';
 
 require_once 'Zend/Http/Client/Adapter/Socket.php';
 

@@ -63,7 +63,7 @@ class Zend_LocaleTest extends PHPUnit_Framework_TestCase
         require_once 'Zend/Cache.php';
         $this->_cache = Zend_Cache::factory('Core', 'File',
                  array('lifetime' => 120, 'automatic_serialization' => true),
-                 array('cache_dir' => dirname(__FILE__) . '/_files/'));
+                 array('cache_dir' => __DIR__ . '/_files/'));
         Zend_LocaleTestHelper::resetObject();
         Zend_LocaleTestHelper::setCache($this->_cache);
 
@@ -916,7 +916,7 @@ class Zend_LocaleTest extends PHPUnit_Framework_TestCase
         }
 
         $dir = new DirectoryIterator(
-            dirname(__FILE__) . '/../../library/Zend/Locale/Data'
+            __DIR__ . '/../../library/Zend/Locale/Data'
         );
         $skip = array(
             'characters.xml',

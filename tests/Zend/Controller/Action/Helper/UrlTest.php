@@ -143,7 +143,7 @@ class Zend_Controller_Action_Helper_UrlTest extends PHPUnit_Framework_TestCase
     public function testUrlMethodCreatesUrlBasedOnPassedParametersUsingDefaultRouteWhenNoNamedRoutePassed()
     {
         $this->front->getRouter()->addDefaultRoutes();
-        $this->front->addModuleDirectory(dirname(__FILE__) . '/../../_files/modules');
+        $this->front->addModuleDirectory(__DIR__ . '/../../_files/modules');
         $url = $this->helper->url(array(
             'module'     => 'foo',
             'controller' => 'bar',
