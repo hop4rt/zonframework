@@ -165,4 +165,3 @@ class Zend_Gdata_Gapps_GroupQueryTest extends PHPUnit_Framework_TestCase
     }
 
 }
-

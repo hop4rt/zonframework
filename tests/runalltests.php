@@ -26,7 +26,7 @@ if (!$PHPUNIT) {
         $PHPUNIT = `for %i in (phpunit.bat) do @echo.   %~\$PATH:i)`;
     } else {
         $PHPUNIT = trim(`echo \$PHPUNIT`);
-        if ( empty($PHPUNIT) ) {
+        if (empty($PHPUNIT)) {
             $PHPUNIT = `which phpunit`;
             $PHPUNIT = trim($PHPUNIT);
         }
@@ -58,7 +58,7 @@ sort($files);
 $result = 0;
 
 // run through phpunit
-while(list(, $file)=each($files)) {
+while (list(, $file)=each($files)) {
     if ($_SERVER['TRAVIS_PHP_VERSION'] == 'hhvm' && $file == 'Zend/CodeGenerator/AllTests.php') {
         echo "Skipping $file on HHVM" . PHP_EOL; //gets stuck on the HHVM
         continue;
