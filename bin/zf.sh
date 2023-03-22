@@ -42,4 +42,3 @@ else
 fi
 
 "$PHP_BIN" -d safe_mode=Off -f "$PHP_DIR/zf.php" -- "$@"
-

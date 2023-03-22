@@ -1,12 +1,5 @@
 # USING THE GIT REPOSITORY
 
-> ## End-of-Life occurred 28 Sep 2016
->
-> This project is no longer maintained, and reached its end of life on 28 Sep
-> 2016; the last public release was 1.12.20.
->
-> At this time, the repository has been archived, and is read-only.
-
 ## Setup your own public repository
 
 Your first step is to establish a public repository from which we can
@@ -20,21 +13,21 @@ review.
 ### Option 1: GitHub
 
 1. Setup a GitHub account (http://github.com/), if you haven't yet
-2. Fork the ZF1 repository (http://github.com/zendframework/zf1)
+2. Fork the ZF1 repository (http://github.com/hop4rt/ZOframework)
 3. Clone your fork locally and enter it (use your own GitHub username
    in the statement below)
 
    ```sh
-   % git clone git@github.com:<username>/zf1.git
-   % cd zf1
+   % git clone git@github.com:<username>/ZOframework.git
+   % cd ZOframework
    ```
 
 4. Add a remote to the canonical ZF repository, so you can keep your fork
    up-to-date:
 
    ```sh
-   % git remote add zf1 https://github.com/zendframework/zf1.git
-   % git fetch zf1
+   % git remote add ZOframework https://github.com/hop4rt/ZOframework.git
+   % git fetch ZOframework
    ```
 
 ### Option 2: Personal Repository
@@ -60,17 +53,17 @@ repository.
 3. Add a remote for the ZF repository and fetch it
 
    ```sh
-   % git remote add zf1 https://github.com/zendframework/zf1.git
-   % git fetch zf1
+   % git remote add ZOframework https://github.com/hop4rt/ZOframework.git
+   % git fetch ZOframework
    ```
 
-4. Create a new branch for the ZF repository (named "zf/master" here)
+4. Create a new branch for the ZF repository (named "zof/master" here)
 
    ```sh
-   % git checkout -b zf/master zf1/master
+   % git checkout -b zof/master ZOframework/master
    ```
 
-5. Create your master branch off the ZF branch, and push to your
+5. Create your master branch off the ZOF branch, and push to your
    repository
 
    ```sh
@@ -80,7 +73,7 @@ repository.
 
 ## Contributor License Agreement and your git configuration
 
-In order for us to accept your changes to Zend Framework 1.X, you must sign and
+In order for us to accept your changes to ZO Framework, you must sign and
 return a Contributors License Agreement (http://framework.zend.com/cla or
 http://framework.zend.com/ccla). For us to verify that you have a CLA on file,
 we need you to do one of the following:
@@ -104,14 +97,14 @@ request for either your username or email.
 ## Keeping Up-to-Date
 
 Periodically, you should update your fork or personal repository to
-match the canonical ZF repository. In each of the above setups, we have
+match the canonical ZOF repository. In each of the above setups, we have
 added a remote to the Zend Framework repository, which allows you to do
 the following:
 
 
 ```sh
 % git checkout master
-% git pull zf1 master
+% git pull ZOframework master
 - OPTIONALLY, to keep your remote up-to-date -
 % git push origin
 ```
@@ -209,17 +202,17 @@ repository, we suggest doing some cleanup of these branches.
 
 RSS feeds may be found at:
 
-- `https://github.com/zendframework/zf1/commits/<branch>.atom`
+- `https://github.com/hop4rt/ZOframework/commits/<branch>.atom`
 
 where &lt;branch&gt; is a branch in the repository.
 
-To subscribe to git email notifications, simply watch or fork the zf1 repository
+To subscribe to git email notifications, simply watch or fork the ZOframework repository
 on GitHub.
 
 ## CONTRIBUTORS AND COMMITTERS
 
 Both Zend's internal Zend Framework team and the members of the Community Review
-team have push privileges to the ZF1 repository. Additionally, a number of
+team have push privileges to the ZOframework repository. Additionally, a number of
 members of the community have been vetted to merge pull requests. When in doubt,
 hop into Freenode IRC, and ask in the #zftalk.dev channel for somebody to review
 and/or merge your change.

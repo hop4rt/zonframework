@@ -1,15 +1,15 @@
 {
     "name": "hop4rt/zonframework",
-    "description": "Zend Framework 1",
+    "description": "Zon Framework",
     "type": "library",
     "keywords": [
         "framework",
-        "zf1"
+        "zon"
     ],
     "homepage": "https://github.com/hop4rt/zonframework",
     "license": "BSD-3-Clause",
     "require": {
-        "php": ">=5.3.29 <7.1.0"
+        "php": ">=5.3.29 <=7.0.33"
     },
     "autoload": {
         "psr-0": {
@@ -20,11 +20,14 @@
         "library/"
     ],
     "config": {
-        "bin-dir": "bin"
+        "bin-dir": "bin",
+        "platform": {
+            "php": "5.3.29"
+        }
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "zf-1.12.21dev"
+            "dev-master": "1.0.x-dev"
         }
     },
     "require-dev": {
@@ -33,6 +36,6 @@
         "symfony/polyfill-ctype": "v1.19.0"
     },
     "archive": {
-        "exclude": ["/demos", "/documentation", "/tests"]
+        "exclude": ["/demos", "/documentation", "/tests", "/standards", "/phpcs.xml"]
     }
 }

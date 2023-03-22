@@ -233,7 +233,7 @@ class ZF
             }
         }
 
-        $homeDirectory = ($this->_homeDirectory) ? $this->_homeDirectory : $this->_detectHomeDirectory(true, false);
+        $homeDirectory = $this->_homeDirectory ?: $this->_detectHomeDirectory(true, false);
 
         if ($homeDirectory) {
             $storageDirectory = $homeDirectory . '/.zf/';
@@ -269,7 +269,7 @@ class ZF
             }
         }
 
-        $homeDirectory = ($this->_homeDirectory) ? $this->_homeDirectory : $this->_detectHomeDirectory(true, false);
+        $homeDirectory = $this->_homeDirectory ?: $this->_detectHomeDirectory(true, false);
         if ($homeDirectory) {
             $configFile = $homeDirectory . '/.zf.ini';
             $this->_logMessage('Config file assumed in home directory at location ' . $configFile, $returnMessages);
@@ -280,7 +280,7 @@ class ZF
             }
         }
 
-        $storageDirectory = ($this->_storageDirectory) ? $this->_storageDirectory : $this->_detectStorageDirectory(true, false);
+        $storageDirectory = $this->_storageDirectory ?: $this->_detectStorageDirectory(true, false);
         if ($storageDirectory) {
             $configFile = $storageDirectory . '/zf.ini';
             $this->_logMessage('Config file assumed in storage directory at location ' . $configFile, $returnMessages);

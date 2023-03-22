@@ -1,14 +1,5 @@
 ![Logo](http://framework.zend.com/images/logos/ZendFramework-logo.png)
 
-> ## End-of-Life occurred 28 Sep 2016
->
-> This project is no longer maintained, and reached its end of life on 28 Sep
-> 2016; the last public release was 1.12.20.
->
-> At this time, the repository has been archived, and is read-only.
-
----
-
 Welcome to the Zend Framework 1.12 Release! 
 
 Master: [![Build Status](https://api.travis-ci.org/zendframework/zf1.png?branch=master)](https://travis-ci.org/zendframework/zf1)
@@ -16,8 +7,8 @@ Master: [![Build Status](https://api.travis-ci.org/zendframework/zf1.png?branch=
 RELEASE INFORMATION
 ===================
 
-Zend Framework 1.12.21dev Release.
-Released on MMM DD, YYYY.
+Zend Framework 1.12.20 Release.
+Released on 2016-09-08.
 
 IMPORTANT FIXES FOR 1.12.21
 ---------------------------
@@ -172,7 +163,7 @@ the fw-announce mailing list by sending a blank message to:
 LICENSE
 =======
 
-The files in this archive are released under the Zend Framework license.
+The files in this archive are released under the 3-Clause BSD License.
 You can find a copy of this license in [LICENSE.txt](LICENSE.txt).
 
 ACKNOWLEDGEMENTS

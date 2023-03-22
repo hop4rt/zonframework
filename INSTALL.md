@@ -1,7 +1,7 @@
 INSTALLATION
 ------------
 
-Zend Framework requires no special installation steps. Simply download the framework,
+ZOne Framework requires no special installation steps. Simply download the framework,
 extract it to the folder you would like to keep it in, and add the library directory
 to your PHP `include_path`. To use components in the extras library, add the extras/library
 directory to your PHP `include_path`, as well.
@@ -11,7 +11,7 @@ If you would like to use `Zend_Tool`, simply add `bin/zf.bat` (for Windows) or
 SYSTEM REQUIREMENTS
 -------------------
 
-Zend Framework requires PHP 5.2.11 or later. Please see the system requirements
+ZOne Framework requires PHP 5.3 or later. Please see the system requirements
 appendix for more detailed information:
 
 - http://framework.zend.com/manual/en/requirements.html
@@ -20,7 +20,7 @@ DEVELOPMENT VERSIONS
 --------------------
 
 If you would like to preview enhancements or bug fixes that have not yet been
-released, you can obtain the current development version of Zend Framework using one
+released, you can obtain the current development version of ZOne Framework using one
 of the following methods:
 
 * Using a git client. Zend Framework is open source software, and
@@ -30,13 +30,13 @@ of the following methods:
   framework version very often.
 
   Checking out a working copy is necessary if you would like to directly contribute
-  to Zend Framework; a working copy can be updated any time with `git fetch &&
+  to ZOne Framework; a working copy can be updated any time with `git fetch &&
   git rebase origin/master`.
 
   A git submodules definition is highly convenient for developers already using
   git to manage their application working copies.
 
-  The URL for the the Zend Framework 1.X git repository is:
+  The URL for the the ZOne Framework git repository is:
 
   - https://github.com/zendframework/zf1
 
