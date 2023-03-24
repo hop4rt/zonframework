@@ -399,7 +399,7 @@ class Zend_Controller_Request_HttpTest extends PHPUnit_Framework_TestCase
         $requestUri = $request->getRequestUri();
         $baseUrl    = $request->getBaseUrl();
         $pathInfo   = substr($requestUri, strlen($baseUrl));
-        $this->assertTrue($pathInfo ? true : false);
+        $this->assertTrue((bool) $pathInfo);
 
         $this->assertEquals('/ctrl-name/act-name', $request->getPathInfo(), "Expected $pathInfo;");
     }

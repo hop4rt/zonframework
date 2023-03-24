@@ -460,7 +460,7 @@ class Zend_Layout
      */
     protected function _setMvcEnabled($mvcEnabled)
     {
-        $this->_mvcEnabled = ($mvcEnabled) ? true : false;
+        $this->_mvcEnabled = (bool) $mvcEnabled;
         return $this;
     }
 
@@ -482,7 +482,7 @@ class Zend_Layout
      */
     public function setMvcSuccessfulActionOnly($successfulActionOnly)
     {
-        $this->_mvcSuccessfulActionOnly = ($successfulActionOnly) ? true : false;
+        $this->_mvcSuccessfulActionOnly = (bool) $successfulActionOnly;
         return $this;
     }
 

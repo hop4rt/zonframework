@@ -58,7 +58,7 @@ abstract class Zend_CodeGenerator_Php_Abstract extends Zend_CodeGenerator_Abstra
      */
     public function setSourceDirty($isSourceDirty = true)
     {
-        $this->_isSourceDirty = ($isSourceDirty) ? true : false;
+        $this->_isSourceDirty = (bool) $isSourceDirty;
         return $this;
     }
 

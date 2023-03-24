@@ -221,16 +221,16 @@ class Zend_XmlRpc_FaultTest extends PHPUnit_Framework_TestCase
             $this->fail('Unable to parse generated XML');
         }
 
-        $this->assertTrue($sx->fault ? true : false, $xml);
-        $this->assertTrue($sx->fault->value ? true : false, $xml);
-        $this->assertTrue($sx->fault->value->struct ? true : false, $xml);
+        $this->assertTrue((bool) $sx->fault, $xml);
+        $this->assertTrue((bool) $sx->fault->value, $xml);
+        $this->assertTrue((bool) $sx->fault->value->struct, $xml);
         $count = 0;
         foreach ($sx->fault->value->struct->member as $member) {
             $count++;
-            $this->assertTrue($member->name ? true : false, $xml);
-            $this->assertTrue($member->value ? true : false, $xml);
+            $this->assertTrue((bool) $member->name, $xml);
+            $this->assertTrue((bool) $member->value, $xml);
             if ('faultCode' == (string) $member->name) {
-                $this->assertTrue($member->value->int ? true : false, $xml);
+                $this->assertTrue((bool) $member->value->int, $xml);
                 $this->assertEquals(1000, (int) $member->value->int, $xml);
             }
             if ('faultString' == (string) $member->name) {

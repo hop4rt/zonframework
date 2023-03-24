@@ -751,7 +751,7 @@ abstract class Zend_Controller_Response_Abstract
     public function renderExceptions($flag = null)
     {
         if (null !== $flag) {
-            $this->_renderExceptions = $flag ? true : false;
+            $this->_renderExceptions = (bool) $flag;
         }
 
         return $this->_renderExceptions;

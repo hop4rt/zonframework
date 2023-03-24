@@ -232,7 +232,7 @@ class Zend_Auth_Adapter_Ldap implements Zend_Auth_Adapter_Interface
         $name = $options['accountDomainName'];
         if (!$name)
             $name = $options['accountDomainNameShort'];
-        return $name ? $name : '';
+        return $name ?: '';
     }
 
     /**

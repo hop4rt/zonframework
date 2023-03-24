@@ -73,7 +73,7 @@ class Zend_Json_Encoder
      */
     public static function encode($value, $cycleCheck = false, $options = array())
     {
-        $encoder = new self(($cycleCheck) ? true : false, $options);
+        $encoder = new self((bool) $cycleCheck, $options);
         return $encoder->_encodeValue($value);
     }
 
@@ -575,4 +575,3 @@ class Zend_Json_Encoder
         return '';
     }
 }
-

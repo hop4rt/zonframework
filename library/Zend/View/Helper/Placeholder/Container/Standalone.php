@@ -100,7 +100,7 @@ abstract class Zend_View_Helper_Placeholder_Container_Standalone extends Zend_Vi
      */
     public function setAutoEscape($autoEscape = true)
     {
-        $this->_autoEscape = ($autoEscape) ? true : false;
+        $this->_autoEscape = (bool) $autoEscape;
         return $this;
     }
 

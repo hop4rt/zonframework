@@ -27,7 +27,7 @@ require_once 'Zend/Soap/Server/Exception.php';
 
 require_once "Zend/Config.php";
 
-require_once dirname(__FILE__) . '/TestAsset/commontypes.php';
+require_once __DIR__ . '/TestAsset/commontypes.php';
 
 /**
  * Zend_Soap_Server
@@ -275,10 +275,10 @@ class Zend_Soap_ServerTest extends PHPUnit_Framework_TestCase
         $server = new Zend_Soap_Server();
 
         $this->assertNull($server->getWsdl());
-        $server->setWsdl(dirname(__FILE__).'/_files/wsdl_example.wsdl');
-        $this->assertEquals(dirname(__FILE__).'/_files/wsdl_example.wsdl', $server->getWsdl());
+        $server->setWsdl(__DIR__.'/_files/wsdl_example.wsdl');
+        $this->assertEquals(__DIR__.'/_files/wsdl_example.wsdl', $server->getWsdl());
         try {
-            $server->setWsdl(dirname(__FILE__).'/_files/bogus.wsdl');
+            $server->setWsdl(__DIR__.'/_files/bogus.wsdl');
             $this->fail('Invalid WSDL URI or PATH should fail');
         } catch (Exception $e)  {
             // success
@@ -290,8 +290,8 @@ class Zend_Soap_ServerTest extends PHPUnit_Framework_TestCase
         $server = new Zend_Soap_Server();
 
         $this->assertNull($server->getWsdl());
-        $server->setWsdl(dirname(__FILE__).'/_files/wsdl_example.wsdl');
-        $this->assertEquals(dirname(__FILE__).'/_files/wsdl_example.wsdl', $server->getWsdl());
+        $server->setWsdl(__DIR__.'/_files/wsdl_example.wsdl');
+        $this->assertEquals(__DIR__.'/_files/wsdl_example.wsdl', $server->getWsdl());
     }
 
     public function testAddFunction()
@@ -981,10 +981,6 @@ class Zend_Soap_ServerTest extends PHPUnit_Framework_TestCase
         $this->assertTrue(is_string($server->mockSoapServer->handle[0]));
     }
 
-    /**
-     * Method commented out as causes segmentation fault on PHP 5.2.17 with PHPUnit 3.2.13 on Travis.
-     */
-    /*
     public function testShouldThrowExceptionIfHandledRequestContainsDoctype()
     {
         $this->markTestSkipped('Cannot test for RuntimeException from Soap Server');
@@ -1011,7 +1007,6 @@ class Zend_Soap_ServerTest extends PHPUnit_Framework_TestCase
         $response = $server->handle($request);
         $this->assertContains('Invalid XML', $response->getMessage());
     }
-    */
 }
 
 

@@ -104,7 +104,7 @@ or <a href="http://www.user-agents.org/" target="_blank">http://www.user-agents.
 	<?php
 foreach ($options as $option) {
     $selected = ($option == $_GET['sequence'] ? ' selected ' : '');
-    echo '<option value="' . $option . '"' . $selected . '>' . ($option ? $option : '(standard)') . '</option>';
+    echo '<option value="' . $option . '"' . $selected . '>' . ($option ?: '(standard)') . '</option>';
 }
 ?>
 </select> (DON'T FORGET TO CLEAN SESSION COOKIE)<br />

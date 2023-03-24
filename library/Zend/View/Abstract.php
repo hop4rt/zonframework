@@ -948,7 +948,7 @@ abstract class Zend_View_Abstract implements Zend_View_Interface
      */
     public function strictVars($flag = true)
     {
-        $this->_strictVars = ($flag) ? true : false;
+        $this->_strictVars = (bool) $flag;
 
         return $this;
     }

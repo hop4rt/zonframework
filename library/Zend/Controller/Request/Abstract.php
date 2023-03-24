@@ -340,7 +340,7 @@ abstract class Zend_Controller_Request_Abstract
      */
     public function setDispatched($flag = true)
     {
-        $this->_dispatched = $flag ? true : false;
+        $this->_dispatched = (bool) $flag;
         return $this;
     }
 

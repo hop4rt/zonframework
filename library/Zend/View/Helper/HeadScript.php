@@ -480,9 +480,9 @@ class Zend_View_Helper_HeadScript extends Zend_View_Helper_Placeholder_Container
                 : $this->getIndent();
 
         if ($this->view) {
-            $useCdata = $this->view->doctype()->isXhtml() ? true : false;
+            $useCdata = (bool) $this->view->doctype()->isXhtml();
         } else {
-            $useCdata = $this->useCdata ? true : false;
+            $useCdata = (bool) $this->useCdata;
         }
         $escapeStart = ($useCdata) ? '//<![CDATA[' : '//<!--';
         $escapeEnd   = ($useCdata) ? '//]]>'       : '//-->';

@@ -105,7 +105,7 @@ class Zend_CodeGenerator_Php_Property extends Zend_CodeGenerator_Php_Member_Abst
      */
     public function isConst()
     {
-        return ($this->_isConst) ? true : false;
+        return (bool) $this->_isConst;
     }
 
     /**

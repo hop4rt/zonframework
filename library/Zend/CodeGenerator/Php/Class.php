@@ -210,7 +210,7 @@ class Zend_CodeGenerator_Php_Class extends Zend_CodeGenerator_Php_Abstract
      */
     public function setAbstract($isAbstract)
     {
-        $this->_isAbstract = ($isAbstract) ? true : false;
+        $this->_isAbstract = (bool) $isAbstract;
         return $this;
     }
 

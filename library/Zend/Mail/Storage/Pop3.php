@@ -319,7 +319,7 @@ class Zend_Mail_Storage_Pop3 extends Zend_Mail_Storage_Abstract
             } catch(Zend_Mail_Exception $e) {
                 // ignoring error
             }
-            $this->_has['uniqueid'] = $id ? true : false;
+            $this->_has['uniqueid'] = (bool) $id;
             return $this->_has['uniqueid'];
         }
 

@@ -224,7 +224,7 @@ class Zend_Ldap_Node extends Zend_Ldap_Node_Abstract implements Iterator, Recurs
             $this->_originalData = array();
         }
         $this->_children = null;
-        $this->_markAsNew(($fromDataSource === true) ? false : true);
+        $this->_markAsNew(!($fromDataSource === true));
         $this->_markAsToBeDeleted(false);
     }
 
@@ -312,7 +312,7 @@ class Zend_Ldap_Node extends Zend_Ldap_Node_Abstract implements Iterator, Recurs
             require_once 'Zend/Ldap/Exception.php';
             throw new Zend_Ldap_Exception(null, '\'dn\' key is of a wrong data type.');
         }
-        $fromDataSource = ($fromDataSource === true) ? true : false;
+        $fromDataSource = $fromDataSource === true;
         $new = new self($dn, $data, $fromDataSource, null);
         $new->_ensureRdnAttributeValues();
         return $new;
@@ -344,7 +344,7 @@ class Zend_Ldap_Node extends Zend_Ldap_Node_Abstract implements Iterator, Recurs
      */
     protected function _markAsNew($new)
     {
-        $this->_new = ($new === false) ? false : true;
+        $this->_new = !($new === false);
     }
 
     /**
@@ -369,7 +369,7 @@ class Zend_Ldap_Node extends Zend_Ldap_Node_Abstract implements Iterator, Recurs
      */
     protected function _markAsToBeDeleted($delete)
     {
-        $this->_delete = ($delete === true) ? true : false;
+        $this->_delete = $delete === true;
     }
 
 

@@ -159,12 +159,12 @@ END;
         // if $_GET['status'] is populated then we have a response
         // about a syndicated upload from YouTube's servers
         if (isset($_GET['status'])) {
-            (isset($_GET['code']) ? $code = $_GET['code'] : $code = null);
-            (isset($_GET['id']) ? $id = $_GET['id'] : $id = null);
+            $code = (isset($_GET['code']) ? $_GET['code'] : null);
+            $id = (isset($_GET['id']) ? $_GET['id'] : null);
             print '<div id="generalStatus">' .
                   uploadStatus($_GET['status'], $code, $id) .
                   '<div id="detailedUploadStatus"></div></div>';
-         }
+        }
     ?>
     <!-- General status -->
     <?php

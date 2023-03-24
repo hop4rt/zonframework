@@ -560,9 +560,9 @@ class Zend_Date extends Zend_Date_DateObject
         $orig    = '';
         for ($i = 0; isset($part[$i]); ++$i) {
             if ($part[$i] == "'") {
-                $comment = $comment ? false : true;
+                $comment = !$comment;
                 if (isset($part[$i+1]) && ($part[$i+1] == "'")) {
-                    $comment = $comment ? false : true;
+                    $comment = !$comment;
                     $format .= "\\'";
                     ++$i;
                 }

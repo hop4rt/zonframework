@@ -199,7 +199,7 @@ class Zend_Filter_Inflector implements Zend_Filter_Interface
      */
     public function setThrowTargetExceptionsOn($throwTargetExceptionsOn)
     {
-        $this->_throwTargetExceptionsOn = ($throwTargetExceptionsOn == true) ? true : false;
+        $this->_throwTargetExceptionsOn = $throwTargetExceptionsOn == true;
         return $this;
     }
 

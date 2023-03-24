@@ -168,7 +168,7 @@ class Zend_Tool_Project_Profile_Resource extends Zend_Tool_Project_Profile_Resou
     public function setEnabled($enabled = true)
     {
         // convert fuzzy types to bool
-        $this->_enabled = (!in_array($enabled, array('false', 'disabled', 0, -1, false), true)) ? true : false;
+        $this->_enabled = !in_array($enabled, array('false', 'disabled', 0, -1, false), true);
         return $this;
     }
 

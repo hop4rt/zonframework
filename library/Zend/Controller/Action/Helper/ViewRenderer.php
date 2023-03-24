@@ -410,7 +410,7 @@ class Zend_Controller_Action_Helper_ViewRenderer extends Zend_Controller_Action_
                 case 'noController':
                 case 'noRender':
                     $property = '_' . $key;
-                    $this->{$property} = ($value) ? true : false;
+                    $this->{$property} = (bool) $value;
                     break;
                 case 'responseSegment':
                 case 'scriptAction':
@@ -647,7 +647,7 @@ class Zend_Controller_Action_Helper_ViewRenderer extends Zend_Controller_Action_
      */
     public function setNeverRender($flag = true)
     {
-        $this->_neverRender = ($flag) ? true : false;
+        $this->_neverRender = (bool) $flag;
         return $this;
     }
 
@@ -669,7 +669,7 @@ class Zend_Controller_Action_Helper_ViewRenderer extends Zend_Controller_Action_
      */
     public function setNoRender($flag = true)
     {
-        $this->_noRender = ($flag) ? true : false;
+        $this->_noRender = (bool) $flag;
         return $this;
     }
 
@@ -740,7 +740,7 @@ class Zend_Controller_Action_Helper_ViewRenderer extends Zend_Controller_Action_
      */
     public function setNoController($flag = true)
     {
-        $this->_noController = ($flag) ? true : false;
+        $this->_noController = (bool) $flag;
         return $this;
     }
 
@@ -762,7 +762,7 @@ class Zend_Controller_Action_Helper_ViewRenderer extends Zend_Controller_Action_
      */
     public function setNeverController($flag = true)
     {
-        $this->_neverController = ($flag) ? true : false;
+        $this->_neverController = (bool) $flag;
         return $this;
     }
 

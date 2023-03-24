@@ -130,7 +130,7 @@ class Zend_Controller_Action_Helper_Redirector extends Zend_Controller_Action_He
      */
     public function setExit($flag)
     {
-        $this->_exit = ($flag) ? true : false;
+        $this->_exit = (bool) $flag;
         return $this;
     }
 
@@ -153,7 +153,7 @@ class Zend_Controller_Action_Helper_Redirector extends Zend_Controller_Action_He
      */
     public function setPrependBase($flag)
     {
-        $this->_prependBase = ($flag) ? true : false;
+        $this->_prependBase = (bool) $flag;
         return $this;
     }
 
@@ -176,7 +176,7 @@ class Zend_Controller_Action_Helper_Redirector extends Zend_Controller_Action_He
      */
     public function setCloseSessionOnExit($flag)
     {
-        $this->_closeSessionOnExit = ($flag) ? true : false;
+        $this->_closeSessionOnExit = (bool) $flag;
         return $this;
     }
 
@@ -198,7 +198,7 @@ class Zend_Controller_Action_Helper_Redirector extends Zend_Controller_Action_He
      */
     public function setUseAbsoluteUri($flag = true)
     {
-        $this->_useAbsoluteUri = ($flag) ? true : false;
+        $this->_useAbsoluteUri = (bool) $flag;
         return $this;
     }
 
@@ -352,10 +352,10 @@ class Zend_Controller_Action_Helper_Redirector extends Zend_Controller_Action_He
 
         if (null !== $options) {
             if (isset($options['exit'])) {
-                $this->setExit(($options['exit']) ? true : false);
+                $this->setExit((bool) $options['exit']);
             }
             if (isset($options['prependBase'])) {
-                $this->setPrependBase(($options['prependBase']) ? true : false);
+                $this->setPrependBase((bool) $options['prependBase']);
             }
             if (isset($options['code'])) {
                 $this->setCode($options['code']);

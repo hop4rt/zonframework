@@ -126,7 +126,7 @@ class Zend_Http_Cookie
 
         $this->value = (string) $value;
         $this->expires = ($expires === null ? null : (int) $expires);
-        $this->path = ($path ? $path : '/');
+        $this->path = ($path ?: '/');
         $this->secure = $secure;
     }
 
@@ -357,7 +357,7 @@ class Zend_Http_Cookie
 
         if ($name !== '') {
             $ret = new self($name, $value, $domain, $expires, $path, $secure);
-            $ret->encodeValue = ($encodeValue) ? true : false;
+            $ret->encodeValue = (bool) $encodeValue;
             return $ret;
         } else {
             return false;

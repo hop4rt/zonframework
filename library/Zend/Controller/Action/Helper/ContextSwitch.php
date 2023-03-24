@@ -924,7 +924,7 @@ class Zend_Controller_Action_Helper_ContextSwitch extends Zend_Controller_Action
      */
     public function setAutoDisableLayout($flag)
     {
-        $this->_disableLayout = ($flag) ? true : false;
+        $this->_disableLayout = (bool) $flag;
         return $this;
     }
 
@@ -1391,4 +1391,3 @@ class Zend_Controller_Action_Helper_ContextSwitch extends Zend_Controller_Action
         return $this->_viewRenderer;
     }
 }
-

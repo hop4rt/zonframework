@@ -107,7 +107,7 @@ class Zend_Queue_Message_PlatformJob extends Zend_Queue_Message
      */
     public function getJobId()
     {
-        return (($this->_id) ?  $this->_id : $this->_job->getID());
+        return ($this->_id ?: $this->_job->getID());
     }
 
     /**
