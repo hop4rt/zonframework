@@ -1,11 +1,5 @@
 # CONTRIBUTING
 
-> ## Contributors License Agreement
->
-> **To submit code, patches, and proposals to Zend Framework, contributors must
-agree to the New BSD License and also submit a signed
-[Contributor License Agreement (CLA)](https://github.com/zendframework/zf1/wiki/Contributor-License-Agreement-%28CLA%29).**
-
 ## RESOURCES
 
 If you wish to contribute to Zend Framework, please be sure to
@@ -15,13 +9,6 @@ read/subscribe to the following resources:
     http://framework.zend.com/manual/1.12/en/coding-standard.html
  -  ZF Git Guide:
     [README-GIT.md](README-GIT.md)
- -  Contributor's Guide:
-    http://framework.zend.com/participate/contributor-guide-v1
- -  ZF Contributor's mailing list:
-    Archives: http://zend-framework-community.634137.n4.nabble.com/ZF-Contributor-f680267.html
-    Subscribe: zf-contributors-subscribe@lists.zend.com
- -  ZF Contributor's IRC channel:
-    #zftalk.dev on Freenode.net
 
 ## Reporting Potential Security Issues
 
@@ -39,5 +26,3 @@ We request that you contact us via the email address above and give the project
 contributors a chance to resolve the vulnerability and issue a new release prior
 to any public exposure; this helps protect Zend Framework users and provides
 them with a chance to upgrade and/or update in order to protect their applications.
-
-For sensitive email communications, please use [our PGP key](http://framework.zend.com/zf-security-pgp-key.asc).

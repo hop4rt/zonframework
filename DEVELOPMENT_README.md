@@ -11,7 +11,7 @@ development following these simple instructions.
 
 ### 2. Checkout repository to any location
 
-    git clone git://github.com/zendframework/zf1.git zf1-dev
+    git clone git://github.com/hop4rt/zonframework.git zf1-dev
     cd zf1-dev
 
 ### 3. Start the process by running Vagrant.
@@ -28,13 +28,13 @@ command prompt.
 
 ### 5. Build a version of PHP.
 
-    php-build.sh 5.3.11
+    php-build.sh 5.3.29
 
 This also takes a while as it compiles PHP for you!
    
 ### 6. Select PHP to use:
 
-    pe 5.3.11
+    pe 5.3.29
 
 ### 7. Run tests
 

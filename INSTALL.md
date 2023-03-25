@@ -1,7 +1,7 @@
 INSTALLATION
 ------------
 
-ZOne Framework requires no special installation steps. Simply download the framework,
+Zon Framework requires no special installation steps. Simply download the framework,
 extract it to the folder you would like to keep it in, and add the library directory
 to your PHP `include_path`. To use components in the extras library, add the extras/library
 directory to your PHP `include_path`, as well.
@@ -11,7 +11,7 @@ If you would like to use `Zend_Tool`, simply add `bin/zf.bat` (for Windows) or
 SYSTEM REQUIREMENTS
 -------------------
 
-ZOne Framework requires PHP 5.3 or later. Please see the system requirements
+Zon Framework requires PHP 5.3 or later. Please see the system requirements
 appendix for more detailed information:
 
 - http://framework.zend.com/manual/en/requirements.html
@@ -30,36 +30,19 @@ of the following methods:
   framework version very often.
 
   Checking out a working copy is necessary if you would like to directly contribute
-  to ZOne Framework; a working copy can be updated any time with `git fetch &&
+  to Zon Framework; a working copy can be updated any time with `git fetch &&
   git rebase origin/master`.
 
   A git submodules definition is highly convenient for developers already using
   git to manage their application working copies.
 
-  The URL for the the ZOne Framework git repository is:
+  The URL for the Zon Framework git repository is:
 
-  - https://github.com/zendframework/zf1
+  - https://github.com/hop4rt/zonframewor
 
   For more information about git, please see the official website:
 
   - http://git-scm.com
-
-* Using Subversion. You may pin an svn:externals definition to our repository.
-  For versions prior to 1.12.0, use the following URLs:
-
-  - http://framework.zend.com/svn/framework/standard/branches/release-1.{minor version}
-  - http://framework.zend.com/svn/framework/standard/tags/release-1.{minor version}.{maintenance version}
-  - http://framework.zend.com/svn/framework/extras/branches/release-1.{minor version}
-
-  For versions 1.12.0 and on, use the following URLs:
-
-  - https://github.com/zendframework/zf1/trunk (development version)
-  - https://github.com/zendframework/zf1/tags/release-1.12.{maintenance version}
-  - https://github.com/zendframework/zf1-extras/trunk
-
-  For more information on subversion, please visit the official website:
-
-  - http://subversion.apache.org/
 
 CONFIGURING THE INCLUDE PATH
 ----------------------------

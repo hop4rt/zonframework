@@ -13,21 +13,21 @@ review.
 ### Option 1: GitHub
 
 1. Setup a GitHub account (http://github.com/), if you haven't yet
-2. Fork the ZF1 repository (http://github.com/hop4rt/ZOframework)
+2. Fork the ZF1 repository (http://github.com/hop4rt/zonframework)
 3. Clone your fork locally and enter it (use your own GitHub username
    in the statement below)
 
    ```sh
-   % git clone git@github.com:<username>/ZOframework.git
-   % cd ZOframework
+   % git clone git@github.com:<username>/zonframework.git
+   % cd zonframework
    ```
 
 4. Add a remote to the canonical ZF repository, so you can keep your fork
    up-to-date:
 
    ```sh
-   % git remote add ZOframework https://github.com/hop4rt/ZOframework.git
-   % git fetch ZOframework
+   % git remote add zonframework https://github.com/hop4rt/zonframework.git
+   % git fetch zonframework
    ```
 
 ### Option 2: Personal Repository
@@ -53,17 +53,17 @@ repository.
 3. Add a remote for the ZF repository and fetch it
 
    ```sh
-   % git remote add ZOframework https://github.com/hop4rt/ZOframework.git
-   % git fetch ZOframework
+   % git remote add zonframework https://github.com/hop4rt/zonframework.git
+   % git fetch zonframework
    ```
 
-4. Create a new branch for the ZF repository (named "zof/master" here)
+4. Create a new branch for the ZF repository (named "zon/master" here)
 
    ```sh
-   % git checkout -b zof/master ZOframework/master
+   % git checkout -b zon/master zonframework/master
    ```
 
-5. Create your master branch off the ZOF branch, and push to your
+5. Create your master branch off the zonframework branch, and push to your
    repository
 
    ```sh
@@ -71,40 +71,17 @@ repository.
    % git push origin HEAD:master
    ```
 
-## Contributor License Agreement and your git configuration
-
-In order for us to accept your changes to ZO Framework, you must sign and
-return a Contributors License Agreement (http://framework.zend.com/cla or
-http://framework.zend.com/ccla). For us to verify that you have a CLA on file,
-we need you to do one of the following:
-
-* If your github username matches the username with which you registered on the
-  former Zend Framework issue tracker (our old JIRA instance), we should be able
-  to look you up fine.
-* Otherwise, please ensure that you set your user email in your working
-  directory to match the email we have on file with your CLA. This can be done
-  with the following
-
-  ```sh
-  % git config user.email "your-email@example.org"
-  ```
-
-  We can then look up your CLA status based on your commits.
-
-If we cannot determine your CLA status, we will ask in a comment on the pull
-request for either your username or email.
-
 ## Keeping Up-to-Date
 
 Periodically, you should update your fork or personal repository to
-match the canonical ZOF repository. In each of the above setups, we have
+match the canonical Zon Framework repository. In each of the above setups, we have
 added a remote to the Zend Framework repository, which allows you to do
 the following:
 
 
 ```sh
 % git checkout master
-% git pull ZOframework master
+% git pull zonframework master
 - OPTIONALLY, to keep your remote up-to-date -
 % git push origin
 ```
@@ -202,17 +179,9 @@ repository, we suggest doing some cleanup of these branches.
 
 RSS feeds may be found at:
 
-- `https://github.com/hop4rt/ZOframework/commits/<branch>.atom`
+- `https://github.com/hop4rt/zonframework/commits/<branch>.atom`
 
 where &lt;branch&gt; is a branch in the repository.
 
-To subscribe to git email notifications, simply watch or fork the ZOframework repository
+To subscribe to git email notifications, simply watch or fork the Zon Framework repository
 on GitHub.
-
-## CONTRIBUTORS AND COMMITTERS
-
-Both Zend's internal Zend Framework team and the members of the Community Review
-team have push privileges to the ZOframework repository. Additionally, a number of
-members of the community have been vetted to merge pull requests. When in doubt,
-hop into Freenode IRC, and ask in the #zftalk.dev channel for somebody to review
-and/or merge your change.

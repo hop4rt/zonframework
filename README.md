@@ -2,8 +2,6 @@
 
 Welcome to the Zend Framework 1.12 Release! 
 
-Master: [![Build Status](https://api.travis-ci.org/zendframework/zf1.png?branch=master)](https://travis-ci.org/zendframework/zf1)
-
 RELEASE INFORMATION
 ===================
 
@@ -114,7 +112,7 @@ http://framework.zend.com/manual/en/migration.html
 SYSTEM REQUIREMENTS
 ===================
 
-Zend Framework requires PHP 5.2.11 or later. Please see our reference
+Zend Framework requires PHP 5.3.29 or later. Please see our reference
 guide for more detailed system requirements:
 
 http://framework.zend.com/manual/en/requirements.html
@@ -123,16 +121,6 @@ INSTALLATION
 ============
 
 Please see [INSTALL.md](INSTALL.md).
-
-REPOSITORY HISTORY
-==================
-
-This repository was created based on the release-1.12 branch of a Subversion
-repository, http://framework.zend.com/svn/framework/standard/. It contains a
-subset of the project history, dating from between the 1.5.0 and 1.6.0 releases,
-and only contains the tags for the 1.12 series. If you would like an older
-version, you may access the subversion repository linked above, or download an
-older version from http://framework.zend.com/downloads/archives.
 
 CONTRIBUTING
 ============
@@ -144,21 +132,12 @@ QUESTIONS AND FEEDBACK
 ======================
 
 Online documentation can be found at http://framework.zend.com/manual.
-Questions that are not addressed in the manual should be directed to the
-appropriate mailing list:
-
-- http://framework.zend.com/wiki/display/ZFDEV/Mailing+Lists
 
 If you find code in this release behaving in an unexpected manner or
 contrary to its documented behavior, please create an issue in the Zend
 Framework issue tracker at:
 
 - https://github.com/zendframework/zf1/issues
-
-If you would like to be notified of new releases, you can subscribe to
-the fw-announce mailing list by sending a blank message to:
-
-- fw-announce-subscribe@lists.zend.com.
 
 LICENSE
 =======
