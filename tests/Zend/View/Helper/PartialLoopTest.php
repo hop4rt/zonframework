@@ -105,9 +105,7 @@ class Zend_View_Helper_PartialLoopTest extends PHPUnit_Framework_TestCase
             array('message' => 'bat')
         );
 
-        $view = new Zend_View(array(
-            'scriptPath' => $this->basePath . '/default/views/scripts'
-        ));
+        $view = new Zend_View(array('scriptPath' => $this->basePath . '/default/views/scripts'));
         $this->helper->setView($view);
 
         $result = $this->helper->partialLoop('partialLoop.phtml', $data);
@@ -130,9 +128,7 @@ class Zend_View_Helper_PartialLoopTest extends PHPUnit_Framework_TestCase
         );
         $o = new Zend_View_Helper_PartialLoop_IteratorTest($data);
 
-        $view = new Zend_View(array(
-            'scriptPath' => $this->basePath . '/default/views/scripts'
-        ));
+        $view = new Zend_View(array('scriptPath' => $this->basePath . '/default/views/scripts'));
         $this->helper->setView($view);
 
         $result = $this->helper->partialLoop('partialLoop.phtml', $o);
@@ -155,9 +151,7 @@ class Zend_View_Helper_PartialLoopTest extends PHPUnit_Framework_TestCase
             $rIterator->addItem(new Zend_View_Helper_PartialLoop_IteratorTest($data));
         }
 
-        $view = new Zend_View(array(
-            'scriptPath' => $this->basePath . '/default/views/scripts'
-        ));
+        $view = new Zend_View(array('scriptPath' => $this->basePath . '/default/views/scripts'));
         $this->helper->setView($view);
 
         $result = $this->helper->partialLoop('partialLoop.phtml', $rIterator);
@@ -181,9 +175,7 @@ class Zend_View_Helper_PartialLoopTest extends PHPUnit_Framework_TestCase
         );
         $o = new Zend_View_Helper_PartialLoop_BogusIteratorTest($data);
 
-        $view = new Zend_View(array(
-            'scriptPath' => $this->basePath . '/default/views/scripts'
-        ));
+        $view = new Zend_View(array('scriptPath' => $this->basePath . '/default/views/scripts'));
         $this->helper->setView($view);
 
         try {
@@ -206,9 +198,7 @@ class Zend_View_Helper_PartialLoopTest extends PHPUnit_Framework_TestCase
             array('message' => 'bat')
         );
 
-        $view = new Zend_View(array(
-            'scriptPath' => $this->basePath . '/default/views/scripts'
-        ));
+        $view = new Zend_View(array('scriptPath' => $this->basePath . '/default/views/scripts'));
         $this->helper->setView($view);
 
         $result = $this->helper->partialLoop('partialLoop.phtml', 'foo', $data);
@@ -234,9 +224,7 @@ class Zend_View_Helper_PartialLoopTest extends PHPUnit_Framework_TestCase
         );
         $o = new ArrayObject($data);
 
-        $view = new Zend_View(array(
-            'scriptPath' => $this->basePath . '/default/views/scripts'
-        ));
+        $view = new Zend_View(array('scriptPath' => $this->basePath . '/default/views/scripts'));
         $this->helper->setView($view);
 
         $result = $this->helper->partialLoop('partialLoop.phtml', $o);
@@ -256,9 +244,7 @@ class Zend_View_Helper_PartialLoopTest extends PHPUnit_Framework_TestCase
         );
         $o = new Zend_View_Helper_PartialLoop_ToArrayTest($data);
 
-        $view = new Zend_View(array(
-            'scriptPath' => $this->basePath . '/default/views/scripts'
-        ));
+        $view = new Zend_View(array('scriptPath' => $this->basePath . '/default/views/scripts'));
         $this->helper->setView($view);
 
         $result = $this->helper->partialLoop('partialLoop.phtml', $o);
@@ -282,9 +268,7 @@ class Zend_View_Helper_PartialLoopTest extends PHPUnit_Framework_TestCase
         );
         $o = new Zend_View_Helper_PartialLoop_IteratorWithToArrayTest($data);
 
-        $view = new Zend_View(array(
-            'scriptPath' => $this->basePath . '/default/views/scripts'
-        ));
+        $view = new Zend_View(array('scriptPath' => $this->basePath . '/default/views/scripts'));
         $this->helper->setView($view);
         $this->helper->setObjectKey('obj');
 
@@ -300,9 +284,7 @@ class Zend_View_Helper_PartialLoopTest extends PHPUnit_Framework_TestCase
      */
     public function testEmptyArrayPassedToPartialLoopShouldNotThrowException()
     {
-        $view = new Zend_View(array(
-            'scriptPath' => $this->basePath . '/default/views/scripts'
-        ));
+        $view = new Zend_View(array('scriptPath' => $this->basePath . '/default/views/scripts'));
         $this->helper->setView($view);
 
         try {
@@ -331,9 +313,7 @@ class Zend_View_Helper_PartialLoopTest extends PHPUnit_Framework_TestCase
             array('message' => 'bat')
         );
 
-        $view = new Zend_View(array(
-            'scriptPath' => $this->basePath . '/default/views/scripts'
-        ));
+        $view = new Zend_View(array('scriptPath' => $this->basePath . '/default/views/scripts'));
         $this->helper->setView($view);
 
         $result = $this->helper->partialLoop('partialLoopCouter.phtml', $data);
@@ -356,9 +336,7 @@ class Zend_View_Helper_PartialLoopTest extends PHPUnit_Framework_TestCase
             array('message' => 'bat')
         );
 
-        $view = new Zend_View(array(
-            'scriptPath' => $this->basePath . '/default/views/scripts'
-        ));
+        $view = new Zend_View(array('scriptPath' => $this->basePath . '/default/views/scripts'));
         $this->helper->setView($view);
 
         $result = $this->helper->partialLoop('partialLoopCouter.phtml', $data);

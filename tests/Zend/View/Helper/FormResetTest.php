@@ -83,10 +83,12 @@ class Zend_View_Helper_FormResetTest extends PHPUnit_Framework_TestCase
 
     public function testShouldRenderResetInput()
     {
-        $html = $this->helper->formReset(array(
+        $html = $this->helper->formReset(
+            array(
             'name'    => 'foo',
             'value'   => 'Reset',
-        ));
+            )
+        );
         $this->assertRegexp('/<input[^>]*?(type="reset")/', $html);
     }
 
@@ -95,11 +97,13 @@ class Zend_View_Helper_FormResetTest extends PHPUnit_Framework_TestCase
      */
     public function testShouldAllowDisabling()
     {
-        $html = $this->helper->formReset(array(
+        $html = $this->helper->formReset(
+            array(
             'name'    => 'foo',
             'value'   => 'Reset',
             'attribs' => array('disable' => true)
-        ));
+            )
+        );
         $this->assertRegexp('/<input[^>]*?(disabled="disabled")/', $html);
     }
 

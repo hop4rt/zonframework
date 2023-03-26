@@ -520,4 +520,3 @@ class Zend_View_Helper_FormRadioTest extends PHPUnit_Framework_TestCase
 if (PHPUnit_MAIN_METHOD == "Zend_View_Helper_FormRadioTest::main") {
     Zend_View_Helper_FormRadioTest::main();
 }
-

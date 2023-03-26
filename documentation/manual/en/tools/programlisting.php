@@ -3,7 +3,7 @@ $dir = new DirectoryIterator('../module_specs/');
 
 function InsertSpace($matches)
 {
-    return $matches[1].$matches[2].$matches[3].str_pad(' ',strlen($matches[1])).$matches[4];
+    return $matches[1].$matches[2].$matches[3].str_pad(' ', strlen($matches[1])).$matches[4];
 }
 
 foreach ($dir as $file)
@@ -24,6 +24,6 @@ foreach ($dir as $file)
         $text = preg_replace('/(\]\]\>)(\<\/programlisting\>)/', "$1\n$2", $text);
         // Put same indent before </programlisting> as before <programlisting>
         $text = preg_replace_callback('/([^\n]*)(<programlisting role="php"><)(.*?)(<\/programlisting>)/s', "InsertSpace", $text);
-        file_put_contents($file->getPathName(),$text);
+        file_put_contents($file->getPathName(), $text);
     }
 }

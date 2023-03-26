@@ -218,36 +218,42 @@ class Zend_XmlRpc_RequestTest extends PHPUnit_Framework_TestCase
         $this->assertFalse($this->_request->loadXml('<empty/>'));
         $this->assertTrue($this->_request->isFault());
         $this->assertSame(632, $this->_request->getFault()->getCode());
-        $this->assertSame("Invalid request, no method passed; request must contain a 'methodName' tag",
-            $this->_request->getFault()->getMessage());
+        $this->assertSame(
+            "Invalid request, no method passed; request must contain a 'methodName' tag",
+            $this->_request->getFault()->getMessage()
+        );
     }
 
     public function testLoadingXmlWithInvalidParams()
     {
         $this->assertFalse($this->_request->loadXml(
             '<methodCall>'
-          . '<methodName>foo</methodName>'
-          . '<params><param/><param/><param><foo/></param></params>'
-          . '</methodCall>'));
+            . '<methodName>foo</methodName>'
+            . '<params><param/><param/><param><foo/></param></params>'
+            . '</methodCall>'
+        ));
         $this->assertTrue($this->_request->isFault());
         $this->assertSame(633, $this->_request->getFault()->getCode());
         $this->assertSame(
             'Param must contain a value',
-            $this->_request->getFault()->getMessage());
+            $this->_request->getFault()->getMessage()
+        );
     }
 
     public function testExceptionWhileLoadingXmlParamValueIsHandled()
     {
         $this->assertFalse($this->_request->loadXml(
             '<methodCall>'
-          . '<methodName>foo</methodName>'
-          . '<params><param><value><foo/></value></param></params>'
-          . '</methodCall>'));
+            . '<methodName>foo</methodName>'
+            . '<params><param><value><foo/></value></param></params>'
+            . '</methodCall>'
+        ));
         $this->assertTrue($this->_request->isFault());
         $this->assertSame(636, $this->_request->getFault()->getCode());
         $this->assertSame(
             'Error creating xmlrpc value',
-            $this->_request->getFault()->getMessage());
+            $this->_request->getFault()->getMessage()
+        );
     }
 
     /**

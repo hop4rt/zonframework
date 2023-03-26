@@ -249,7 +249,7 @@ class Zend_ViewTest extends PHPUnit_Framework_TestCase
 
         // verify that object handle of a stub was cache by calling it again
         // without its path in the helper search paths
-        $this->assertEquals( 'foo', $view->stub1() );
+        $this->assertEquals('foo', $view->stub1());
     }
 
     /**
@@ -309,7 +309,7 @@ class Zend_ViewTest extends PHPUnit_Framework_TestCase
 
         $view->bar = 'bar';
 
-        $this->assertEquals("foo bar baz\n", $view->render('test.phtml') );
+        $this->assertEquals("foo bar baz\n", $view->render('test.phtml'));
     }
 
     /**
@@ -352,9 +352,7 @@ class Zend_ViewTest extends PHPUnit_Framework_TestCase
         $this->assertTrue(is_array($bar));
         $this->assertEquals('life', $bar[0], var_export($bar, 1));
 
-        $view->assign(array(
-            'baz' => array('universe'),
-        ));
+        $view->assign(array('baz' => array('universe'),));
         $view->baz[] = 'everything';
         $baz = $view->baz;
         $this->assertTrue(is_array($baz));
@@ -1045,10 +1043,7 @@ class Zend_ViewTest extends PHPUnit_Framework_TestCase
      */
     public function testDisablingLfiProtectionAllowsParentDirectoryTraversal()
     {
-        $view = new Zend_View(array(
-            'lfiProtectionOn' => false,
-            'scriptPath'      => __DIR__ . '/View/_templates/',
-        ));
+        $view = new Zend_View(array('lfiProtectionOn' => false, 'scriptPath' => __DIR__ . '/View/_templates/'));
         try {
             $test = $view->render('../_stubs/scripts/LfiProtectionCheck.phtml');
             $this->assertContains('LFI', $test);
@@ -1062,11 +1057,7 @@ class Zend_ViewTest extends PHPUnit_Framework_TestCase
      */
     public function testConstructorShouldAllowPassingArrayOfHelperPaths()
     {
-        $view = new Zend_View(array(
-            'helperPath' => array(
-                'My_View'   => 'My/View/',
-            ),
-        ));
+        $view = new Zend_View(array('helperPath' => array('My_View' => 'My/View/')));
         $paths = $view->getHelperPaths();
         $this->assertTrue(array_key_exists('My_View_', $paths), var_export($paths, 1));
     }
@@ -1076,11 +1067,7 @@ class Zend_ViewTest extends PHPUnit_Framework_TestCase
      */
     public function testConstructorShouldAllowPassingArrayOfFilterPaths()
     {
-        $view = new Zend_View(array(
-            'filterPath' => array(
-                'My_View'   => 'My/View/',
-            ),
-        ));
+        $view = new Zend_View(array('filterPath' => array('My_View' => 'My/View/')));
         $paths = $view->getFilterPaths();
         $this->assertTrue(array_key_exists('My_View_', $paths), var_export($paths, 1));
     }
@@ -1090,14 +1077,14 @@ class Zend_ViewTest extends PHPUnit_Framework_TestCase
      */
     public function testRegisterHelperShouldRegisterHelperWithView()
     {
-    	require_once __DIR__ . '/View/_stubs/HelperDir1/Stub1.php';
+        require_once __DIR__ . '/View/_stubs/HelperDir1/Stub1.php';
 
-    	$view = new Zend_View();
-    	$helper = new Foo_View_Helper_Stub1();
-    	$view->registerHelper($helper, 'stub1');
+        $view = new Zend_View();
+        $helper = new Foo_View_Helper_Stub1();
+        $view->registerHelper($helper, 'stub1');
 
-    	$this->assertEquals($view->getHelper('stub1'), $helper);
-    	$this->assertEquals($view->stub1(), 'foo');
+        $this->assertEquals($view->getHelper('stub1'), $helper);
+        $this->assertEquals($view->stub1(), 'foo');
     }
 
     /**
@@ -1126,20 +1113,20 @@ class Zend_ViewTest extends PHPUnit_Framework_TestCase
      */
     public function testRegisterHelperShouldRegisterViewObjectWithHelper()
     {
-    	require_once 'Zend/View/Helper/Doctype.php';
-    	$view = new Zend_View();
-    	$helper = new Zend_View_Helper_Doctype();
-    	$view->registerHelper($helper, 'doctype');
+        require_once 'Zend/View/Helper/Doctype.php';
+        $view = new Zend_View();
+        $helper = new Zend_View_Helper_Doctype();
+        $view->registerHelper($helper, 'doctype');
         $this->assertSame($view, $helper->view);
     }
 
     /**
      * @group ZF-9000
-	 * @group ZF-4622
+     * @group ZF-4622
      */
     public function testAddingStreamSchemeAsScriptPathShouldNotMangleThePath()
     {
-    	$view = new Zend_View();
+        $view = new Zend_View();
         $path = rtrim('file://' . str_replace('\\', '/', realpath(__DIR__)), '/') . '/';
         $view->addScriptPath($path);
         $paths = $view->getScriptPaths();

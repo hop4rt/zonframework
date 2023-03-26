@@ -289,7 +289,7 @@ class Zend_View_Helper_HeadLinkTest extends PHPUnit_Framework_TestCase
         try {
             $this->helper->setStylesheet(array('bogus' => 'unused'));
             $this->fail('Invalid attribute values should raise exception');
-        } catch (Zend_View_Exception $e) { }
+        } catch (Zend_View_Exception $e) {}
     }
 
     public function testOverloadingOffsetSetWorks()
@@ -306,7 +306,7 @@ class Zend_View_Helper_HeadLinkTest extends PHPUnit_Framework_TestCase
         try {
             $this->helper->bogusMethod();
             $this->fail('Invalid method should raise exception');
-        } catch (Zend_View_Exception $e) { }
+        } catch (Zend_View_Exception $e) {}
     }
 
     public function testStylesheetAttributesGetSet()
@@ -352,11 +352,11 @@ class Zend_View_Helper_HeadLinkTest extends PHPUnit_Framework_TestCase
         try {
             $this->helper->setAlternate('foo');
             $this->fail('Setting alternate with fewer than 3 args should raise exception');
-        } catch (Zend_View_Exception $e) { }
+        } catch (Zend_View_Exception $e) {}
         try {
             $this->helper->setAlternate('foo', 'bar');
             $this->fail('Setting alternate with fewer than 3 args should raise exception');
-        } catch (Zend_View_Exception $e) { }
+        } catch (Zend_View_Exception $e) {}
     }
 
     public function testIndentationIsHonored()
@@ -444,10 +444,10 @@ class Zend_View_Helper_HeadLinkTest extends PHPUnit_Framework_TestCase
      */
     public function testContainerMaintainsCorrectOrderOfItems()
     {
-        $this->helper->headLink()->offsetSetStylesheet(1,'/test1.css');
-        $this->helper->headLink()->offsetSetStylesheet(10,'/test2.css');
-        $this->helper->headLink()->offsetSetStylesheet(20,'/test3.css');
-        $this->helper->headLink()->offsetSetStylesheet(5,'/test4.css');
+        $this->helper->headLink()->offsetSetStylesheet(1, '/test1.css');
+        $this->helper->headLink()->offsetSetStylesheet(10, '/test2.css');
+        $this->helper->headLink()->offsetSetStylesheet(20, '/test3.css');
+        $this->helper->headLink()->offsetSetStylesheet(5, '/test4.css');
 
         $test = $this->helper->toString();
 

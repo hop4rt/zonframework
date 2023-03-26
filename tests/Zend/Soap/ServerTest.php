@@ -108,9 +108,7 @@ class Zend_Soap_ServerTest extends PHPUnit_Framework_TestCase
      */
     public function testSetOptionsWithFeaturesOption()
     {
-        $server = new Zend_Soap_Server(null, array(
-            'features' => SOAP_SINGLE_ELEMENT_ARRAYS
-        ));
+        $server = new Zend_Soap_Server(null, array('features' => SOAP_SINGLE_ELEMENT_ARRAYS));
 
         $this->assertEquals(
             SOAP_SINGLE_ELEMENT_ARRAYS,
@@ -717,10 +715,11 @@ class Zend_Soap_ServerTest extends PHPUnit_Framework_TestCase
 
         $server->setClass('Zend_Soap_Server_TestClass');
 
-        $localClient = new Zend_Soap_Server_TestLocalSoapClient($server,
-                                                                null,
-                                                                array('location'=>'test://',
-                                                                      'uri'=>'http://framework.zend.com'));
+        $localClient = new Zend_Soap_Server_TestLocalSoapClient(
+            $server,
+            null,
+            array('location'=>'test://', 'uri'=>'http://framework.zend.com')
+        );
 
         // Local SOAP client call automatically invokes handle method of the provided SOAP server
         $this->assertEquals('Hello World!', $localClient->testFunc2('World'));
@@ -775,11 +774,14 @@ class Zend_Soap_ServerTest extends PHPUnit_Framework_TestCase
         $server->registerFaultException("Zend_Soap_Server_Exception");
         $server->registerFaultException(array("OutOfBoundsException", "BogusException"));
 
-        $this->assertEquals(array(
-            'Zend_Soap_Server_Exception',
-            'OutOfBoundsException',
-            'BogusException',
-        ), $server->getFaultExceptions());
+        $this->assertEquals(
+            array(
+                'Zend_Soap_Server_Exception',
+                'OutOfBoundsException',
+                'BogusException',
+            ),
+            $server->getFaultExceptions()
+        );
     }
 
     /**
@@ -793,9 +795,7 @@ class Zend_Soap_ServerTest extends PHPUnit_Framework_TestCase
         $ret = $server->deregisterFaultException("BogusException");
         $this->assertTrue($ret);
 
-        $this->assertEquals(array(
-            'OutOfBoundsException',
-        ), $server->getFaultExceptions());
+        $this->assertEquals(array('OutOfBoundsException'), $server->getFaultExceptions());
 
         $ret = $server->deregisterFaultException("NonRegisteredException");
         $this->assertFalse($ret);
@@ -871,7 +871,7 @@ class Zend_Soap_ServerTest extends PHPUnit_Framework_TestCase
 
         // Remove the following line when you implement this test.
         $this->markTestIncomplete(
-          "This test has not been implemented yet."
+            "This test has not been implemented yet."
         );
     }
 
@@ -1047,25 +1047,32 @@ class Zend_Soap_Server_TestLocalSoapClient extends SoapClient
 
 }
 
-class MockSoapServer {
+class MockSoapServer
+{
     public $handle = null;
     public function handle()
     {
         $this->handle = func_get_args();
     }
-    public function __call($name, $args) {}
+
+    public function __call($name, $args)
+    {
+    }
 }
 
-class Zend_Soap_MockServer extends Zend_Soap_Server {
+class Zend_Soap_MockServer extends Zend_Soap_Server
+{
     public $mockSoapServer = null;
-    protected function _getSoap() {
+    protected function _getSoap() 
+    {
         $this->mockSoapServer = new MockSoapServer(); 
         return $this->mockSoapServer;
     }
 }
 
 /** Test Class */
-class Zend_Soap_Server_TestClass {
+class Zend_Soap_Server_TestClass
+{
     /**
      * Test Function 1
      *
@@ -1122,7 +1129,8 @@ class Zend_Soap_Server_TestClass {
 
 
 /** Test class 2 */
-class Zend_Soap_Server_TestData1 {
+class Zend_Soap_Server_TestData1
+{
     /**
      * Property1
      *
@@ -1139,7 +1147,8 @@ class Zend_Soap_Server_TestData1 {
 }
 
 /** Test class 2 */
-class Zend_Soap_Server_TestData2 {
+class Zend_Soap_Server_TestData2
+{
     /**
      * Property1
      *

@@ -118,19 +118,19 @@ class Zend_View_Helper_HeadScriptTest extends PHPUnit_Framework_TestCase
         try {
             $this->helper->append('foo');
             $this->fail('Append should throw exception with invalid item');
-        } catch (Zend_View_Exception $e) { }
+        } catch (Zend_View_Exception $e) {}
         try {
             $this->helper->offsetSet(1, 'foo');
             $this->fail('OffsetSet should throw exception with invalid item');
-        } catch (Zend_View_Exception $e) { }
+        } catch (Zend_View_Exception $e) {}
         try {
             $this->helper->prepend('foo');
             $this->fail('Prepend should throw exception with invalid item');
-        } catch (Zend_View_Exception $e) { }
+        } catch (Zend_View_Exception $e) {}
         try {
             $this->helper->set('foo');
             $this->fail('Set should throw exception with invalid item');
-        } catch (Zend_View_Exception $e) { }
+        } catch (Zend_View_Exception $e) {}
     }
 
     protected function _inflectAction($type)

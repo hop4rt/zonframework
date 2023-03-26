@@ -223,8 +223,9 @@ class Zend_View_Helper_Navigation_SitemapTest
             $this->_helper->render($nav);
         } catch (Zend_View_Exception $e) {
             $expected = sprintf(
-                    'Encountered an invalid URL for Sitemap XML: "%s"',
-                    'http://w..');
+                'Encountered an invalid URL for Sitemap XML: "%s"',
+                'http://w..'
+            );
             $actual = $e->getMessage();
             $this->assertEquals($expected, $actual);
             return;
@@ -247,8 +248,7 @@ class Zend_View_Helper_Navigation_SitemapTest
     {
         try {
             $this->_helper->setServerUrl('site.example.org');
-            $this->fail('An invalid server URL was given, but a ' .
-                        'Zend_Uri_Exception was not thrown');
+            $this->fail('An invalid server URL was given, but a Zend_Uri_Exception was not thrown');
         } catch (Zend_Uri_Exception $e) {
             $this->assertContains('Illegal scheme', $e->getMessage());
         }
@@ -291,8 +291,9 @@ class Zend_View_Helper_Navigation_SitemapTest
             $this->_helper->render($nav);
         } catch (Zend_View_Exception $e) {
             $expected = sprintf(
-                    'Sitemap is invalid according to XML Schema at "%s"',
-                    Zend_View_Helper_Navigation_Sitemap::SITEMAP_XSD);
+                'Sitemap is invalid according to XML Schema at "%s"',
+                Zend_View_Helper_Navigation_Sitemap::SITEMAP_XSD
+            );
             $actual = $e->getMessage();
             $this->assertEquals($expected, $actual);
             return;

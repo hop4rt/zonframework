@@ -174,20 +174,29 @@ class Zend_XmlRpc_FaultTest extends PHPUnit_Framework_TestCase
             $this->assertEquals('Fault code and string required', $e->getMessage());
         }
 
-        $this->_fault->loadXml('<methodResponse><fault><value><struct>'
-                . '<member><name>faultString</name><value><string>str</string></value></member>'
-                . '</struct></value></fault></methodResponse>');
+        $this->_fault->loadXml(
+            '<methodResponse><fault><value><struct>'
+            . '<member><name>faultString</name><value><string>str</string></value></member>'
+            . '</struct></value></fault></methodResponse>'
+        );
         $this->assertSame(404, $this->_fault->getCode(), 'If no fault code is given, use 404 as a default');
 
-        $this->_fault->loadXml('<methodResponse><fault><value><struct>'
-                . '<member><name>faultCode</name><value><int>610</int></value></member>'
-                . '</struct></value></fault></methodResponse>');
+        $this->_fault->loadXml(
+            '<methodResponse><fault><value><struct>'
+            . '<member><name>faultCode</name><value><int>610</int></value></member>'
+            . '</struct></value></fault></methodResponse>'
+        );
         $this->assertSame(
-            'Invalid method class', $this->_fault->getMessage(), 'If empty fault string is given, resolve the code');
+            'Invalid method class',
+            $this->_fault->getMessage(),
+            'If empty fault string is given, resolve the code'
+        );
 
-        $this->_fault->loadXml('<methodResponse><fault><value><struct>'
-                . '<member><name>faultCode</name><value><int>1234</int></value></member>'
-                . '</struct></value></fault></methodResponse>');
+        $this->_fault->loadXml(
+            '<methodResponse><fault><value><struct>'
+            . '<member><name>faultCode</name><value><int>1234</int></value></member>'
+            . '</struct></value></fault></methodResponse>'
+        );
         $this->assertSame(
             'Unknown Error',
             $this->_fault->getMessage(),

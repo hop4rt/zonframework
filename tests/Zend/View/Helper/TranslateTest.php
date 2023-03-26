@@ -197,10 +197,15 @@ class Zend_View_Helper_TranslateTest extends PHPUnit_Framework_TestCase
 
     public function testCanTranslateWithOptions()
     {
-        $trans = new Zend_Translate('array', array('one' => 'eins', "two %1\$s" => "zwei %1\$s",
-            "three %1\$s %2\$s" => "drei %1\$s %2\$s"), 'de');
-        $trans->addTranslation(array('one' => 'uno', "two %1\$s" => "duo %2\$s",
-            "three %1\$s %2\$s" => "tre %1\$s %2\$s"), 'it');
+        $trans = new Zend_Translate(
+            'array',
+            array('one' => 'eins', "two %1\$s" => "zwei %1\$s", "three %1\$s %2\$s" => "drei %1\$s %2\$s"),
+            'de'
+        );
+        $trans->addTranslation(
+            array('one' => 'uno', "two %1\$s" => "duo %2\$s", "three %1\$s %2\$s" => "tre %1\$s %2\$s"),
+            'it'
+        );
         $trans->setLocale('de');
 
         $this->helper->setTranslator($trans);
@@ -244,8 +249,11 @@ class Zend_View_Helper_TranslateTest extends PHPUnit_Framework_TestCase
      */
     public function testTranslationWithPercent()
     {
-        $trans = new Zend_Translate('array', array('one' => 'eins', "two %1\$s" => "zwei %1\$s",
-            "three %1\$s %2\$s" => "drei %1\$s %2\$s", 'vier%ig' => 'four%'), 'de');
+        $trans = new Zend_Translate(
+            'array',
+            array('one' => 'eins', "two %1\$s" => "zwei %1\$s", "three %1\$s %2\$s" => "drei %1\$s %2\$s", 'vier%ig' => 'four%'),
+            'de'
+        );
         $trans->setLocale('de');
 
         $this->helper->setTranslator($trans);

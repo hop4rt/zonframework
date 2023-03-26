@@ -61,8 +61,7 @@ class Zend_XmlRpc_ValueTest extends PHPUnit_Framework_TestCase
     public function testMarshalBooleanFromNative()
     {
         $native = true;
-        $val = Zend_XmlRpc_Value::getXmlRpcValue($native,
-                                    Zend_XmlRpc_Value::XMLRPC_TYPE_BOOLEAN);
+        $val = Zend_XmlRpc_Value::getXmlRpcValue($native, Zend_XmlRpc_Value::XMLRPC_TYPE_BOOLEAN);
 
         $this->assertXmlRpcType('boolean', $val);
         $this->assertSame($native, $val->getValue());
@@ -75,8 +74,7 @@ class Zend_XmlRpc_ValueTest extends PHPUnit_Framework_TestCase
     {
         Zend_XmlRpc_Value::setGenerator($generator);
         $xml = '<value><boolean>1</boolean></value>';
-        $val = Zend_XmlRpc_Value::getXmlRpcValue($xml,
-                                    Zend_XmlRpc_Value::XML_STRING);
+        $val = Zend_XmlRpc_Value::getXmlRpcValue($xml, Zend_XmlRpc_Value::XML_STRING);
 
         $this->assertXmlRpcType('boolean', $val);
         $this->assertEquals('boolean', $val->getType());
@@ -117,8 +115,7 @@ class Zend_XmlRpc_ValueTest extends PHPUnit_Framework_TestCase
                       "<value><i4>$native</i4></value>");
 
         foreach ($xmls as $xml) {
-            $val = Zend_XmlRpc_Value::getXmlRpcValue($xml,
-                                        Zend_XmlRpc_Value::XML_STRING);
+            $val = Zend_XmlRpc_Value::getXmlRpcValue($xml, Zend_XmlRpc_Value::XML_STRING);
             $this->assertXmlRpcType('integer', $val);
             $this->assertEquals('int', $val->getType());
             $this->assertSame($native, $val->getValue());
@@ -155,8 +152,7 @@ class Zend_XmlRpc_ValueTest extends PHPUnit_Framework_TestCase
     public function testMarshalDoubleFromNative()
     {
         $native = 1.1;
-        $val = Zend_XmlRpc_Value::getXmlRpcValue($native,
-                                    Zend_XmlRpc_Value::XMLRPC_TYPE_DOUBLE);
+        $val = Zend_XmlRpc_Value::getXmlRpcValue($native, Zend_XmlRpc_Value::XMLRPC_TYPE_DOUBLE);
 
         $this->assertXmlRpcType('double', $val);
         $this->assertSame($native, $val->getValue());
@@ -170,8 +166,7 @@ class Zend_XmlRpc_ValueTest extends PHPUnit_Framework_TestCase
         Zend_XmlRpc_Value::setGenerator($generator);
         $native = 1.1;
         $xml = "<value><double>$native</double></value>";
-        $val = Zend_XmlRpc_Value::getXmlRpcValue($xml,
-                                    Zend_XmlRpc_Value::XML_STRING);
+        $val = Zend_XmlRpc_Value::getXmlRpcValue($xml, Zend_XmlRpc_Value::XML_STRING);
 
         $this->assertXmlRpcType('double', $val);
         $this->assertEquals('double', $val->getType());
@@ -226,8 +221,7 @@ class Zend_XmlRpc_ValueTest extends PHPUnit_Framework_TestCase
     public function testMarshalStringFromNative()
     {
         $native = 'foo';
-        $val = Zend_XmlRpc_Value::getXmlRpcValue($native,
-                                    Zend_XmlRpc_Value::XMLRPC_TYPE_STRING);
+        $val = Zend_XmlRpc_Value::getXmlRpcValue($native, Zend_XmlRpc_Value::XMLRPC_TYPE_STRING);
 
         $this->assertXmlRpcType('string', $val);
         $this->assertSame($native, $val->getValue());
@@ -235,11 +229,9 @@ class Zend_XmlRpc_ValueTest extends PHPUnit_Framework_TestCase
 
     public function testFactoryAutodetectsStringAndSetsValueInArray()
     {
-        $val = Zend_XmlRpc_Value::getXmlRpcValue('<value><array><data>'.
-            '<value><i4>8</i4></value>'.
-            '<value>a</value>'.
-            '<value>false</value>'.
-            '</data></array></value>', Zend_XmlRpc_Value::XML_STRING
+        $val = Zend_XmlRpc_Value::getXmlRpcValue(
+            '<value><array><data><value><i4>8</i4></value><value>a</value><value>false</value></data></array></value>',
+            Zend_XmlRpc_Value::XML_STRING
         );
         $this->assertXmlRpcType('array', $val);
         $a = $val->getValue();
@@ -256,8 +248,7 @@ class Zend_XmlRpc_ValueTest extends PHPUnit_Framework_TestCase
         Zend_XmlRpc_Value::setGenerator($generator);
         $native = 'foo<>';
         $xml = "<value><string>foo&lt;&gt;</string></value>";
-        $val = Zend_XmlRpc_Value::getXmlRpcValue($xml,
-                                    Zend_XmlRpc_Value::XML_STRING);
+        $val = Zend_XmlRpc_Value::getXmlRpcValue($xml, Zend_XmlRpc_Value::XML_STRING);
 
         $this->assertXmlRpcType('string', $val);
         $this->assertEquals('string', $val->getType());
@@ -273,8 +264,7 @@ class Zend_XmlRpc_ValueTest extends PHPUnit_Framework_TestCase
         Zend_XmlRpc_Value::setGenerator($generator);
         $native = 'foo<br/>bar';
         $xml = "<string>foo&lt;br/&gt;bar</string>";
-        $val = Zend_XmlRpc_Value::getXmlRpcValue($xml,
-                                    Zend_XmlRpc_Value::XML_STRING);
+        $val = Zend_XmlRpc_Value::getXmlRpcValue($xml, Zend_XmlRpc_Value::XML_STRING);
 
         $this->assertXmlRpcType('string', $val);
         $this->assertEquals('string', $val->getType());
@@ -313,8 +303,7 @@ class Zend_XmlRpc_ValueTest extends PHPUnit_Framework_TestCase
                      '<value><ex:nil xmlns:ex="http://ws.apache.org/xmlrpc/namespaces/extensions"/></value>');
 
         foreach ($xmls as $xml) {
-            $val = Zend_XmlRpc_Value::getXmlRpcValue($xml,
-                                        Zend_XmlRpc_Value::XML_STRING);
+            $val = Zend_XmlRpc_Value::getXmlRpcValue($xml, Zend_XmlRpc_Value::XML_STRING);
             $this->assertXmlRpcType('nil', $val);
             $this->assertEquals('nil', $val->getType());
             $this->assertSame(NULL, $val->getValue());
@@ -333,8 +322,7 @@ class Zend_XmlRpc_ValueTest extends PHPUnit_Framework_TestCase
     public function testMarshalArrayFromNative()
     {
         $native = array(0,1);
-        $val = Zend_XmlRpc_Value::getXmlRpcValue($native,
-                                    Zend_XmlRpc_Value::XMLRPC_TYPE_ARRAY);
+        $val = Zend_XmlRpc_Value::getXmlRpcValue($native, Zend_XmlRpc_Value::XMLRPC_TYPE_ARRAY);
 
         $this->assertXmlRpcType('array', $val);
         $this->assertSame($native, $val->getValue());
@@ -350,8 +338,7 @@ class Zend_XmlRpc_ValueTest extends PHPUnit_Framework_TestCase
         $xml = '<value><array><data><value><int>0</int></value>'
              . '<value><int>1</int></value></data></array></value>';
 
-        $val = Zend_XmlRpc_Value::getXmlRpcValue($xml,
-                                    Zend_XmlRpc_Value::XML_STRING);
+        $val = Zend_XmlRpc_Value::getXmlRpcValue($xml, Zend_XmlRpc_Value::XML_STRING);
 
         $this->assertXmlRpcType('array', $val);
         $this->assertEquals('array', $val->getType());
@@ -368,8 +355,7 @@ class Zend_XmlRpc_ValueTest extends PHPUnit_Framework_TestCase
         $native = array();
         $xml    = '<value><array><data/></array></value>';
 
-        $val = Zend_XmlRpc_Value::getXmlRpcValue($xml,
-                                    Zend_XmlRpc_Value::XML_STRING);
+        $val = Zend_XmlRpc_Value::getXmlRpcValue($xml, Zend_XmlRpc_Value::XML_STRING);
 
         $this->assertXmlRpcType('array', $val);
         $this->assertEquals('array', $val->getType());
@@ -387,13 +373,13 @@ class Zend_XmlRpc_ValueTest extends PHPUnit_Framework_TestCase
     public function testArrayMustContainDataElement(Zend_XmlRpc_Generator_GeneratorAbstract $generator)
     {
         Zend_XmlRpc_Value::setGenerator($generator);
-        $native = array();
         $xml    = '<value><array/></value>';
 
-        $this->setExpectedException('Zend_XmlRpc_Value_Exception',
-            'Invalid XML for XML-RPC native array type: ARRAY tag must contain DATA tag');
-        $val = Zend_XmlRpc_Value::getXmlRpcValue($xml,
-                                    Zend_XmlRpc_Value::XML_STRING);
+        $this->setExpectedException(
+            'Zend_XmlRpc_Value_Exception',
+            'Invalid XML for XML-RPC native array type: ARRAY tag must contain DATA tag'
+        );
+        Zend_XmlRpc_Value::getXmlRpcValue($xml, Zend_XmlRpc_Value::XML_STRING);
     }
 
     /**
@@ -430,8 +416,7 @@ class Zend_XmlRpc_ValueTest extends PHPUnit_Framework_TestCase
     public function testMarshalStructFromNative()
     {
         $native = array('foo' => 0);
-        $val = Zend_XmlRpc_Value::getXmlRpcValue($native,
-                                    Zend_XmlRpc_Value::XMLRPC_TYPE_STRUCT);
+        $val = Zend_XmlRpc_Value::getXmlRpcValue($native, Zend_XmlRpc_Value::XMLRPC_TYPE_STRUCT);
 
         $this->assertXmlRpcType('struct', $val);
         $this->assertSame($native, $val->getValue());
@@ -448,8 +433,7 @@ class Zend_XmlRpc_ValueTest extends PHPUnit_Framework_TestCase
              . '</value></member><member><name>bar</name><value><string>'
              . 'foo&lt;&gt;bar</string></value></member></struct></value>';
 
-        $val = Zend_XmlRpc_Value::getXmlRpcValue($xml,
-                                    Zend_XmlRpc_Value::XML_STRING);
+        $val = Zend_XmlRpc_Value::getXmlRpcValue($xml, Zend_XmlRpc_Value::XML_STRING);
 
         $this->assertXmlRpcType('struct', $val);
         $this->assertEquals('struct', $val->getType());
@@ -492,8 +476,7 @@ class Zend_XmlRpc_ValueTest extends PHPUnit_Framework_TestCase
              . '<member><name>bar</name><value><int>1</int></value></member>'
              . '</struct></value>';
 
-        $val = Zend_XmlRpc_Value::getXmlRpcValue($xml,
-                                    Zend_XmlRpc_Value::XML_STRING);
+        $val = Zend_XmlRpc_Value::getXmlRpcValue($xml, Zend_XmlRpc_Value::XML_STRING);
 
         $this->assertXmlRpcType('struct', $val);
         $this->assertEquals('struct', $val->getType());
@@ -514,8 +497,7 @@ class Zend_XmlRpc_ValueTest extends PHPUnit_Framework_TestCase
              . '<member><name>bar</name><value><int>1</int></value></member>'
              . '</struct></value>';
 
-        $val = Zend_XmlRpc_Value::getXmlRpcValue($xml,
-                                    Zend_XmlRpc_Value::XML_STRING);
+        $val = Zend_XmlRpc_Value::getXmlRpcValue($xml, Zend_XmlRpc_Value::XML_STRING);
 
         $this->assertXmlRpcType('struct', $val);
         $this->assertEquals('struct', $val->getType());
@@ -550,8 +532,7 @@ class Zend_XmlRpc_ValueTest extends PHPUnit_Framework_TestCase
         $xml = '<value><struct><member><name>foo</name>'
              . '<value><string/></value></member></struct></value>';
 
-        $val = Zend_XmlRpc_Value::getXmlRpcValue($xml,
-                                    Zend_XmlRpc_Value::XML_STRING);
+        $val = Zend_XmlRpc_Value::getXmlRpcValue($xml, Zend_XmlRpc_Value::XML_STRING);
 
         $this->assertXmlRpcType('struct', $val);
         $this->assertEquals('struct', $val->getType());
@@ -569,8 +550,7 @@ class Zend_XmlRpc_ValueTest extends PHPUnit_Framework_TestCase
         $xmlDecl = '<?xml version="1.0" encoding="UTF-8"?>';
         $xml = '<value><struct><member><name>foo</name><value><string>ß</string></value></member></struct></value>';
 
-        $val = Zend_XmlRpc_Value::getXmlRpcValue($xmlDecl . $xml,
-                                    Zend_XmlRpc_Value::XML_STRING);
+        $val = Zend_XmlRpc_Value::getXmlRpcValue($xmlDecl . $xml, Zend_XmlRpc_Value::XML_STRING);
 
         $this->assertXmlRpcType('struct', $val);
         $this->assertEquals('struct', $val->getType());
@@ -587,8 +567,7 @@ class Zend_XmlRpc_ValueTest extends PHPUnit_Framework_TestCase
     public function testMarshalDateTimeFromNativeString()
     {
         $native = '1997-07-16T19:20+01:00';
-        $val = Zend_XmlRpc_Value::getXmlRpcValue($native,
-                                    Zend_XmlRpc_Value::XMLRPC_TYPE_DATETIME);
+        $val = Zend_XmlRpc_Value::getXmlRpcValue($native, Zend_XmlRpc_Value::XMLRPC_TYPE_DATETIME);
 
         $this->assertXmlRpcType('dateTime', $val);
 
@@ -599,8 +578,7 @@ class Zend_XmlRpc_ValueTest extends PHPUnit_Framework_TestCase
     public function testMarshalDateTimeFromNativeStringProducesIsoOutput()
     {
         $native = '1997-07-16T19:20+01:00';
-        $val = Zend_XmlRpc_Value::getXmlRpcValue($native,
-                                    Zend_XmlRpc_Value::XMLRPC_TYPE_DATETIME);
+        $val = Zend_XmlRpc_Value::getXmlRpcValue($native, Zend_XmlRpc_Value::XMLRPC_TYPE_DATETIME);
 
         $this->assertXmlRpcType('dateTime', $val);
 
@@ -623,8 +601,7 @@ class Zend_XmlRpc_ValueTest extends PHPUnit_Framework_TestCase
     public function testMarshalDateTimeFromNativeInteger()
     {
         $native = strtotime('1997-07-16T19:20+01:00');
-        $val = Zend_XmlRpc_Value::getXmlRpcValue($native,
-                                    Zend_XmlRpc_Value::XMLRPC_TYPE_DATETIME);
+        $val = Zend_XmlRpc_Value::getXmlRpcValue($native, Zend_XmlRpc_Value::XMLRPC_TYPE_DATETIME);
 
         $this->assertXmlRpcType('dateTime', $val);
         $this->assertSame($native, strtotime($val->getValue()));
@@ -650,8 +627,7 @@ class Zend_XmlRpc_ValueTest extends PHPUnit_Framework_TestCase
         $iso8601 = '1997-07-16T19:20+01:00';
         $xml = "<value><dateTime.iso8601>$iso8601</dateTime.iso8601></value>";
 
-        $val = Zend_XmlRpc_Value::getXmlRpcValue($xml,
-                                    Zend_XmlRpc_Value::XML_STRING);
+        $val = Zend_XmlRpc_Value::getXmlRpcValue($xml, Zend_XmlRpc_Value::XML_STRING);
 
         $this->assertXmlRpcType('dateTime', $val);
         $this->assertEquals('dateTime.iso8601', $val->getType());
@@ -669,8 +645,7 @@ class Zend_XmlRpc_ValueTest extends PHPUnit_Framework_TestCase
     public function testMarshalDateTimeFromFromZendDate(Zend_XmlRpc_Generator_GeneratorAbstract $generator)
     {
         Zend_XmlRpc_Value::setGenerator($generator);
-        $date = new Zend_Date(array('year' => 2039, 'month' => 4, 'day' => 18,
-                                    'hour' => 13, 'minute' => 14, 'second' => 15));
+        $date = new Zend_Date(array('year' => 2039, 'month' => 4, 'day' => 18, 'hour' => 13, 'minute' => 14, 'second' => 15));
         $dateString = '20390418T13:14:15';
         $xml = "<value><dateTime.iso8601>$dateString</dateTime.iso8601></value>";
 
@@ -689,8 +664,7 @@ class Zend_XmlRpc_ValueTest extends PHPUnit_Framework_TestCase
     public function testMarshalDateTimeFromZendDateAndAutodetectingType(Zend_XmlRpc_Generator_GeneratorAbstract $generator)
     {
         Zend_XmlRpc_Value::setGenerator($generator);
-        $date = new Zend_Date(array('year' => 2039, 'month' => 4, 'day' => 18,
-                                    'hour' => 13, 'minute' => 14, 'second' => 15));
+        $date = new Zend_Date(array('year' => 2039, 'month' => 4, 'day' => 18, 'hour' => 13, 'minute' => 14, 'second' => 15));
         $dateString = '20390418T13:14:15';
         $xml = "<value><dateTime.iso8601>$dateString</dateTime.iso8601></value>";
 
@@ -764,8 +738,7 @@ class Zend_XmlRpc_ValueTest extends PHPUnit_Framework_TestCase
     public function testMarshalBase64FromString()
     {
         $native = 'foo';
-        $val = Zend_XmlRpc_Value::getXmlRpcValue($native,
-                                    Zend_XmlRpc_Value::XMLRPC_TYPE_BASE64);
+        $val = Zend_XmlRpc_Value::getXmlRpcValue($native, Zend_XmlRpc_Value::XMLRPC_TYPE_BASE64);
 
         $this->assertXmlRpcType('base64', $val);
         $this->assertSame($native, $val->getValue());
@@ -780,8 +753,7 @@ class Zend_XmlRpc_ValueTest extends PHPUnit_Framework_TestCase
         $native = 'foo';
         $xml = '<value><base64>' .base64_encode($native). '</base64></value>';
 
-        $val = Zend_XmlRpc_Value::getXmlRpcValue($xml,
-                                    Zend_XmlRpc_Value::XML_STRING);
+        $val = Zend_XmlRpc_Value::getXmlRpcValue($xml, Zend_XmlRpc_Value::XML_STRING);
 
         $this->assertXmlRpcType('base64', $val);
         $this->assertEquals('base64', $val->getType());
@@ -792,8 +764,7 @@ class Zend_XmlRpc_ValueTest extends PHPUnit_Framework_TestCase
     public function testXmlRpcValueBase64GeneratedXmlContainsBase64EncodedText()
     {
         $native = 'foo';
-        $val = Zend_XmlRpc_Value::getXmlRpcValue($native,
-                                    Zend_XmlRpc_Value::XMLRPC_TYPE_BASE64);
+        $val = Zend_XmlRpc_Value::getXmlRpcValue($native, Zend_XmlRpc_Value::XMLRPC_TYPE_BASE64);
 
         $this->assertXmlRpcType('base64', $val);
         $xml = $val->saveXml();
@@ -809,8 +780,7 @@ class Zend_XmlRpc_ValueTest extends PHPUnit_Framework_TestCase
         $o = new Zend_XmlRpc_SerializableTestClass();
         $o->setProperty('foobar');
         $serialized = serialize($o);
-        $val = Zend_XmlRpc_Value::getXmlRpcValue($serialized,
-                                    Zend_XmlRpc_Value::XMLRPC_TYPE_BASE64);
+        $val = Zend_XmlRpc_Value::getXmlRpcValue($serialized, Zend_XmlRpc_Value::XMLRPC_TYPE_BASE64);
 
         $this->assertXmlRpcType('base64', $val);
         $o2 = unserialize($val->getValue());

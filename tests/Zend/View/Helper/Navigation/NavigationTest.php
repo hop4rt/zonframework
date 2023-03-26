@@ -263,8 +263,7 @@ class Zend_View_Helper_Navigation_NavigationTest
     {
         try {
             $this->_helper->setRole(1337);
-            $this->fail('An invalid argument was given, but a ' .
-                        'Zend_View_Exception was not thrown');
+            $this->fail('An invalid argument was given, but a Zend_View_Exception was not thrown');
         } catch (Zend_View_Exception $e) {
             $this->assertContains('$role must be a string', $e->getMessage());
         }
@@ -274,8 +273,7 @@ class Zend_View_Helper_Navigation_NavigationTest
     {
         try {
             $this->_helper->setRole(new stdClass());
-            $this->fail('An invalid argument was given, but a ' .
-                        'Zend_View_Exception was not thrown');
+            $this->fail('An invalid argument was given, but a Zend_View_Exception was not thrown');
         } catch (Zend_View_Exception $e) {
             $this->assertContains('$role must be a string', $e->getMessage());
         }
@@ -315,8 +313,7 @@ class Zend_View_Helper_Navigation_NavigationTest
     {
         try {
             Zend_View_Helper_Navigation_HelperAbstract::setDefaultRole(1337);
-            $this->fail('An invalid argument was given, but a ' .
-                        'Zend_View_Exception was not thrown');
+            $this->fail('An invalid argument was given, but a Zend_View_Exception was not thrown');
         } catch (Zend_View_Exception $e) {
             $this->assertContains('$role must be', $e->getMessage());
         }
@@ -326,8 +323,7 @@ class Zend_View_Helper_Navigation_NavigationTest
     {
         try {
             Zend_View_Helper_Navigation_HelperAbstract::setDefaultRole(new stdClass());
-            $this->fail('An invalid argument was given, but a ' .
-                        'Zend_View_Exception was not thrown');
+            $this->fail('An invalid argument was given, but a Zend_View_Exception was not thrown');
         } catch (Zend_View_Exception $e) {
             $this->assertContains('$role must be', $e->getMessage());
         }
@@ -367,13 +363,13 @@ class Zend_View_Helper_Navigation_NavigationTest
         ));
 
         $expected = '<ul class="navigation">' . $nl
-                  . '    <li>' . $nl
-                  . '        <a id="menu-p1" href="p1">Page 1</a>' . $nl
-                  . '    </li>' . $nl
-                  . '    <li>' . $nl
-                  . '        <a id="menu-p2" href="p2">Page 2</a>' . $nl
-                  . '    </li>' . $nl
-                  . '</ul>';
+            . '    <li>' . $nl
+            . '        <a id="menu-p1" href="p1">Page 1</a>' . $nl
+            . '    </li>' . $nl
+            . '    <li>' . $nl
+            . '        <a id="menu-p2" href="p2">Page 2</a>' . $nl
+            . '    </li>' . $nl
+            . '</ul>';
 
         $actual = $this->_helper->render($container);
 

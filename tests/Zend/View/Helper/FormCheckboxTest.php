@@ -320,9 +320,7 @@ class Zend_View_Helper_FormCheckboxTest extends PHPUnit_Framework_TestCase
             $html
         );
 
-        $html = $this->helper->formCheckbox(
-            'foo',
-            'bar');
+        $html = $this->helper->formCheckbox('foo', 'bar');
 
         $this->assertSame(
             '<input type="hidden" name="foo" value="0"><input type="checkbox" name="foo" id="foo" value="bar">',
@@ -348,4 +346,3 @@ class Zend_View_Helper_FormCheckboxTest extends PHPUnit_Framework_TestCase
 if (PHPUnit_MAIN_METHOD == "Zend_View_Helper_FormCheckboxTest::main") {
     Zend_View_Helper_FormCheckboxTest::main();
 }
-

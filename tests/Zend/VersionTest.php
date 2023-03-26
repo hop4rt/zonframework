@@ -73,7 +73,8 @@ class Zend_VersionTest extends PHPUnit_Framework_TestCase
                                 $expect,
                                 "For version '$ver' and Zend_Version::VERSION = '"
                                 . Zend_Version::VERSION . "': result=" . (Zend_Version::compareVersion($ver))
-                                . ', but expected ' . $expect);
+                                . ', but expected ' . $expect
+                            );
                         }
                     }
                 }

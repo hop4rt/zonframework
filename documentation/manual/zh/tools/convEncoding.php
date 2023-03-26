@@ -2,20 +2,14 @@
 function toUtf8($ar)
 {
     $c = '';
-    foreach($ar as $val)
-    {
-        $val = intval(substr($val,2),16);
-        if($val < 0x7F)
-        {        // 0000-007F
+    foreach ($ar as $val) {
+        $val = intval(substr($val, 2), 16);
+        if ($val < 0x7F) {// 0000-007F
             $c .= chr($val);
-        }
-        elseif($val < 0x800)
-        { // 0080-0800
+        } elseif ($val < 0x800) {// 0080-0800
             $c .= chr(0xC0 | ($val / 64));
             $c .= chr(0x80 | ($val % 64));
-        }
-        else
-        {                // 0800-FFFF
+        } else {// 0800-FFFF
             $c .= chr(0xE0 | (($val / 64) / 64));
             $c .= chr(0x80 | (($val / 64) % 64));
             $c .= chr(0x80 | ($val % 64));
@@ -39,29 +33,19 @@ function c($str)
     return preg_replace_callback('/&#([0-9]+);/', 'cp', $str);
 }
 
-if (isset($_GET['fileName']))
-{
+if (isset($_GET['fileName'])) {
     $fileName = $_GET['fileName'];
-}
-else if(isset($argv[1]))
-{
+} elseif (isset($argv[1])) {
     $fileName = $argv[1];
-}
-else
-{
+} else {
     echo "Usage: In the command line: php scriptName fileName or on the web http://foobar/scriptName.php?fileName=foobar";
 }
 
-if (isset($_GET['output']))
-{
+if (isset($_GET['output'])) {
     $output = $_GET['output'];
-}
-elseif(isset($argv[2]))
-{
+} elseif (isset($argv[2])) {
     $output = $argv[2];
-}
-else
-{
+} else {
     $p = pathinfo($fileName);
     $output = $p['basename'];
 }

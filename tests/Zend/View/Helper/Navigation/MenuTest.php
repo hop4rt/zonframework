@@ -832,12 +832,7 @@ class Zend_View_Helper_Navigation_MenuTest
     public function testOptionRenderParentClass()
     {
         $expected = $this->_getExpected('menu/parentclass_standard.html');
-        $actual   = $this->_helper->renderMenu(
-            null ,
-            array(
-                 'renderParentClass' => true,
-            )
-        );
+        $actual = $this->_helper->renderMenu(null, array('renderParentClass' => true));
 
         $this->assertEquals($expected, $actual);
     }
@@ -848,13 +843,7 @@ class Zend_View_Helper_Navigation_MenuTest
     public function testOptionRenderParentClassAndParentClass()
     {
         $expected = $this->_getExpected('menu/parentclass_custom.html');
-        $actual   = $this->_helper->renderMenu(
-            null ,
-            array(
-                 'renderParentClass' => true,
-                 'parentClass'       => 'foo',
-            )
-        );
+        $actual = $this->_helper->renderMenu(null, array('renderParentClass' => true, 'parentClass' => 'foo'));
 
         $this->assertEquals($expected, $actual);
     }

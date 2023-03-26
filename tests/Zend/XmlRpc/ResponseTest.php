@@ -167,13 +167,10 @@ EOD;
         }
 
         $this->assertTrue($ret);
-        $this->assertEquals(array(
-            0 => array(
-                'id'            => 1,
-                'name'          => 'birdy num num!',
-                'description'   => null,
-            )
-        ), $response->getReturnValue());
+        $this->assertEquals(
+            array(array('id' => 1, 'name' => 'birdy num num!', 'description' => null)),
+            $response->getReturnValue()
+        );
     }
 
     /**

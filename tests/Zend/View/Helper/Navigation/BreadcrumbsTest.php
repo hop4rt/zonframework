@@ -230,8 +230,7 @@ class Zend_View_Helper_Navigation_BreadcrumbsTest
 
         try {
             $this->_helper->render();
-            $this->fail(
-                '$partial was invalid, but no Zend_View_Exception was thrown');
+            $this->fail('$partial was invalid, but no Zend_View_Exception was thrown');
         } catch (Zend_View_Exception $e) {
         }
     }

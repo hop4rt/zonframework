@@ -171,10 +171,9 @@ class Zend_XmlRpc_ServerTest extends PHPUnit_Framework_TestCase
         $response = $this->_server->handle($request);
         $this->assertFalse($response instanceof Zend_XmlRpc_Fault);
         $this->assertSame(
-            array('test1' => 'argv-argument',
-                'test2' => null,
-                'arg' => array('argv-argument')),
-            $response->getReturnValue());
+            array('test1' => 'argv-argument', 'test2' => null, 'arg' => array('argv-argument')),
+            $response->getReturnValue()
+        );
     }
 
     public function testSettingClassWithArgumentsOnlyPassingToConstructor()
@@ -390,9 +389,11 @@ class Zend_XmlRpc_ServerTest extends PHPUnit_Framework_TestCase
         $this->assertTrue(is_array($returns));
         $this->assertEquals(2, count($returns), var_export($returns, 1));
         $this->assertTrue(is_array($returns[0]), var_export($returns[0], 1));
-        $this->assertSame(array(
-            'faultCode' => 620, 'faultString' => 'Method "undefined" does not exist'),
-            $returns[1], var_export($returns[1], 1));
+        $this->assertSame(
+            array('faultCode' => 620, 'faultString' => 'Method "undefined" does not exist'),
+            $returns[1],
+            var_export($returns[1], true)
+        );
     }
 
     /**
@@ -478,8 +479,7 @@ class Zend_XmlRpc_ServerTest extends PHPUnit_Framework_TestCase
 
     public function testLoadFunctionsReadsMethodsFromServerDefinitionObjects()
     {
-        $mockedMethod = $this->getMock('Zend_Server_Method_Definition', array(), array(), '', false,
-            false);
+        $mockedMethod = $this->getMock('Zend_Server_Method_Definition', array(), array(), '', false, false);
         $mockedDefinition = $this->getMock('Zend_Server_Definition', array(), array(), '', false, false);
         $mockedDefinition->expects($this->once())
                          ->method('getMethods')
@@ -634,8 +634,10 @@ class Zend_XmlRpc_ServerTest extends PHPUnit_Framework_TestCase
 
     public function testCallingUnregisteredMethod()
     {
-        $this->setExpectedException('Zend_XmlRpc_Server_Exception',
-            'Unknown instance method called on server: foobarbaz');
+        $this->setExpectedException(
+            'Zend_XmlRpc_Server_Exception',
+            'Unknown instance method called on server: foobarbaz'
+        );
         $this->_server->foobarbaz();
     }
 

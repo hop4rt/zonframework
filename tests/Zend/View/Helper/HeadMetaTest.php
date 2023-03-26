@@ -369,9 +369,10 @@ class Zend_View_Helper_HeadMetaTest extends PHPUnit_Framework_TestCase
     {
         $this->view->doctype('XHTML1_RDFA');
         $this->helper->headMeta('foo', 'og:title', 'property');
-        $this->assertEquals('<meta property="og:title" content="foo" />',
-                            $this->helper->toString()
-                           );
+        $this->assertEquals(
+            '<meta property="og:title" content="foo" />',
+            $this->helper->toString()
+        );
     }
 
     /**
@@ -431,7 +432,7 @@ class Zend_View_Helper_HeadMetaTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             '<meta http-equiv="pragma" content="bar" />' . PHP_EOL . '<meta http-equiv="Cache-control" content="baz" />' . PHP_EOL . '<meta name="keywords" content="bat" />',
             $view->headMeta()->toString()
-            );
+        );
     }
 
     /**
@@ -449,7 +450,7 @@ class Zend_View_Helper_HeadMetaTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             '<meta name="description" content="foo" />' . PHP_EOL . '<meta http-equiv="pragma" content="baz" />' . PHP_EOL . '<meta http-equiv="Cache-control" content="baz" />' . PHP_EOL . '<meta name="keywords" content="bar" />',
             $view->headMeta()->toString()
-            );
+        );
     }
 
     /**
@@ -465,7 +466,7 @@ class Zend_View_Helper_HeadMetaTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             '<meta name="bar" content="some content" />' . PHP_EOL . '<meta name="keywords" content="foo" />',
             $view->headMeta()->toString()
-            );
+        );
     }
 
     /**
@@ -489,38 +490,41 @@ class Zend_View_Helper_HeadMetaTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $test);
     }
 
-	/**
-	 * @group ZF-7722
-	 */
-	public function testCharsetValidateFail()
-	{
-		$view = new Zend_View();
-		$view->doctype('HTML4_STRICT');
+    /**
+     * @group ZF-7722
+     */
+    public function testCharsetValidateFail()
+    {
+        $view = new Zend_View();
+        $view->doctype('HTML4_STRICT');
 
-		try {
-			$view->headMeta()->setCharset('utf-8');
-			$this->fail('Should not be able to set charset for a HTML4 doctype');
-		} catch (Zend_View_Exception $e) {}
-	}
+        try {
+            $view->headMeta()->setCharset('utf-8');
+            $this->fail('Should not be able to set charset for a HTML4 doctype');
+        } catch (Zend_View_Exception $e) {}
+    }
 
-	/**
-	 * @group ZF-7722
-	 */
-	public function testCharset() {
-		$view = new Zend_View();
-		$view->doctype('HTML5');
+    /**
+     * @group ZF-7722
+     */
+    public function testCharset() 
+    {
+        $view = new Zend_View();
+        $view->doctype('HTML5');
 
-		$view->headMeta()->setCharset('utf-8');
-		$this->assertEquals(
-			'<meta charset="utf-8">',
-			$view->headMeta()->toString());
+        $view->headMeta()->setCharset('utf-8');
+        $this->assertEquals(
+            '<meta charset="utf-8">',
+            $view->headMeta()->toString()
+        );
 
-		$view->doctype('XHTML5');
+        $view->doctype('XHTML5');
 
-		$this->assertEquals(
-			'<meta charset="utf-8"/>',
-			$view->headMeta()->toString());
-	}
+        $this->assertEquals(
+            '<meta charset="utf-8"/>',
+            $view->headMeta()->toString()
+        );
+    }
     
     /**
      * @group ZF-11835
@@ -540,7 +544,7 @@ class Zend_View_Helper_HeadMetaTest extends PHPUnit_Framework_TestCase
     {
         $expected = '<meta name="foo" content="bar" />';
         $helper = new Zend_View_Helper_HeadMeta();
-        $result = (string)$helper->headMeta()->appendName('foo','bar');
+        $result = (string)$helper->headMeta()->appendName('foo', 'bar');
         $this->assertEquals($expected, $result);
     }
 

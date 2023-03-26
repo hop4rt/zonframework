@@ -145,8 +145,11 @@ class Zend_View_Helper_HtmlListTest extends PHPUnit_Framework_TestCase
         $this->assertContains('<ul>' . Zend_View_Helper_HtmlList::EOL, $list);
         $this->assertContains('</ul>' . Zend_View_Helper_HtmlList::EOL, $list);
         $this->assertContains('one<ul>' . Zend_View_Helper_HtmlList::EOL.'<li>four', $list);
-        $this->assertContains('<li>six</li>' . Zend_View_Helper_HtmlList::EOL . '</ul>' .
-            Zend_View_Helper_HtmlList::EOL . '</li>' . Zend_View_Helper_HtmlList::EOL . '<li>two', $list);
+        $this->assertContains(
+            '<li>six</li>' . Zend_View_Helper_HtmlList::EOL . '</ul>' .
+            Zend_View_Helper_HtmlList::EOL . '</li>' . Zend_View_Helper_HtmlList::EOL . '<li>two',
+            $list
+        );
     }
 
     /*
@@ -162,8 +165,11 @@ class Zend_View_Helper_HtmlListTest extends PHPUnit_Framework_TestCase
         $this->assertContains('</ul>' . Zend_View_Helper_HtmlList::EOL, $list);
         $this->assertContains('one<ul>' . Zend_View_Helper_HtmlList::EOL . '<li>four', $list);
         $this->assertContains('<li>four<ul>' . Zend_View_Helper_HtmlList::EOL . '<li>six', $list);
-        $this->assertContains('<li>five</li>' . Zend_View_Helper_HtmlList::EOL . '</ul>' .
-            Zend_View_Helper_HtmlList::EOL . '</li>' . Zend_View_Helper_HtmlList::EOL . '<li>two', $list);
+        $this->assertContains(
+            '<li>five</li>' . Zend_View_Helper_HtmlList::EOL . '</ul>' .
+            Zend_View_Helper_HtmlList::EOL . '</li>' . Zend_View_Helper_HtmlList::EOL . '<li>two',
+            $list
+        );
     }
 
     public function testListWithValuesToEscapeForZF2283()

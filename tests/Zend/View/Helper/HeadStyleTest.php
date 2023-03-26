@@ -119,19 +119,19 @@ class Zend_View_Helper_HeadStyleTest extends PHPUnit_Framework_TestCase
         try {
             $this->helper->append('foo');
             $this->fail('Non-style value should not append');
-        } catch (Zend_View_Exception $e) { }
+        } catch (Zend_View_Exception $e) {}
         try {
             $this->helper->offsetSet(5, 'foo');
             $this->fail('Non-style value should not offsetSet');
-        } catch (Zend_View_Exception $e) { }
+        } catch (Zend_View_Exception $e) {}
         try {
             $this->helper->prepend('foo');
             $this->fail('Non-style value should not prepend');
-        } catch (Zend_View_Exception $e) { }
+        } catch (Zend_View_Exception $e) {}
         try {
             $this->helper->set('foo');
             $this->fail('Non-style value should not set');
-        } catch (Zend_View_Exception $e) { }
+        } catch (Zend_View_Exception $e) {}
     }
 
     public function testOverloadAppendStyleAppendsStyleToStack()
@@ -188,13 +188,16 @@ class Zend_View_Helper_HeadStyleTest extends PHPUnit_Framework_TestCase
 
     public function testCanBuildStyleTagsWithAttributes()
     {
-        $this->helper->setStyle('a {}', array(
-            'lang'  => 'us_en',
-            'title' => 'foo',
-            'media' => 'projection',
-            'dir'   => 'rtol',
-            'bogus' => 'unused'
-        ));
+        $this->helper->setStyle(
+            'a {}',
+            array(
+                'lang'  => 'us_en',
+                'title' => 'foo',
+                'media' => 'projection',
+                'dir'   => 'rtol',
+                'bogus' => 'unused'
+            )
+        );
         $value = $this->helper->getValue();
 
         $this->assertObjectHasAttribute('attributes', $value);
@@ -214,13 +217,16 @@ class Zend_View_Helper_HeadStyleTest extends PHPUnit_Framework_TestCase
 
     public function testRenderedStyleTagsContainHtmlEscaping()
     {
-        $this->helper->setStyle('a {}', array(
-            'lang'  => 'us_en',
-            'title' => 'foo',
-            'media' => 'screen',
-            'dir'   => 'rtol',
-            'bogus' => 'unused'
-        ));
+        $this->helper->setStyle(
+            'a {}',
+            array(
+                'lang'  => 'us_en',
+                'title' => 'foo',
+                'media' => 'screen',
+                'dir'   => 'rtol',
+                'bogus' => 'unused'
+            )
+        );
         $value = $this->helper->toString();
         $this->assertContains('<!--' . PHP_EOL, $value);
         $this->assertContains(PHP_EOL . '-->', $value);
@@ -228,8 +234,7 @@ class Zend_View_Helper_HeadStyleTest extends PHPUnit_Framework_TestCase
 
     public function testRenderedStyleTagsContainsDefaultMedia()
     {
-        $this->helper->setStyle('a {}', array(
-        ));
+        $this->helper->setStyle('a {}', array());
         $value = $this->helper->toString();
         $this->assertRegexp('#<style [^>]*?media="screen"#', $value, $value);
     }
@@ -309,7 +314,7 @@ class Zend_View_Helper_HeadStyleTest extends PHPUnit_Framework_TestCase
         try {
             $this->helper->bogusMethod();
             $this->fail('Invalid method should raise exception');
-        } catch (Zend_View_Exception $e) { }
+        } catch (Zend_View_Exception $e) {}
     }
 
     public function testTooFewArgumentsRaisesException()
@@ -317,7 +322,7 @@ class Zend_View_Helper_HeadStyleTest extends PHPUnit_Framework_TestCase
         try {
             $this->helper->appendStyle();
             $this->fail('Too few arguments should raise exception');
-        } catch (Zend_View_Exception $e) { }
+        } catch (Zend_View_Exception $e) {}
     }
 
     public function testIndentationIsHonored()
@@ -448,9 +453,7 @@ a {
     public function testRenderConditionalCommentsShouldNotContainHtmlEscaping()
     {
         $style = 'a{display:none;}';
-        $this->helper->appendStyle($style, array(
-        	'conditional' => 'IE 8'
-        ));
+        $this->helper->appendStyle($style, array('conditional' => 'IE 8'));
         $value = $this->helper->toString();
 
         $this->assertNotContains('<!--' . PHP_EOL, $value);

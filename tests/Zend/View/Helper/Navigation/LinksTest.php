@@ -61,8 +61,7 @@ class Zend_View_Helper_Navigation_LinksTest
         // doctype fix (someone forgot to clean up after their unit tests)
         $this->_doctypeHelper = $this->_helper->view->doctype();
         $this->_oldDoctype = $this->_doctypeHelper->getDoctype();
-        $this->_doctypeHelper->setDoctype(
-                Zend_View_Helper_Doctype::HTML4_LOOSE);
+        $this->_doctypeHelper->setDoctype(Zend_View_Helper_Doctype::HTML4_LOOSE);
 
         // disable all active pages
         foreach ($this->_helper->findAllByActive(true) as $page) {
@@ -118,10 +117,13 @@ class Zend_View_Helper_Navigation_LinksTest
     public function testDetectRelationFromPageInstancePropertyOfActivePage()
     {
         $active = $this->_helper->findOneByLabel('Page 2');
-        $active->addRel('example', Zend_Navigation_Page::factory(array(
-            'uri' => 'http://www.example.com/',
-            'label' => 'An example page'
-        )));
+        $active->addRel(
+            'example',
+            Zend_Navigation_Page::factory(array(
+                'uri' => 'http://www.example.com/',
+                'label' => 'An example page'
+            ))
+        );
         $found = $this->_helper->findRelExample($active);
 
         $expected = array(
@@ -142,10 +144,13 @@ class Zend_View_Helper_Navigation_LinksTest
     public function testDetectRelationFromArrayPropertyOfActivePage()
     {
         $active = $this->_helper->findOneByLabel('Page 2');
-        $active->addRel('example', array(
-            'uri' => 'http://www.example.com/',
-            'label' => 'An example page'
-        ));
+        $active->addRel(
+            'example',
+            array(
+                'uri' => 'http://www.example.com/',
+                'label' => 'An example page'
+            )
+        );
         $found = $this->_helper->findRelExample($active);
 
         $expected = array(
@@ -166,10 +171,13 @@ class Zend_View_Helper_Navigation_LinksTest
     public function testDetectRelationFromConfigInstancePropertyOfActivePage()
     {
         $active = $this->_helper->findOneByLabel('Page 2');
-        $active->addRel('example', new Zend_Config(array(
-            'uri' => 'http://www.example.com/',
-            'label' => 'An example page'
-        )));
+        $active->addRel(
+            'example',
+            new Zend_Config(array(
+                'uri' => 'http://www.example.com/',
+                'label' => 'An example page'
+            ))
+        );
         $found = $this->_helper->findRelExample($active);
 
         $expected = array(
@@ -191,16 +199,19 @@ class Zend_View_Helper_Navigation_LinksTest
     {
         $active = $this->_helper->findOneByLabel('Page 2');
 
-        $active->addRel('alternate', array(
+        $active->addRel(
+            'alternate',
             array(
-                'label' => 'foo',
-                'uri'   => 'bar'
-            ),
-            array(
-                'label' => 'baz',
-                'uri'   => 'bat'
+                array(
+                    'label' => 'foo',
+                    'uri'   => 'bar'
+                ),
+                array(
+                    'label' => 'baz',
+                    'uri'   => 'bat'
+                )
             )
-        ));
+        );
 
         $found = $this->_helper->findRelAlternate($active);
 
@@ -213,16 +224,19 @@ class Zend_View_Helper_Navigation_LinksTest
     {
         $active = $this->_helper->findOneByLabel('Page 2');
 
-        $active->addRel('alternate', new Zend_Config(array(
-            array(
-                'label' => 'foo',
-                'uri'   => 'bar'
-            ),
-            array(
-                'label' => 'baz',
-                'uri'   => 'bat'
-            )
-        )));
+        $active->addRel(
+            'alternate',
+            new Zend_Config(array(
+                array(
+                    'label' => 'foo',
+                    'uri'   => 'bar'
+                ),
+                array(
+                    'label' => 'baz',
+                    'uri'   => 'bat'
+                )
+            ))
+        );
 
         $found = $this->_helper->findRelAlternate($active);
 
@@ -483,9 +497,7 @@ class Zend_View_Helper_Navigation_LinksTest
 
         $oldContainer = $this->_helper->getContainer();
         $container = $this->_helper->getContainer();
-        $iterator = new RecursiveIteratorIterator(
-            $container,
-            RecursiveIteratorIterator::SELF_FIRST);
+        $iterator = new RecursiveIteratorIterator($container, RecursiveIteratorIterator::SELF_FIRST);
         foreach ($iterator as $page) {
             $page->resource = 'protected';
         }
@@ -527,8 +539,7 @@ class Zend_View_Helper_Navigation_LinksTest
         $active = $this->_helper->findOneByLabel('Home');
         try {
             $this->_helper->findRelation($active, 'foo', 'bar');
-            $this->fail('An invalid value was given, but a ' .
-                        'Zend_View_Exception was not thrown');
+            $this->fail('An invalid value was given, but a Zend_View_Exception was not thrown');
         } catch (Zend_View_Exception $e) {
             $this->assertContains('Invalid argument: $rel', $e->getMessage());
         }
@@ -539,8 +550,7 @@ class Zend_View_Helper_Navigation_LinksTest
         $active = $this->_helper->findOneByLabel('Home');
         try {
             $this->_helper->renderLink($active, 'foo', 'bar');
-            $this->fail('An invalid value was given, but a ' .
-                        'Zend_View_Exception was not thrown');
+            $this->fail('An invalid value was given, but a Zend_View_Exception was not thrown');
         } catch (Zend_View_Exception $e) {
             $this->assertContains('Invalid relation attribute', $e->getMessage());
         }
