@@ -911,10 +911,6 @@ class Zend_LocaleTest extends PHPUnit_Framework_TestCase
 
     public function testEachDataFileShouldPresentAsLocaleData()
     {
-        if (version_compare(PHP_VERSION, '5.3.2', 'lt')) {
-            $this->markTestSkipped('ReflectionMethod::setAccessible can only be run under 5.3.2 or later');
-        }
-
         $dir = new DirectoryIterator(
             __DIR__ . '/../../library/Zend/Locale/Data'
         );

@@ -130,7 +130,6 @@ abstract class Zend_Date_DateObject {
      * by allowing PHP to auto-convert to using a float value.
      *
      * Returns a timestamp relative to 1970/01/01 00:00:00 GMT/UTC.
-     * DST (Summer/Winter) is depriciated since php 5.1.0.
      * Year has to be 4 digits otherwise it would be recognised as
      * year 70 AD instead of 1970 AD as expected !!
      *

@@ -137,7 +137,6 @@ class Zend_Locale_Math
 
     /**
      * Convert a scientific notation to float
-     * Additionally fixed a problem with PHP <= 5.2.x with big integers
      *
      * @param string $value
      */

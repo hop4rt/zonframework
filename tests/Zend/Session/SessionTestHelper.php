@@ -107,8 +107,7 @@ class Zend_Session_TestHelper
         // $args['OOOOOOOOOOOOOOOO'] = 'YYYYYYYYYYYYYYYYYYYYYYYYYYYYY';
 
         $s->someArray = $args;
-        $s->someArray['bee'] = 'honey'; // Repeating this line twice "solves" the problem for some versions of PHP,
-        $s->someArray['bee'] = 'honey'; // but PHP 5.2.1 has the real fix for ZF-800.
+        $s->someArray['bee'] = 'honey';
         $s->someArray['ant'] = 'sugar';
         $s->someArray['dog'] = 'cat';
         // file_put_contents('out.sessiontest.set', (str_replace(array("\n", ' '),array(';',''), print_r($_SESSION, true))) );
@@ -154,4 +153,3 @@ class Zend_Session_TestHelper
 $testHelper = new Zend_Session_TestHelper();
 
 exit($testHelper->run($argv));
-

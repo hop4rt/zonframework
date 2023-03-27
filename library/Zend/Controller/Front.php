@@ -197,9 +197,6 @@ class Zend_Controller_Front
     /**
      * Convenience feature, calls setControllerDirectory()->setRouter()->dispatch()
      *
-     * In PHP 5.1.x, a call to a static method never populates $this -- so run()
-     * may actually be called after setting up your front controller.
-     *
      * @param string|array $controllerDirectory Path to Zend_Controller_Action
      * controller classes or array of such paths
      * @return void

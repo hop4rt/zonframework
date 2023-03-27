@@ -54,8 +54,7 @@ class Zend_Crypt_Hmac extends Zend_Crypt
     protected static $_packFormat = null;
 
     /**
-     * Hashing algorithm; can be the md5/sha1 functions or any algorithm name
-     * listed in the output of PHP 5.1.2+ hash_algos().
+     * Hashing algorithm; can be the md5/sha1 functions or any algorithm name listed by hash_algos().
      *
      * @var string
      */

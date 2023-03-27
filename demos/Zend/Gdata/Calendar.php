@@ -23,7 +23,7 @@
  * PHP sample code for the Google Calendar data API.  Utilizes the
  * Zend Framework Gdata components to communicate with the Google API.
  *
- * Requires the Zend Framework Gdata components and PHP >= 5.2.11
+ * Requires the Zend Framework Gdata components
  *
  * You can run this sample both from the command line (CLI) and also
  * from a web browser.  When running through a web browser, only
@@ -288,10 +288,9 @@ function outputCalendar($client)
   // $eventFeed = $gdataCal->getCalendarEventFeed($query->getQueryUrl());
   echo "<ul>\n";
   foreach ($eventFeed as $event) {
-    echo "\t<li>" . $event->title->text .  " (" . $event->id->text . ")\n";
-    // Zend_Gdata_App_Extensions_Title->__toString() is defined, so the
-    // following will also work on PHP >= 5.2.0
-    //echo "\t<li>" . $event->title .  " (" . $event->id . ")\n";
+    echo "\t<li>" . $event->title->getText() .  " (" . $event->id->getText() . ")\n";
+    // Zend_Gdata_App_Extension_Title::__toString() is defined, so the following will also work
+    // echo "\t<li>" . $event->title .  " (" . $event->id . ")\n";
     echo "\t\t<ul>\n";
     foreach ($event->when as $when) {
       echo "\t\t\t<li>Starts: " . $when->startTime . "</li>\n";

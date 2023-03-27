@@ -212,21 +212,6 @@ class Zend_ViewTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests that isset() and empty() work correctly.  This is a common problem
-     * because __isset() was not supported until PHP 5.1.
-     */
-    public function testIssetEmpty()
-    {
-        $view = new Zend_View();
-        $this->assertFalse(isset($view->foo));
-        $this->assertTrue(empty($view->foo));
-
-        $view->foo = 'bar';
-        $this->assertTrue(isset($view->foo));
-        $this->assertFalse(empty($view->foo));
-    }
-
-    /**
      * Tests that a help can be loaded from the search path
      *
      */

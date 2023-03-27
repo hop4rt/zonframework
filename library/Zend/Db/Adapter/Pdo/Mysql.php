@@ -101,13 +101,6 @@ class Zend_Db_Adapter_Pdo_Mysql extends Zend_Db_Adapter_Pdo_Abstract
             return;
         }
 
-        if (!empty($this->_config['charset'])
-            && version_compare(PHP_VERSION, '5.3.6', '<')
-        ) {
-            $initCommand = "SET NAMES '" . $this->_config['charset'] . "'";
-            $this->_config['driver_options'][1002] = $initCommand; // 1002 = PDO::MYSQL_ATTR_INIT_COMMAND
-        }
-
         parent::_connect();
     }
 

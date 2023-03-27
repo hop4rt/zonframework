@@ -945,8 +945,7 @@ class Zend_SessionTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @todo PHP 5.2.1 is required (fixes a bug with magic __get() returning by reference)
-     * @see  http://framework.zend.com/issues/browse/ZF-800
+     * test arrays
      */
     public function testArrays()
     {
