@@ -416,10 +416,6 @@ class Zend_Form_Element_CaptchaTest extends PHPUnit_Framework_TestCase
      */
     public function testShouldAllowAddingCaptchaPrefixPathWithBackslash()
     {
-        if (version_compare(PHP_VERSION, '5.3.0', '<')) {
-            $this->markTestSkipped(__CLASS__ . '::' . __METHOD__ . ' requires PHP 5.3.0 or greater');
-            return;
-        }
         $this->element->addPrefixPath('My\Captcha', 'My/Captcha/', 'captcha');
         $loader = $this->element->getPluginLoader('captcha');
         $paths  = $loader->getPaths('My\Captcha');
@@ -431,10 +427,6 @@ class Zend_Form_Element_CaptchaTest extends PHPUnit_Framework_TestCase
      */
     public function testAddingCaptchaPrefixPathWithBackslash()
     {
-        if (version_compare(PHP_VERSION, '5.3.0', '<')) {
-            $this->markTestSkipped(__CLASS__ . '::' . __METHOD__ . ' requires PHP 5.3.0 or greater');
-            return;
-        }
         $this->element->addPrefixPath('My\\', 'My/');
         $loader = $this->element->getPluginLoader('captcha');
         $paths  = $loader->getPaths('My\Captcha');

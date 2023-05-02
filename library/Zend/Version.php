@@ -35,13 +35,6 @@ final class Zend_Version
     const VERSION = '0.99.0';
 
     /**
-     * The latest stable version Zend Framework available
-     *
-     * @var string
-     */
-    protected static $_latestVersion;
-
-    /**
      * Compare the specified Zend Framework version string $version
      * with the current Zend_Version::VERSION of Zend Framework.
      *
@@ -50,32 +43,22 @@ final class Zend_Version
      *                           0 if they are the same,
      *                           and +1 if $version is newer.
      *
+     * @deprecated since 0.99.1 - use version_compare() directly
      */
     public static function compareVersion($version)
     {
-        $version = strtolower($version);
-        $version = preg_replace('/(\d)pr(\d?)/', '$1a$2', $version);
-        return version_compare($version, strtolower(self::VERSION));
+        return version_compare($version, self::VERSION);
     }
 
     /**
      * Fetches the version of the latest stable release
      *
-     * @link http://framework.zend.com/download/latest
-     * @return string
+     * @return true
+     *
+     * @deprecated since 0.99.1
      */
     public static function getLatest()
     {
-        if (null === self::$_latestVersion) {
-            self::$_latestVersion = 'not available';
-
-            $handle = fopen('http://framework.zend.com/api/zf-version', 'r');
-            if (false !== $handle) {
-                self::$_latestVersion = stream_get_contents($handle);
-                fclose($handle);
-            }
-        }
-
-        return self::$_latestVersion;
+        return true;
     }
 }

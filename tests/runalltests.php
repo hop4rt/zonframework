@@ -34,13 +34,13 @@ if (!$PHPUNIT) {
 
     $PHPUNIT = trim($PHPUNIT);
     if (!$PHPUNIT) {
-        echo "PHPUnit was not found on your OS!" . PHP_EOL;
+        echo 'PHPUnit was not found on your OS!' . PHP_EOL;
         exit(1);
     }
 }
 
 if (!is_executable($PHPUNIT)) {
-    echo "PHPUnit is not executable ($PHPUNIT)";
+    echo 'PHPUnit is not executable (' . $PHPUNIT . ')';
 }
 
 $PHPUNIT = '../bin/phpunit'; //PHPUnit from composer
@@ -55,16 +55,19 @@ $result = 0;
 // run through phpunit
 while (list(, $file)=each($files)) {
     echo "Executing {$file}" . PHP_EOL;
-    system($PHPUNIT . ' --stderr -d memory_limit=-1 -d error_reporting=E_ALL\&E_STRICT -d display_errors=1 ' . escapeshellarg($file), $c_result);
-    echo PHP_EOL;
-    echo "Finished executing {$file}" . PHP_EOL;
+    system(
+        $PHPUNIT . ' -v --stderr -d memory_limit=-1 -d error_reporting=E_ALL\&E_STRICT -d display_errors=1 '
+            . escapeshellarg($file),
+        $commandResult
+    );
+    echo PHP_EOL . 'Finished executing ' . $file . PHP_EOL . PHP_EOL;
     
-    if ($c_result) {
-        echo PHP_EOL . "Result of $file is $c_result" . PHP_EOL . PHP_EOL;
-        $result = $c_result;
+    if ($commandResult) {
+        echo PHP_EOL . 'Result of ' . $file . ' is ' . $commandResult . PHP_EOL . PHP_EOL;
+        $result = $commandResult;
     }
 }
 
 
-echo PHP_EOL . "All done. Result: $result" . PHP_EOL;
+echo 'All done. Result: ' . $result . PHP_EOL;
 exit($result);

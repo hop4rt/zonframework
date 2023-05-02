@@ -278,10 +278,6 @@ class Zend_LoaderTest extends PHPUnit_Framework_TestCase
 
     public function testLoaderRegisterAutoloadRegisters()
     {
-        if (!function_exists('spl_autoload_register')) {
-            $this->markTestSkipped("spl_autoload not installed on this PHP installation");
-        }
-
         $this->setErrorHandler();
         Zend_Loader::registerAutoload();
         $this->assertContains('deprecated', $this->error);
@@ -303,10 +299,6 @@ class Zend_LoaderTest extends PHPUnit_Framework_TestCase
 
     public function testLoaderRegisterAutoloadExtendedClassNeedsAutoloadMethod()
     {
-        if (!function_exists('spl_autoload_register')) {
-            $this->markTestSkipped("spl_autoload not installed on this PHP installation");
-        }
-
         $this->setErrorHandler();
         Zend_Loader::registerAutoload('Zend_Loader_MyLoader');
         $this->assertContains('deprecated', $this->error);
@@ -327,10 +319,6 @@ class Zend_LoaderTest extends PHPUnit_Framework_TestCase
 
     public function testLoaderRegisterAutoloadExtendedClassWithAutoloadMethod()
     {
-        if (!function_exists('spl_autoload_register')) {
-            $this->markTestSkipped("spl_autoload not installed on this PHP installation");
-        }
-
         $this->setErrorHandler();
         Zend_Loader::registerAutoload('Zend_Loader_MyOverloader');
         $this->assertContains('deprecated', $this->error);
@@ -369,10 +357,6 @@ class Zend_LoaderTest extends PHPUnit_Framework_TestCase
 
     public function testLoaderRegisterAutoloadFailsWithoutSplAutoload()
     {
-        if (function_exists('spl_autoload_register')) {
-            $this->markTestSkipped("spl_autoload() is installed on this PHP installation; cannot test for failure");
-        }
-
         try {
             Zend_Loader::registerAutoload();
             $this->fail('registerAutoload should fail without spl_autoload');
@@ -382,10 +366,6 @@ class Zend_LoaderTest extends PHPUnit_Framework_TestCase
 
     public function testLoaderRegisterAutoloadInvalidClass()
     {
-        if (!function_exists('spl_autoload_register')) {
-            $this->markTestSkipped("spl_autoload() not installed on this PHP installation");
-        }
-
         $this->setErrorHandler();
         try {
             Zend_Loader::registerAutoload('stdClass');
@@ -398,10 +378,6 @@ class Zend_LoaderTest extends PHPUnit_Framework_TestCase
 
     public function testLoaderUnregisterAutoload()
     {
-        if (!function_exists('spl_autoload_register')) {
-            $this->markTestSkipped("spl_autoload() not installed on this PHP installation");
-        }
-
         $this->setErrorHandler();
         Zend_Loader::registerAutoload('Zend_Loader_MyOverloader');
         $this->assertContains('deprecated', $this->error);
@@ -430,10 +406,6 @@ class Zend_LoaderTest extends PHPUnit_Framework_TestCase
      */
     public function testRegisterAutoloadShouldEnableZendLoaderAutoloaderAsFallbackAutoloader()
     {
-        if (!function_exists('spl_autoload_register')) {
-            $this->markTestSkipped("spl_autoload() not installed on this PHP installation");
-        }
-
         $this->setErrorHandler();
         Zend_Loader::registerAutoload();
         $this->assertContains('deprecated', $this->error);
@@ -457,9 +429,6 @@ class Zend_LoaderTest extends PHPUnit_Framework_TestCase
      */
     public function testLoadClassShouldAllowLoadingPhpNamespacedClasses()
     {
-        if (version_compare(PHP_VERSION, '5.3.0') < 0) {
-            $this->markTestSkipped('PHP < 5.3.0 does not support namespaces');
-        }
         Zend_Loader::loadClass('\Zfns\Foo', array(__DIR__ . '/Loader/_files'));
     }
 
@@ -469,10 +438,6 @@ class Zend_LoaderTest extends PHPUnit_Framework_TestCase
      */
     public function testIsReadableShouldHonorStreamDefinitions()
     {
-        if (version_compare(PHP_VERSION, '5.3.0', '<')) {
-            $this->markTestSkipped();
-        }
-
         $pharFile = __DIR__ . '/Loader/_files/Zend_LoaderTest.phar';
         $phar     = new Phar($pharFile, 0, 'zlt.phar');
         $incPath = 'phar://zlt.phar'
@@ -487,10 +452,6 @@ class Zend_LoaderTest extends PHPUnit_Framework_TestCase
      */
     public function testIsReadableShouldNotLockWhenTestingForNonExistantFileInPhar()
     {
-        if (version_compare(PHP_VERSION, '5.3.0', '<')) {
-            $this->markTestSkipped();
-        }
-
         $pharFile = __DIR__ . '/Loader/_files/Zend_LoaderTest.phar';
         $phar     = new Phar($pharFile, 0, 'zlt.phar');
         $incPath = 'phar://zlt.phar'

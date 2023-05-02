@@ -805,26 +805,6 @@ defined('TESTS_ZEND_SERVICE_YAHOO_ONLINE_APPID') || define('TESTS_ZEND_SERVICE_Y
 defined('TESTS_ZEND_SOAP_AUTODISCOVER_ONLINE_SERVER_BASEURI') || define('TESTS_ZEND_SOAP_AUTODISCOVER_ONLINE_SERVER_BASEURI', false);
 
 /**
- * Zend_Uri tests
- *
- * Setting CRASH_TEST_ENABLED to true will enable some tests that may
- * potentially crash PHP on some systems, due to very deep-nesting regular
- * expressions.
- *
- * Only do this if you know what you are doing!
- */
-defined('TESTS_ZEND_URI_CRASH_TEST_ENABLED') || define('TESTS_ZEND_URI_CRASH_TEST_ENABLED', false);
-
-/**
- * Zend_Version tests
- *
- * Set ONLINE_ENABLED if you wish to run validators that require network
- * connectivity.
- */
-defined('TESTS_ZEND_VERSION_ONLINE_ENABLED') || define('TESTS_ZEND_VERSION_ONLINE_ENABLED', false);
-
-
-/**
  * Zend_Validate tests
  *
  * Set ONLINE_ENABLED if you wish to run validators that require network

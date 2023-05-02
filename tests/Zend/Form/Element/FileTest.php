@@ -505,12 +505,6 @@ class Zend_Form_Element_FileTest extends PHPUnit_Framework_TestCase
      */
     public function testElementShouldAllowAdapterWithBackslahes()
     {
-        if (version_compare(PHP_VERSION, '5.3.0', '<')) {
-            $this->markTestSkipped(
-                __CLASS__ . '::' . __METHOD__ . ' requires PHP 5.3.0 or greater'
-            );
-            return;
-        }
         $this->element->addPrefixPath(
             'Zend\Form\Element\FileTest\Adapter',
             __DIR__ . '/_files/TransferAdapter',

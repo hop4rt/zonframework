@@ -51,8 +51,7 @@ class Zend_Stdlib_CallbackHandler
 
     /**
      * Constructor
-     * 
-     * @param  string $event Event to which slot is subscribed
+     *
      * @param  string|array|object $callback PHP callback 
      * @param  array $options Options used by the callback handler (e.g., priority)
      * @return void

@@ -48,6 +48,9 @@ class Zend_Tool_Project_ProfileTest extends PHPUnit_Framework_TestCase
     {
         $this->_projectDirectory   = __DIR__ . '/_files/project1/';
         $this->_projectProfileFile = __DIR__ . '/_files/.zfproject.xml.orig';
+        if (!file_exists($this->_projectDirectory)) {
+            mkdir($this->_projectDirectory, 0666);
+        }
 
         $this->_removeProjectFiles();
 
@@ -279,10 +282,7 @@ class Zend_Tool_Project_ProfileTest extends PHPUnit_Framework_TestCase
         foreach (new RecursiveIteratorIterator($rdi, RecursiveIteratorIterator::CHILD_FIRST) as $dirIteratorItem) {
 
             $basename = $dirIteratorItem->getBasename();
-            if (stristr($dirIteratorItem->getPathname(), '.svn')
-                || '.' === $basename
-                || '..' === $basename)
-            {
+            if ('.' === $basename || '..' === $basename) {
                 continue;
             }
 

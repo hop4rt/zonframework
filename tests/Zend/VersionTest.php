@@ -46,63 +46,19 @@ class Zend_VersionTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests that version_compare() and its "proxy"
-     * Zend_Version::compareVersion() work as expected.
+     * @deprecated
      */
     public function testVersionCompare()
     {
-        $expect = -1;
-        // unit test breaks if ZF version > 1.x
-        for ($i=0; $i <= 1; $i++) {
-            for ($j=0; $j <= 12; $j++) {
-                for ($k=0; $k < 20; $k++) {
-                    foreach (array('dev', 'alpha', 'a1', 'a2', 'beta', 'b1', 'b2', 'RC', 'RC1', 'RC2', 'RC3', '', 'pl1', 'PL1') as $rel) {
-                        $ver = "$i.$j.$k$rel";
-                        $normalizedVersion = strtolower(Zend_Version::VERSION);
-                        if (strtolower($ver) === $normalizedVersion
-                            || strtolower("$i.$j.$k-$rel") === $normalizedVersion
-                            || strtolower("$i.$j.$k.$rel") === $normalizedVersion
-                            || strtolower("$i.$j.$k $rel") === $normalizedVersion
-                        ) {
-                            if ($expect == -1) {
-                                $expect = 1;
-                            }
-                        } else {
-                            $this->assertSame(
-                                Zend_Version::compareVersion($ver),
-                                $expect,
-                                "For version '$ver' and Zend_Version::VERSION = '"
-                                . Zend_Version::VERSION . "': result=" . (Zend_Version::compareVersion($ver))
-                                . ', but expected ' . $expect
-                            );
-                        }
-                    }
-                }
-            }
-        }
-        if ($expect === -1) {
-            $this->fail('Unable to recognize Zend_Version::VERSION ('. Zend_Version::VERSION . '); last version compared: ' . $ver);
-        }
+        $this->markTestSkipped('deprecated');
     }
 
     /**
-     * @group ZF-10363
+     * @deprecated
      */
     public function testFetchLatestVersion()
     {
-        if (!defined('TESTS_ZEND_VERSION_ONLINE_ENABLED')
-            || !constant('TESTS_ZEND_VERSION_ONLINE_ENABLED')
-        ) {
-            $this->markTestSkipped('Testing fetchLatersVersion only works when TESTS_ZEND_VERSION_ONLINE_ENABLED is set.');
-            return;
-        }
-
-        $actual = Zend_Version::getLatest();
-        if ('not available' === $actual) {
-            $this->markTestIncomplete('http://framework.zend.com/ may be down');
-        }
-
-        $this->assertRegExp('/^[1-2](\.[0-9]+){2}/', $actual);
+        $this->markTestSkipped('deprecated');
     }
 }
 

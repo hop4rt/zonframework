@@ -829,11 +829,7 @@ EOB;
      */
     public function testEncoderEscapesNamespacedClassNamesProperly()
     {
-        if (version_compare(PHP_VERSION, '5.3.0') === -1) {
-            $this->markTestSkipped('Namespaces not available in PHP < 5.3.0');
-        }
-        
-        require_once dirname(__FILE__ ) . "/Json/_files/ZF11356-NamespacedClass.php";        
+        require_once __DIR__ . "/Json/_files/ZF11356-NamespacedClass.php";
         $className = '\Zend\JsonTest\ZF11356\NamespacedClass';
         $inputValue = new $className(array('foo'));
         

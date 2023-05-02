@@ -202,7 +202,7 @@ class Zend_Validate_File_IsCompressedTest extends PHPUnit_Framework_TestCase
         if (version_compare(PHP_VERSION, '5.3', '>=')) {
             $magicFile = __DIR__ . '/_files/magic-php53.mime';
         } else {
-            $magicFile = __DIR__ . '/_files/magic.mime';
+            $this->markTestSkipped('Not supported PHP version');
         }
 
         $validator = new Zend_Validate_File_IsCompressed(array(
