@@ -1017,22 +1017,23 @@ class Zend_Soap_Client
      *
      * May be overridden in subclasses
      *
-     * @internal
      * @param Zend_Soap_Client_Common $client
      * @param string $request
      * @param string $location
      * @param string $action
      * @param int    $version
-     * @param int    $one_way
+     * @param int    $oneWay
+     *
      * @return mixed
+     * @internal
      */
-    public function _doRequest(Zend_Soap_Client_Common $client, $request, $location, $action, $version, $one_way = null)
+    public function _doRequest(Zend_Soap_Client_Common $client, $request, $location, $action, $version, $oneWay = null)
     {
         // Perform request as is
-        if ($one_way == null) {
+        if ($oneWay == null) {
             return call_user_func(array($client,'SoapClient::__doRequest'), $request, $location, $action, $version);
         } else {
-            return call_user_func(array($client,'SoapClient::__doRequest'), $request, $location, $action, $version, $one_way);
+            return call_user_func(array($client,'SoapClient::__doRequest'), $request, $location, $action, $version, $oneWay);
         }
     }
 

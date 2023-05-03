@@ -19,24 +19,19 @@ $cacheBackendOptions = array(
 $cache = Zend_Cache::factory('Core', 'File', $cacheFrontendOptions, $cacheBackendOptions);
 
 if (! $fonts = $cache->load($cacheId)) {
-    
     // Cache miss. Connect to backend service (expensive).
-    
     $mailMerge = new Zend_Service_LiveDocx_MailMerge();
-    
+
     $mailMerge->setUsername(DEMOS_ZEND_SERVICE_LIVEDOCX_USERNAME)
               ->setPassword(DEMOS_ZEND_SERVICE_LIVEDOCX_PASSWORD);
-    
+
     $fonts = $mailMerge->getFontNames();
-    
+
     $cache->save($fonts, $cacheId);
-    
+
     unset($mailMerge);
-    
 } else {
-    
     // Cache hit. Continue.
-    
 }
 
 unset($cache);
@@ -50,8 +45,8 @@ print(Demos_Zend_Service_LiveDocx_Helper::wrapLine(
     PHP_EOL . 
     PHP_EOL . Demos_Zend_Service_LiveDocx_Helper::arrayDecorator($fonts) . 
     PHP_EOL . 
-    PHP_EOL)
-);
+    PHP_EOL
+));
 
 print(PHP_EOL);
 

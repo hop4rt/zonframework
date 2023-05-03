@@ -948,17 +948,10 @@ class Zend_Wildfire_WildfireTest extends PHPUnit_Framework_TestCase
 
         $message = $messages[Zend_Wildfire_Plugin_FirePhp::STRUCTURE_URI_FIREBUGCONSOLE][Zend_Wildfire_Plugin_FirePhp::PLUGIN_URI][0];
 
-        if (version_compare(phpversion(), '5.3', '<')) {
-            $this->assertEquals(
-                $message,
-                '[{"Type":"LOG"},{"__className":"Zend_Wildfire_WildfireTest_TestObject1","public:name":"Name","public:value":"Value","protected:static:protectedStatic":"** Need PHP 5.3 to get value **"}]'
-            );
-        } elseif (version_compare(phpversion(), '5.3', '>=')) {
-            $this->assertEquals(
-                $message,
-                '[{"Type":"LOG"},{"__className":"Zend_Wildfire_WildfireTest_TestObject1","public:name":"Name","public:value":"Value","protected:static:protectedStatic":"ProtectedStatic"}]'
-            );
-        }
+        $this->assertEquals(
+            $message,
+            '[{"Type":"LOG"},{"__className":"Zend_Wildfire_WildfireTest_TestObject1","public:name":"Name","public:value":"Value","protected:static:protectedStatic":"ProtectedStatic"}]'
+        );
 
         $message = $messages[Zend_Wildfire_Plugin_FirePhp::STRUCTURE_URI_FIREBUGCONSOLE][Zend_Wildfire_Plugin_FirePhp::PLUGIN_URI][1];
 
@@ -986,17 +979,10 @@ class Zend_Wildfire_WildfireTest extends PHPUnit_Framework_TestCase
                             [Zend_Wildfire_Plugin_FirePhp::PLUGIN_URI]
                             [0];
 
-        if (version_compare(phpversion(), '5.3', '<')) {
-            $this->assertEquals(
-                $message,
-                '[{"Type":"LOG"},{"__className":"Zend_Wildfire_WildfireTest_TestObject2","public:public":"Public","private:private":"Private","protected:protected":"Protected","public:static:static":"Static","private:static:staticPrivate":"** Need PHP 5.3 to get value **","protected:static:staticProtected":"** Need PHP 5.3 to get value **"}]'
-            );
-        } elseif (version_compare(phpversion(), '5.3', '>=')) {
-            $this->assertEquals(
-                $message,
-                '[{"Type":"LOG"},{"__className":"Zend_Wildfire_WildfireTest_TestObject2","public:public":"Public","private:private":"Private","protected:protected":"Protected","public:static:static":"Static","private:static:staticPrivate":"StaticPrivate","protected:static:staticProtected":"StaticProtected"}]'
-            );
-        }
+        $this->assertEquals(
+            $message,
+            '[{"Type":"LOG"},{"__className":"Zend_Wildfire_WildfireTest_TestObject2","public:public":"Public","private:private":"Private","protected:protected":"Protected","public:static:static":"Static","private:static:staticPrivate":"StaticPrivate","protected:static:staticProtected":"StaticProtected"}]'
+        );
     }
 
     /**
@@ -1118,26 +1104,26 @@ class Zend_Wildfire_WildfireTest extends PHPUnit_Framework_TestCase
 
 class Zend_Wildfire_WildfireTest_TestObject1
 {
-  var $name = 'Name';
-  var $value = 'Value';
-  protected static $protectedStatic = 'ProtectedStatic';
+    public $name = 'Name';
+    public $value = 'Value';
+    protected static $protectedStatic = 'ProtectedStatic';
 }
 
 class Zend_Wildfire_WildfireTest_TestObject2
 {
-  var $public = 'Public';
-  private $private = 'Private';
-  protected $protected = 'Protected';
+    public $public = 'Public';
+    private $private = 'Private';
+    protected $protected = 'Protected';
 
-  static $static = 'Static';
-  static private $staticPrivate = 'StaticPrivate';
-  static protected $staticProtected = 'StaticProtected';
+    static $static = 'Static';
+    static private $staticPrivate = 'StaticPrivate';
+    static protected $staticProtected = 'StaticProtected';
 }
 
 class Zend_Wildfire_WildfireTest_TestObject3
 {
-  var $name = 'Name';
-  var $value = 'Value';
+    public $name = 'Name';
+    public $value = 'Value';
 }
 
 class Zend_Wildfire_WildfireTest_JsonEncodingTestClass

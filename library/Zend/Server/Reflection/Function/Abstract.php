@@ -109,19 +109,14 @@ abstract class Zend_Server_Reflection_Function_Abstract
      */
     public function __construct(Reflector $r, $namespace = null, $argv = array())
     {
-        // In PHP 5.1.x, ReflectionMethod extends ReflectionFunction. In 5.2.x,
-        // both extend ReflectionFunctionAbstract. So, we can't do normal type
-        // hinting in the prototype, but instead need to do some explicit
-        // testing here.
-        if ((!$r instanceof ReflectionFunction)
-            && (!$r instanceof ReflectionMethod)) {
+        if (!$r instanceof ReflectionFunctionAbstract) {
             require_once 'Zend/Server/Reflection/Exception.php';
             throw new Zend_Server_Reflection_Exception('Invalid reflection class');
         }
         $this->_reflection = $r;
 
         // Determine namespace
-        if (null !== $namespace){
+        if (null !== $namespace) {
             $this->setNamespace($namespace);
         }
 

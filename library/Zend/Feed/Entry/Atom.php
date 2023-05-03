@@ -96,14 +96,14 @@ class Zend_Feed_Entry_Atom extends Zend_Feed_Entry_Abstract
                 $response = $client->request('DELETE');
             }
             $httpStatus = $response->getStatus();
-            switch ((int) $httpStatus / 100) {
+            switch ($httpStatus / 100) {
                 // Success
                 case 2:
                     return true;
                 // Redirect
                 case 3:
                     $deleteUri = $response->getHeader('Location');
-                    continue;
+                    break;
                 // Error
                 default:
                     /**

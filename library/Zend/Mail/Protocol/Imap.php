@@ -296,11 +296,9 @@ class Zend_Mail_Protocol_Imap
     /**
      * read all lines of response until given tag is found (last line of response)
      *
-     * @param  string       $tag       the tag of your request
-     * @param  string|array $filter    you can filter the response so you get only the
-     *                                 given response lines
-     * @param  bool         $dontParse if true every line is returned unparsed instead of
-     *                                 the decoded tokens
+     * @param  string $tag       the tag of your request
+     * @param  bool   $dontParse if true every line is returned unparsed instead of
+     *                           the decoded tokens
      * @return null|bool|array tokens if success, false if error, null if bad request
      * @throws Zend_Mail_Protocol_Exception
      */
@@ -317,8 +315,8 @@ class Zend_Mail_Protocol_Imap
         }
         // last line has response code
         if ($tokens[0] == 'OK') {
-            return $lines ? $lines : true;
-        } else if ($tokens[0] == 'NO'){
+            return $lines ?: true;
+        } elseif ($tokens[0] == 'NO') {
             return false;
         }
         return null;

@@ -318,9 +318,9 @@ class Zend_Service_WindowsAzure_Storage_Blob extends Zend_Service_WindowsAzure_S
 				foreach ($entries as $entry) {
 					$returnValue[] = new Zend_Service_WindowsAzure_Storage_SignedIdentifier(
 					$entry->Id,
-					$entry->AccessPolicy ? $entry->AccessPolicy->Start ? $entry->AccessPolicy->Start : '' : '',
-					$entry->AccessPolicy ? $entry->AccessPolicy->Expiry ? $entry->AccessPolicy->Expiry : '' : '',
-					$entry->AccessPolicy ? $entry->AccessPolicy->Permission ? $entry->AccessPolicy->Permission : '' : ''
+                    $entry->AccessPolicy ? $entry->AccessPolicy->Start ?: '' : '',
+                    $entry->AccessPolicy ? $entry->AccessPolicy->Expiry ?: '' : '',
+                    $entry->AccessPolicy ? $entry->AccessPolicy->Permission ?: '' : ''
 					);
 				}
 

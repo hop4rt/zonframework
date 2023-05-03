@@ -551,9 +551,8 @@ EOT;
     /**
      *  @group ZF-3257
      */
-
-    public function testUsingXML8() {
-
+    public function testUsingXML8()
+    {
         // Set the XML contents that will be tested here.
         $xmlStringContents = <<<EOT
 <?xml version="1.0"?>
@@ -583,7 +582,6 @@ EOT;
 
         $this->assertSame("bar", $phpArray['a']['@text'], "The text element of a is not correct");
         $this->assertSame("foo", $phpArray['a']['b']['@attributes']['id'], "The id attribute of b is not correct");
-
     }
 
     /**
@@ -596,7 +594,7 @@ EOT;
         Zend_Json::$maxRecursionDepthAllowed = 1;
         Zend_Json::fromXml($xmlStringContents, true);
     }
-    
+
     /**
      * @group ZF-11385
      * @dataProvider providerNestingDepthIsHandledProperly
@@ -613,7 +611,7 @@ EOT;
             $this->fail('Zend_Json::fromXml does not implement recursion check properly');
         }
     }
-    
+
     /**
      * XML document provider for ZF-11385 tests
      * @return array
@@ -660,7 +658,4 @@ EOT;
 EOT;
         return array(array($xmlStringContents));
     }
-    
 } // End of class Zend_Json_JsonXMLTest
-
-

@@ -31,6 +31,7 @@ require_once 'Zend/Controller/Action/Helper/CacheTest.php';
 require_once 'Zend/Controller/Action/Helper/ContextSwitchTest.php';
 require_once 'Zend/Controller/Action/Helper/FlashMessengerTest.php';
 require_once 'Zend/Controller/Action/Helper/JsonTest.php';
+require_once 'Zend/Controller/Action/Helper/NamespaceTest.php';
 require_once 'Zend/Controller/Action/Helper/RedirectorTest.php';
 require_once 'Zend/Controller/Action/Helper/UrlTest.php';
 require_once 'Zend/Controller/Action/Helper/ViewRendererTest.php';
@@ -66,11 +67,7 @@ class Zend_Controller_Action_Helper_AllTests
         $suite->addTestSuite('Zend_Controller_Action_Helper_RedirectorTest');
         $suite->addTestSuite('Zend_Controller_Action_Helper_UrlTest');
         $suite->addTestSuite('Zend_Controller_Action_Helper_ViewRendererTest');
-
-        if (version_compare(PHP_VERSION, '5.3', '>=')) {
-            require_once 'Zend/Controller/Action/Helper/NamespaceTest.php';
-            $suite->addTestSuite('Zend_Controller_Action_Helper_NamespaceTest');
-        }
+        $suite->addTestSuite('Zend_Controller_Action_Helper_NamespaceTest');
 
         return $suite;
     }

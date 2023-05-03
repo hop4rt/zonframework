@@ -424,11 +424,10 @@ class Zend_Service_Amazon_S3 extends Zend_Service_Amazon_Abstract
     public function getObjectStream($object, $streamfile = null, $paidobject=false)
     {
         $object = $this->_fixupObjectName($object);
-        self::getHttpClient()->setStream($streamfile?$streamfile:true);
+        self::getHttpClient()->setStream($streamfile ?: true);
         if ($paidobject) {
             $response = $this->_makeRequest('GET', $object, null, array(self::S3_REQUESTPAY_HEADER => 'requester'));
-        }
-        else {
+        } else {
             $response = $this->_makeRequest('GET', $object);
         }
         self::getHttpClient()->setStream(null);

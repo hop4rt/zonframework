@@ -12,8 +12,8 @@ print(Demos_Zend_Service_LiveDocx_Helper::wrapLine(
     PHP_EOL .
     PHP_EOL . '(Note these method calls are cached for maximum performance. The supported formats change very infrequently, hence, they are good candidates to be cached.)' .
     PHP_EOL .
-    PHP_EOL)
-);
+    PHP_EOL
+));
 
 $cacheId = md5(__FILE__);
 
@@ -29,29 +29,24 @@ $cacheBackendOptions = array(
 $cache = Zend_Cache::factory('Core', 'File', $cacheFrontendOptions, $cacheBackendOptions);
 
 if (! $formats = $cache->load($cacheId)) {
-    
     // Cache miss. Connect to backend service (expensive).
-    
     $mailMerge = new Zend_Service_LiveDocx_MailMerge();
-    
+
     $mailMerge->setUsername(DEMOS_ZEND_SERVICE_LIVEDOCX_USERNAME)
               ->setPassword(DEMOS_ZEND_SERVICE_LIVEDOCX_PASSWORD);
-    
+
     $formats = new StdClass();
-    
+
     $formats->template    = $mailMerge->getTemplateFormats();
     $formats->document    = $mailMerge->getDocumentFormats();
     $formats->imageImport = $mailMerge->getImageImportFormats();
     $formats->imageExport = $mailMerge->getImageExportFormats();
-    
+
     $cache->save($formats, $cacheId);
-    
+
     unset($mailMerge);
-    
 } else {
-    
     // Cache hit. Continue.
-    
 }
 
 unset($cache);
